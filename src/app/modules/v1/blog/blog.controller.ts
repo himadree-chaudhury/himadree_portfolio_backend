@@ -10,9 +10,9 @@ const createBlog = asyncTryCatch(async (req: Request, res: Response) => {
     galleries?: Express.Multer.File[];
   };
 
-  const poster = files?.poster?.[0].path || ""; 
-  const galleries = files?.galleries || []; 
-    await blogService.createBlog(req.body, poster, galleries);
+  const poster = files?.poster?.[0].path || "";
+  const galleries = files?.galleries || [];
+  await blogService.createBlog(req.body, poster, galleries);
   genericResponse(res, {
     success: true,
     status: httpStatus.CREATED,
@@ -20,6 +20,29 @@ const createBlog = asyncTryCatch(async (req: Request, res: Response) => {
   });
 });
 
+const getAllBlogs = asyncTryCatch(async (req: Request, res: Response) => {
+  const blogs = await blogService.getAllBlogs();
+  genericResponse(res, {
+    success: true,
+    status: httpStatus.OK,
+    message: "Blogs fetched successfully",
+    data: blogs,
+  });
+});
+
+const getBlog = asyncTryCatch(async (req: Request, res: Response) => {
+  const blogSlug = req.params.slug;
+  const blog = await blogService.getBlog(blogSlug);
+  genericResponse(res, {
+    success: true,
+    status: httpStatus.OK,
+    message: "Blog fetched successfully",
+    data: blog,
+  });
+});
+
 export const BlogController = {
-  createBlog,
+    createBlog,
+    getAllBlogs,
+  getBlog,
 };

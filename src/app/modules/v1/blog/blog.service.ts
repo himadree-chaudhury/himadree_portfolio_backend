@@ -1,5 +1,6 @@
 import { prisma } from "../../../configs/db";
 import { Blog } from "../../../db/prisma/generated/prisma";
+import { CustomError } from "../../../utils/error";
 
 const createBlog = async (
   payload: {
@@ -69,6 +70,61 @@ const createBlog = async (
   });
 };
 
+const getAllBlogs = async () => {
+  const blogs = await prisma.blog.findMany();
+  return blogs;
+};
+
+const getBlog = async (slug: string) => {
+  const blog = await prisma.blog.update({
+    where: { slug },
+    data: { views: { increment: 1 } },
+    include: {
+      author: {
+        select: {
+          name: true,
+          image: true,
+        },
+      },
+      categories: {
+        include: {
+          category: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
+      tags: {
+        include: {
+          tag: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
+      galleries: {
+        select: {
+          url: true,
+        },
+      },
+      comments: true,
+    },
+  });
+  if (!blog) {
+    throw CustomError.notFound({
+      message: "Blog not found",
+      errors: ["The requested blog does not exist."],
+      hints: "Please check the blog slug and try again.",
+    });
+  }
+
+  return blog;
+};
+
 export const blogService = {
   createBlog,
+  getAllBlogs,
+  getBlog,
 };

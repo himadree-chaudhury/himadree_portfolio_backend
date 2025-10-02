@@ -9,9 +9,13 @@ export const blogRouter = Router();
 blogRouter.post(
   "/create",
   multerConfig.fields([
-      { name: "poster", maxCount: 1 },
-      { name: "galleries", maxCount: 5 },
-    ]),
-    validateRequest(blogValidationSchema),
+    { name: "poster", maxCount: 1 },
+    { name: "galleries", maxCount: 5 },
+  ]),
+  validateRequest(blogValidationSchema),
   BlogController.createBlog
 );
+
+blogRouter.get("/", BlogController.getAllBlogs);
+
+blogRouter.get("/:slug", BlogController.getBlog);
