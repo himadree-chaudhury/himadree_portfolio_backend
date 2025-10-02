@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { cleanEnv, port, str } from "envalid";
+import { cleanEnv, num, port, str } from "envalid";
 
 dotenv.config();
 
@@ -10,7 +10,7 @@ const envVariables = cleanEnv(process.env, {
   JWT_REFRESH_SECRET: str(),
   JWT_ACCESS_EXPIRES_IN: str(),
   JWT_REFRESH_EXPIRES_IN: str(),
-  SALT_ROUNDS: str(),
+  SALT_ROUNDS: num(),
 });
 
 export default envVariables;

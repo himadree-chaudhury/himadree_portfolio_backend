@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
+  name      String?
+  password  String?
+  image     String?
+  role      UserRole   @default(USER)
+  isBlocked Boolean    @default(false)
+  blogs     Blog[]
+  favorites Favorite[]
+  comments  Comment[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Blog {
+  id         Int            @id @default(autoincrement())
+  title      String
+  slug       String         @unique
+  poster     String?
+  content    String
+  excerpt    String?
+  published  Boolean        @default(false)
+  authorId   Int
+  author     User           @relation(fields: [authorId], references: [id])
+  categories BlogCategory[]
+  tags       BlogTag[]
+  favorites  Favorite[]
+  comments   Comment[]
+  galleries  Gallery[]
+  views      Int            @default(0)
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+}
+
+model Gallery {
+  id     Int    @id @default(autoincrement())
+  url    String
+  blogId Int
+  blog   Blog   @relation(fields: [blogId], references: [id])
+}
+
+model Category {
+  id        Int            @id @default(autoincrement())
+  name      String         @unique
+  blogs     BlogCategory[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model BlogCategory {
+  blogId     Int
+  categoryId Int
+  blog       Blog     @relation(fields: [blogId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  @@id([blogId, categoryId])
+}
+
+model Tag {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  blogs     BlogTag[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model BlogTag {
+  blogId Int
+  tagId  Int
+  blog   Blog @relation(fields: [blogId], references: [id])
+  tag    Tag  @relation(fields: [tagId], references: [id])
+
+  @@id([blogId, tagId])
+}
+
+model Comment {
+  id          Int      @id @default(autoincrement())
+  content     String
+  blogId      Int
+  commenterId Int
+  blog        Blog     @relation(fields: [blogId], references: [id])
+  commenter   User     @relation(fields: [commenterId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Favorite {
+  userId Int
+  blogId Int
+  user   User @relation(fields: [userId], references: [id])
+  blog   Blog @relation(fields: [blogId], references: [id])
+
+  @@id([userId, blogId])
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}

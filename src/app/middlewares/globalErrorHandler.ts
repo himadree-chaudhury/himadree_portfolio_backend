@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes";
 import { ZodError } from "zod";
-import { Prisma } from "../db/generated/prisma";
+import { Prisma } from "../db/prisma/generated/prisma";
 import { CustomError } from "../utils/error";
 
 export const globalErrorHandler = (
