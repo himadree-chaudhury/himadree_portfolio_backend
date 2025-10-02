@@ -11,6 +11,9 @@ const envVariables = cleanEnv(process.env, {
   JWT_ACCESS_EXPIRES_IN: str(),
   JWT_REFRESH_EXPIRES_IN: str(),
   SALT_ROUNDS: num(),
+  CLOUDINARY_CLOUD_NAME: str(),
+  CLOUDINARY_API_KEY: str(),
+  CLOUDINARY_API_SECRET: str(),
 });
 
 export default envVariables;

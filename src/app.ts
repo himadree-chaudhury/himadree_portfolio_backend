@@ -7,9 +7,9 @@ import { router } from "./app/routes";
 import { globalErrorHandler } from "./app/middlewares/globalErrorHandler";
 
 const app = express();
+app.use(morgan("dev"));
 app.use(express.json());
 
-app.use(morgan("dev"));
 app.use(
   cors({
     origin: [
