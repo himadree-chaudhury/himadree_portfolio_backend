@@ -2,6 +2,9 @@ import { prisma } from "../../../configs/db";
 import { Blog } from "../../../db/prisma/generated/prisma";
 import { CustomError } from "../../../utils/error";
 
+// Define the type for the new blog
+type NewBlog = Omit<Blog, "id" | "createdAt" | "updatedAt" | "published">;
+
 const createBlog = async (
   payload: {
     title: string;
@@ -12,9 +15,6 @@ const createBlog = async (
   poster: string,
   galleries: Express.Multer.File[]
 ) => {
-  // Define the type for the new blog
-  type NewBlog = Omit<Blog, "id" | "createdAt" | "updatedAt" | "published">;
-
   // Create the new blog object
   const newBlog: NewBlog = {
     title: payload.title,
@@ -71,7 +71,9 @@ const createBlog = async (
 };
 
 const getAllBlogs = async () => {
-  const blogs = await prisma.blog.findMany();
+  const blogs = await prisma.blog.findMany({
+    where: { published: true },
+  });
   return blogs;
 };
 
@@ -123,8 +125,44 @@ const getBlog = async (slug: string) => {
   return blog;
 };
 
+const togglePublishBlog = async (slug: string) => {
+  const blog = await prisma.blog.findUnique({
+    where: { slug },
+  });
+  if (!blog) {
+    throw CustomError.notFound({
+      message: "Blog not found",
+      errors: ["The requested blog does not exist."],
+      hints: "Please check the blog slug and try again.",
+    });
+  }
+  await prisma.blog.update({
+    where: { slug },
+    data: { published: !blog.published },
+  });
+};
+
+const updateBlog = async (slug: string, payload: Partial<NewBlog>) => {
+  const blog = await prisma.blog.findUnique({
+    where: { slug },
+  });
+  if (!blog) {
+    throw CustomError.notFound({
+      message: "Blog not found",
+      errors: ["The requested blog does not exist."],
+      hints: "Please check the blog slug and try again.",
+    });
+  }
+  await prisma.blog.update({
+    where: { slug },
+    data: { ...blog, ...payload },
+  });
+};
+
 export const blogService = {
   createBlog,
   getAllBlogs,
   getBlog,
+  togglePublishBlog,
+  updateBlog,
 };

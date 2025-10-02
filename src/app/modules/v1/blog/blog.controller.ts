@@ -41,8 +41,31 @@ const getBlog = asyncTryCatch(async (req: Request, res: Response) => {
   });
 });
 
+const togglePublishBlog = asyncTryCatch(async (req: Request, res: Response) => {
+  const blogSlug = req.params.slug;
+  await blogService.togglePublishBlog(blogSlug);
+  genericResponse(res, {
+    success: true,
+    status: httpStatus.OK,
+    message: "Blog publication status toggled successfully",
+  });
+});
+
+const updateBlog = asyncTryCatch(async (req: Request, res: Response) => {
+  const blogSlug = req.params.slug;
+  const payload = req.body;
+  await blogService.updateBlog(blogSlug, payload);
+  genericResponse(res, {
+    success: true,
+    status: httpStatus.OK,
+    message: "Blog updated successfully",
+  });
+});
+
 export const BlogController = {
-    createBlog,
-    getAllBlogs,
+  createBlog,
+  getAllBlogs,
   getBlog,
+  togglePublishBlog,
+  updateBlog,
 };

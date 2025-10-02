@@ -19,3 +19,7 @@ blogRouter.post(
 blogRouter.get("/", BlogController.getAllBlogs);
 
 blogRouter.get("/:slug", BlogController.getBlog);
+
+blogRouter.patch("/publish/:slug", BlogController.togglePublishBlog);
+
+blogRouter.patch("/:slug", BlogController.updateBlog);
