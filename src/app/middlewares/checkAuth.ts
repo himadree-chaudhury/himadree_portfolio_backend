@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { CustomError } from "../utils/error";
 import { verifyAccessToken } from "../utils/jwt";
+import { prisma } from "../configs/db";
 
 export const checkAuth =
   (...allowedRoles: string[]) =>
@@ -28,7 +29,9 @@ export const checkAuth =
         return next(error);
       }
 
-      const user = await User.findById(isTokenValid.userId);
+        const user = await prisma.user.findUnique({
+          where: { id: Number(isTokenValid.id) },
+        });
       if (!user) {
         const error = CustomError.notFound({
           message: "User not found",
@@ -37,7 +40,7 @@ export const checkAuth =
         });
         return next(error);
       }
-      if (user.isBlocked || user.isDeleted) {
+      if (user.isBlocked) {
         const error = CustomError.forbidden({
           message: "Access denied",
           errors: ["Your account is blocked or deleted."],

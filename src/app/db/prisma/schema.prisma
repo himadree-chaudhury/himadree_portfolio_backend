@@ -20,7 +20,8 @@ model User {
   name      String?
   password  String?
   image     String?
-  role      String   @default("USER")
+  role      UserRole   @default(USER)
+  isBlocked  Boolean  @default(false)
   blogs     Blog[]   
   comments  Comment[]
   createdAt DateTime @default(now())
@@ -71,4 +72,10 @@ model Comment {
   commenterId  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
 }
