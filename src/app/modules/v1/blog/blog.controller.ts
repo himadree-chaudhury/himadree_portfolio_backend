@@ -5,22 +5,19 @@ import { genericResponse } from "../../../utils/genericResponse";
 import { blogService } from "./blog.service";
 
 const createBlog = asyncTryCatch(async (req: Request, res: Response) => {
-  const payload = req.body;
   const files = req.files as {
     poster?: Express.Multer.File[];
     galleries?: Express.Multer.File[];
   };
 
-  const poster = files?.poster?.[0]; 
+  const poster = files?.poster?.[0].path || ""; 
   const galleries = files?.galleries || []; 
-  return console.log(payload, poster, galleries);
-  //   await blogService.createBlog(req.body);
-  //   genericResponse(res, {
-  //     success: true,
-  //     status: httpStatus.CREATED,
-  //     message: "Blog created successfully",
-  //     data: null,
-  //   });
+    await blogService.createBlog(req.body, poster, galleries);
+  genericResponse(res, {
+    success: true,
+    status: httpStatus.CREATED,
+    message: "Blog created successfully",
+  });
 });
 
 export const BlogController = {

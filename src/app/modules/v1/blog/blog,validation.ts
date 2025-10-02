@@ -5,12 +5,8 @@ export const blogValidationSchema = z.object({
     .string()
     .min(5, "Title must be at least 5 characters long")
     .max(50, "Title must be at most 50 characters long"),
-  slug: z
-    .string()
-    .min(5, "Slug must be at least 5 characters long")
-    .max(20, "Slug must be at most 20 characters long"),
   content: z.string().min(20, "Content must be at least 20 characters long"),
-  categories: z.array(z.string()).min(1, "At least one category is required"),
+  categories: z.array(z.number()).min(1, "At least one category is required"),
   tags: z.array(z.string()).optional(),
 });
 
