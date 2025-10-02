@@ -4,6 +4,7 @@ import { blogRouter } from "../modules/v1/blog/blog.route";
 import { caseRouter } from "../modules/v1/case-study/case.route";
 import { projectRouter } from "../modules/v1/project/project.route";
 import { userRouter } from "../modules/v1/user/user.route";
+import { categoryRouter } from "../modules/v1/category/category.route";
 
 export const router = Router();
 
@@ -15,6 +16,9 @@ const moduleRoutes: Array<{ path: string; route: Router }> = [
   {
     path: "/auth",
     route: authRouter,
+  }, {
+    path: "/category",
+    route: categoryRouter,
   },
   {
     path: "/blog",
