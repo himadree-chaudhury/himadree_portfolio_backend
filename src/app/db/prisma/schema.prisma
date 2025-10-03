@@ -4,6 +4,7 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
 generator client {
   provider = "prisma-client-js"
   output   = "generated/prisma"
@@ -15,6 +16,8 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+// *==================== User ====================*
+// %User model with fields for authentication, profile, role, and relations to blogs, favorites, and comments
 model User {
   id         Int        @id @default(autoincrement())
   email      String     @unique
@@ -30,6 +33,8 @@ model User {
   updatedAt  DateTime   @updatedAt
 }
 
+// *==================== Blog ====================*
+// %Main blog model with relations to categories, tags, author, comments, favorites, and galleries
 model Blog {
   id          Int          @id @default(autoincrement())
   title       String
@@ -44,13 +49,13 @@ model Blog {
   tags        BlogTag[]
   favorites   Favorite[]
   comments    Comment[]
-  galleries   Gallery[]
+  galleries   BlogGallery[]
   views       Int          @default(0)
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 }
 
-model Gallery {
+model BlogGallery {
   id      Int   @id @default(autoincrement())
   url     String
   blogId  Int
@@ -89,6 +94,8 @@ model BlogTag {
   @@id([blogId, tagId])
 }
 
+// *==================== Comment ====================*
+// %Comments on blogs with relations to the blog and commenter
 model Comment {
   id          Int      @id @default(autoincrement())
   content     String
@@ -100,6 +107,8 @@ model Comment {
   updatedAt   DateTime @updatedAt
 }
 
+// *==================== Favorite ====================*
+// %Join table for users favoring blogs with composite primary key relations to user and blog
 model Favorite {
   userId Int
   blogId Int
@@ -108,8 +117,104 @@ model Favorite {
   @@id([userId, blogId])
 }
 
+
+// *==================== Project ====================*
+
+model Project{
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  links       ProjectLink[]
+  poster      String?
+  excerpt     String?
+  technologies ProjectTechnology[]
+  galleries   ProjectGallery[]
+views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProjectGallery {
+  id        Int     @id @default(autoincrement())
+  url       String
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id])
+}
+
+model ProjectLink {
+  id        Int     @id @default(autoincrement())
+  name      String
+  url       String
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id])
+}
+
+// *==================== Case-Study ====================*
+
+model CaseStudy{
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  links       CaseStudyLink[]
+  poster      String?
+  excerpt     String?
+  technologies CaseStudyTechnology[]
+  galleries   CaseStudyGallery[]
+views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CaseStudyGallery {
+  id          Int       @id @default(autoincrement())
+  url         String
+  caseStudyId Int
+  caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id])
+}
+
+model CaseStudyLink {
+  id          Int       @id @default(autoincrement())
+  name        String
+  url         String
+  caseStudyId Int
+  caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id])
+}
+
+// *==================== Technology ====================*
+// %Technology model with relations to projects and case studies through join tables 
+model Technology {
+  id          Int             @id @default(autoincrement())
+  name        String          @unique
+  projects    ProjectTechnology[]       
+  caseStudies CaseStudyTechnology[]     
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model ProjectTechnology {
+  id           Int        @id @default(autoincrement())
+  projectId    Int
+  technologyId Int
+  project      Project    @relation(fields: [projectId], references: [id])
+  technology   Technology @relation(fields: [technologyId], references: [id])
+
+  @@unique([projectId, technologyId])
+}
+
+model CaseStudyTechnology {
+  id           Int        @id @default(autoincrement())
+  caseStudyId  Int
+  technologyId Int
+  caseStudy    CaseStudy  @relation(fields: [caseStudyId], references: [id])
+  technology   Technology @relation(fields: [technologyId], references: [id])
+
+  @@unique([caseStudyId, technologyId])
+}
+
 enum UserRole {
   USER
   ADMIN
   MODERATOR
 }
+
+

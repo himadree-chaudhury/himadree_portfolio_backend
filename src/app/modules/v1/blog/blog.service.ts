@@ -37,7 +37,7 @@ const createBlog = async (
     // * Create gallery entries
     await Promise.all(
       galleries.map((file) =>
-        tx.gallery.create({
+        tx.blogGallery.create({
           data: { blogId: createdBlog.id, url: file.path },
         })
       )

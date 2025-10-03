@@ -146,7 +146,7 @@ exports.Prisma.BlogScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.GalleryScalarFieldEnum = {
+exports.Prisma.BlogGalleryScalarFieldEnum = {
   id: 'id',
   url: 'url',
   blogId: 'blogId'
@@ -190,6 +190,73 @@ exports.Prisma.FavoriteScalarFieldEnum = {
   blogId: 'blogId'
 };
 
+exports.Prisma.ProjectScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  poster: 'poster',
+  excerpt: 'excerpt',
+  views: 'views',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProjectGalleryScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  projectId: 'projectId'
+};
+
+exports.Prisma.ProjectLinkScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  url: 'url',
+  projectId: 'projectId'
+};
+
+exports.Prisma.CaseStudyScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  poster: 'poster',
+  excerpt: 'excerpt',
+  views: 'views',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CaseStudyGalleryScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  caseStudyId: 'caseStudyId'
+};
+
+exports.Prisma.CaseStudyLinkScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  url: 'url',
+  caseStudyId: 'caseStudyId'
+};
+
+exports.Prisma.TechnologyScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProjectTechnologyScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  technologyId: 'technologyId'
+};
+
+exports.Prisma.CaseStudyTechnologyScalarFieldEnum = {
+  id: 'id',
+  caseStudyId: 'caseStudyId',
+  technologyId: 'technologyId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -213,13 +280,22 @@ exports.UserRole = exports.$Enums.UserRole = {
 exports.Prisma.ModelName = {
   User: 'User',
   Blog: 'Blog',
-  Gallery: 'Gallery',
+  BlogGallery: 'BlogGallery',
   Category: 'Category',
   BlogCategory: 'BlogCategory',
   Tag: 'Tag',
   BlogTag: 'BlogTag',
   Comment: 'Comment',
-  Favorite: 'Favorite'
+  Favorite: 'Favorite',
+  Project: 'Project',
+  ProjectGallery: 'ProjectGallery',
+  ProjectLink: 'ProjectLink',
+  CaseStudy: 'CaseStudy',
+  CaseStudyGallery: 'CaseStudyGallery',
+  CaseStudyLink: 'CaseStudyLink',
+  Technology: 'Technology',
+  ProjectTechnology: 'ProjectTechnology',
+  CaseStudyTechnology: 'CaseStudyTechnology'
 };
 
 /**

@@ -24,10 +24,10 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type Blog = $Result.DefaultSelection<Prisma.$BlogPayload>
 /**
- * Model Gallery
+ * Model BlogGallery
  * 
  */
-export type Gallery = $Result.DefaultSelection<Prisma.$GalleryPayload>
+export type BlogGallery = $Result.DefaultSelection<Prisma.$BlogGalleryPayload>
 /**
  * Model Category
  * 
@@ -58,6 +58,51 @@ export type Comment = $Result.DefaultSelection<Prisma.$CommentPayload>
  * 
  */
 export type Favorite = $Result.DefaultSelection<Prisma.$FavoritePayload>
+/**
+ * Model Project
+ * 
+ */
+export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
+/**
+ * Model ProjectGallery
+ * 
+ */
+export type ProjectGallery = $Result.DefaultSelection<Prisma.$ProjectGalleryPayload>
+/**
+ * Model ProjectLink
+ * 
+ */
+export type ProjectLink = $Result.DefaultSelection<Prisma.$ProjectLinkPayload>
+/**
+ * Model CaseStudy
+ * 
+ */
+export type CaseStudy = $Result.DefaultSelection<Prisma.$CaseStudyPayload>
+/**
+ * Model CaseStudyGallery
+ * 
+ */
+export type CaseStudyGallery = $Result.DefaultSelection<Prisma.$CaseStudyGalleryPayload>
+/**
+ * Model CaseStudyLink
+ * 
+ */
+export type CaseStudyLink = $Result.DefaultSelection<Prisma.$CaseStudyLinkPayload>
+/**
+ * Model Technology
+ * 
+ */
+export type Technology = $Result.DefaultSelection<Prisma.$TechnologyPayload>
+/**
+ * Model ProjectTechnology
+ * 
+ */
+export type ProjectTechnology = $Result.DefaultSelection<Prisma.$ProjectTechnologyPayload>
+/**
+ * Model CaseStudyTechnology
+ * 
+ */
+export type CaseStudyTechnology = $Result.DefaultSelection<Prisma.$CaseStudyTechnologyPayload>
 
 /**
  * Enums
@@ -216,14 +261,14 @@ export class PrismaClient<
   get blog(): Prisma.BlogDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.gallery`: Exposes CRUD operations for the **Gallery** model.
+   * `prisma.blogGallery`: Exposes CRUD operations for the **BlogGallery** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Galleries
-    * const galleries = await prisma.gallery.findMany()
+    * // Fetch zero or more BlogGalleries
+    * const blogGalleries = await prisma.blogGallery.findMany()
     * ```
     */
-  get gallery(): Prisma.GalleryDelegate<ExtArgs, ClientOptions>;
+  get blogGallery(): Prisma.BlogGalleryDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.category`: Exposes CRUD operations for the **Category** model.
@@ -284,6 +329,96 @@ export class PrismaClient<
     * ```
     */
   get favorite(): Prisma.FavoriteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.project`: Exposes CRUD operations for the **Project** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Projects
+    * const projects = await prisma.project.findMany()
+    * ```
+    */
+  get project(): Prisma.ProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.projectGallery`: Exposes CRUD operations for the **ProjectGallery** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectGalleries
+    * const projectGalleries = await prisma.projectGallery.findMany()
+    * ```
+    */
+  get projectGallery(): Prisma.ProjectGalleryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.projectLink`: Exposes CRUD operations for the **ProjectLink** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectLinks
+    * const projectLinks = await prisma.projectLink.findMany()
+    * ```
+    */
+  get projectLink(): Prisma.ProjectLinkDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.caseStudy`: Exposes CRUD operations for the **CaseStudy** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CaseStudies
+    * const caseStudies = await prisma.caseStudy.findMany()
+    * ```
+    */
+  get caseStudy(): Prisma.CaseStudyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.caseStudyGallery`: Exposes CRUD operations for the **CaseStudyGallery** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CaseStudyGalleries
+    * const caseStudyGalleries = await prisma.caseStudyGallery.findMany()
+    * ```
+    */
+  get caseStudyGallery(): Prisma.CaseStudyGalleryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.caseStudyLink`: Exposes CRUD operations for the **CaseStudyLink** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CaseStudyLinks
+    * const caseStudyLinks = await prisma.caseStudyLink.findMany()
+    * ```
+    */
+  get caseStudyLink(): Prisma.CaseStudyLinkDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.technology`: Exposes CRUD operations for the **Technology** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Technologies
+    * const technologies = await prisma.technology.findMany()
+    * ```
+    */
+  get technology(): Prisma.TechnologyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.projectTechnology`: Exposes CRUD operations for the **ProjectTechnology** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectTechnologies
+    * const projectTechnologies = await prisma.projectTechnology.findMany()
+    * ```
+    */
+  get projectTechnology(): Prisma.ProjectTechnologyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.caseStudyTechnology`: Exposes CRUD operations for the **CaseStudyTechnology** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CaseStudyTechnologies
+    * const caseStudyTechnologies = await prisma.caseStudyTechnology.findMany()
+    * ```
+    */
+  get caseStudyTechnology(): Prisma.CaseStudyTechnologyDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -726,13 +861,22 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Blog: 'Blog',
-    Gallery: 'Gallery',
+    BlogGallery: 'BlogGallery',
     Category: 'Category',
     BlogCategory: 'BlogCategory',
     Tag: 'Tag',
     BlogTag: 'BlogTag',
     Comment: 'Comment',
-    Favorite: 'Favorite'
+    Favorite: 'Favorite',
+    Project: 'Project',
+    ProjectGallery: 'ProjectGallery',
+    ProjectLink: 'ProjectLink',
+    CaseStudy: 'CaseStudy',
+    CaseStudyGallery: 'CaseStudyGallery',
+    CaseStudyLink: 'CaseStudyLink',
+    Technology: 'Technology',
+    ProjectTechnology: 'ProjectTechnology',
+    CaseStudyTechnology: 'CaseStudyTechnology'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -751,7 +895,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "blog" | "gallery" | "category" | "blogCategory" | "tag" | "blogTag" | "comment" | "favorite"
+      modelProps: "user" | "blog" | "blogGallery" | "category" | "blogCategory" | "tag" | "blogTag" | "comment" | "favorite" | "project" | "projectGallery" | "projectLink" | "caseStudy" | "caseStudyGallery" | "caseStudyLink" | "technology" | "projectTechnology" | "caseStudyTechnology"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -903,77 +1047,77 @@ export namespace Prisma {
           }
         }
       }
-      Gallery: {
-        payload: Prisma.$GalleryPayload<ExtArgs>
-        fields: Prisma.GalleryFieldRefs
+      BlogGallery: {
+        payload: Prisma.$BlogGalleryPayload<ExtArgs>
+        fields: Prisma.BlogGalleryFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.GalleryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload> | null
+            args: Prisma.BlogGalleryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.GalleryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>
+            args: Prisma.BlogGalleryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>
           }
           findFirst: {
-            args: Prisma.GalleryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload> | null
+            args: Prisma.BlogGalleryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.GalleryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>
+            args: Prisma.BlogGalleryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>
           }
           findMany: {
-            args: Prisma.GalleryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>[]
+            args: Prisma.BlogGalleryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>[]
           }
           create: {
-            args: Prisma.GalleryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>
+            args: Prisma.BlogGalleryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>
           }
           createMany: {
-            args: Prisma.GalleryCreateManyArgs<ExtArgs>
+            args: Prisma.BlogGalleryCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.GalleryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>[]
+            args: Prisma.BlogGalleryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>[]
           }
           delete: {
-            args: Prisma.GalleryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>
+            args: Prisma.BlogGalleryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>
           }
           update: {
-            args: Prisma.GalleryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>
+            args: Prisma.BlogGalleryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>
           }
           deleteMany: {
-            args: Prisma.GalleryDeleteManyArgs<ExtArgs>
+            args: Prisma.BlogGalleryDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.GalleryUpdateManyArgs<ExtArgs>
+            args: Prisma.BlogGalleryUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.GalleryUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>[]
+            args: Prisma.BlogGalleryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>[]
           }
           upsert: {
-            args: Prisma.GalleryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GalleryPayload>
+            args: Prisma.BlogGalleryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BlogGalleryPayload>
           }
           aggregate: {
-            args: Prisma.GalleryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateGallery>
+            args: Prisma.BlogGalleryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBlogGallery>
           }
           groupBy: {
-            args: Prisma.GalleryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<GalleryGroupByOutputType>[]
+            args: Prisma.BlogGalleryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BlogGalleryGroupByOutputType>[]
           }
           count: {
-            args: Prisma.GalleryCountArgs<ExtArgs>
-            result: $Utils.Optional<GalleryCountAggregateOutputType> | number
+            args: Prisma.BlogGalleryCountArgs<ExtArgs>
+            result: $Utils.Optional<BlogGalleryCountAggregateOutputType> | number
           }
         }
       }
@@ -1421,6 +1565,672 @@ export namespace Prisma {
           }
         }
       }
+      Project: {
+        payload: Prisma.$ProjectPayload<ExtArgs>
+        fields: Prisma.ProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          update: {
+            args: Prisma.ProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProject>
+          }
+          groupBy: {
+            args: Prisma.ProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProjectGallery: {
+        payload: Prisma.$ProjectGalleryPayload<ExtArgs>
+        fields: Prisma.ProjectGalleryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectGalleryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectGalleryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectGalleryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectGalleryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectGalleryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectGalleryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectGalleryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectGalleryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectGalleryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>
+          }
+          update: {
+            args: Prisma.ProjectGalleryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectGalleryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectGalleryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectGalleryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectGalleryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectGalleryPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectGalleryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectGallery>
+          }
+          groupBy: {
+            args: Prisma.ProjectGalleryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectGalleryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectGalleryCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectGalleryCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProjectLink: {
+        payload: Prisma.$ProjectLinkPayload<ExtArgs>
+        fields: Prisma.ProjectLinkFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectLinkFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectLinkFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectLinkFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectLinkFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectLinkFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectLinkCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectLinkCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectLinkCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectLinkDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>
+          }
+          update: {
+            args: Prisma.ProjectLinkUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectLinkDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectLinkUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectLinkUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectLinkUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectLinkPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectLinkAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectLink>
+          }
+          groupBy: {
+            args: Prisma.ProjectLinkGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectLinkGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectLinkCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectLinkCountAggregateOutputType> | number
+          }
+        }
+      }
+      CaseStudy: {
+        payload: Prisma.$CaseStudyPayload<ExtArgs>
+        fields: Prisma.CaseStudyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CaseStudyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CaseStudyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+          }
+          findFirst: {
+            args: Prisma.CaseStudyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CaseStudyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+          }
+          findMany: {
+            args: Prisma.CaseStudyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>[]
+          }
+          create: {
+            args: Prisma.CaseStudyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+          }
+          createMany: {
+            args: Prisma.CaseStudyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CaseStudyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>[]
+          }
+          delete: {
+            args: Prisma.CaseStudyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+          }
+          update: {
+            args: Prisma.CaseStudyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+          }
+          deleteMany: {
+            args: Prisma.CaseStudyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CaseStudyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CaseStudyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>[]
+          }
+          upsert: {
+            args: Prisma.CaseStudyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyPayload>
+          }
+          aggregate: {
+            args: Prisma.CaseStudyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCaseStudy>
+          }
+          groupBy: {
+            args: Prisma.CaseStudyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CaseStudyCountArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyCountAggregateOutputType> | number
+          }
+        }
+      }
+      CaseStudyGallery: {
+        payload: Prisma.$CaseStudyGalleryPayload<ExtArgs>
+        fields: Prisma.CaseStudyGalleryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CaseStudyGalleryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CaseStudyGalleryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>
+          }
+          findFirst: {
+            args: Prisma.CaseStudyGalleryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CaseStudyGalleryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>
+          }
+          findMany: {
+            args: Prisma.CaseStudyGalleryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>[]
+          }
+          create: {
+            args: Prisma.CaseStudyGalleryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>
+          }
+          createMany: {
+            args: Prisma.CaseStudyGalleryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CaseStudyGalleryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>[]
+          }
+          delete: {
+            args: Prisma.CaseStudyGalleryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>
+          }
+          update: {
+            args: Prisma.CaseStudyGalleryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>
+          }
+          deleteMany: {
+            args: Prisma.CaseStudyGalleryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CaseStudyGalleryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CaseStudyGalleryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>[]
+          }
+          upsert: {
+            args: Prisma.CaseStudyGalleryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyGalleryPayload>
+          }
+          aggregate: {
+            args: Prisma.CaseStudyGalleryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCaseStudyGallery>
+          }
+          groupBy: {
+            args: Prisma.CaseStudyGalleryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyGalleryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CaseStudyGalleryCountArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyGalleryCountAggregateOutputType> | number
+          }
+        }
+      }
+      CaseStudyLink: {
+        payload: Prisma.$CaseStudyLinkPayload<ExtArgs>
+        fields: Prisma.CaseStudyLinkFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CaseStudyLinkFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CaseStudyLinkFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>
+          }
+          findFirst: {
+            args: Prisma.CaseStudyLinkFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CaseStudyLinkFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>
+          }
+          findMany: {
+            args: Prisma.CaseStudyLinkFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>[]
+          }
+          create: {
+            args: Prisma.CaseStudyLinkCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>
+          }
+          createMany: {
+            args: Prisma.CaseStudyLinkCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CaseStudyLinkCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>[]
+          }
+          delete: {
+            args: Prisma.CaseStudyLinkDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>
+          }
+          update: {
+            args: Prisma.CaseStudyLinkUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>
+          }
+          deleteMany: {
+            args: Prisma.CaseStudyLinkDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CaseStudyLinkUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CaseStudyLinkUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>[]
+          }
+          upsert: {
+            args: Prisma.CaseStudyLinkUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyLinkPayload>
+          }
+          aggregate: {
+            args: Prisma.CaseStudyLinkAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCaseStudyLink>
+          }
+          groupBy: {
+            args: Prisma.CaseStudyLinkGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyLinkGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CaseStudyLinkCountArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyLinkCountAggregateOutputType> | number
+          }
+        }
+      }
+      Technology: {
+        payload: Prisma.$TechnologyPayload<ExtArgs>
+        fields: Prisma.TechnologyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TechnologyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TechnologyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>
+          }
+          findFirst: {
+            args: Prisma.TechnologyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TechnologyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>
+          }
+          findMany: {
+            args: Prisma.TechnologyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>[]
+          }
+          create: {
+            args: Prisma.TechnologyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>
+          }
+          createMany: {
+            args: Prisma.TechnologyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TechnologyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>[]
+          }
+          delete: {
+            args: Prisma.TechnologyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>
+          }
+          update: {
+            args: Prisma.TechnologyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>
+          }
+          deleteMany: {
+            args: Prisma.TechnologyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TechnologyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TechnologyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>[]
+          }
+          upsert: {
+            args: Prisma.TechnologyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TechnologyPayload>
+          }
+          aggregate: {
+            args: Prisma.TechnologyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTechnology>
+          }
+          groupBy: {
+            args: Prisma.TechnologyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TechnologyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TechnologyCountArgs<ExtArgs>
+            result: $Utils.Optional<TechnologyCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProjectTechnology: {
+        payload: Prisma.$ProjectTechnologyPayload<ExtArgs>
+        fields: Prisma.ProjectTechnologyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectTechnologyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectTechnologyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectTechnologyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectTechnologyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectTechnologyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectTechnologyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectTechnologyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectTechnologyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectTechnologyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>
+          }
+          update: {
+            args: Prisma.ProjectTechnologyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectTechnologyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectTechnologyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectTechnologyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectTechnologyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectTechnologyPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectTechnologyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectTechnology>
+          }
+          groupBy: {
+            args: Prisma.ProjectTechnologyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectTechnologyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectTechnologyCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectTechnologyCountAggregateOutputType> | number
+          }
+        }
+      }
+      CaseStudyTechnology: {
+        payload: Prisma.$CaseStudyTechnologyPayload<ExtArgs>
+        fields: Prisma.CaseStudyTechnologyFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CaseStudyTechnologyFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CaseStudyTechnologyFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>
+          }
+          findFirst: {
+            args: Prisma.CaseStudyTechnologyFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CaseStudyTechnologyFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>
+          }
+          findMany: {
+            args: Prisma.CaseStudyTechnologyFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>[]
+          }
+          create: {
+            args: Prisma.CaseStudyTechnologyCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>
+          }
+          createMany: {
+            args: Prisma.CaseStudyTechnologyCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CaseStudyTechnologyCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>[]
+          }
+          delete: {
+            args: Prisma.CaseStudyTechnologyDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>
+          }
+          update: {
+            args: Prisma.CaseStudyTechnologyUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>
+          }
+          deleteMany: {
+            args: Prisma.CaseStudyTechnologyDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CaseStudyTechnologyUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CaseStudyTechnologyUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>[]
+          }
+          upsert: {
+            args: Prisma.CaseStudyTechnologyUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CaseStudyTechnologyPayload>
+          }
+          aggregate: {
+            args: Prisma.CaseStudyTechnologyAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCaseStudyTechnology>
+          }
+          groupBy: {
+            args: Prisma.CaseStudyTechnologyGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyTechnologyGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CaseStudyTechnologyCountArgs<ExtArgs>
+            result: $Utils.Optional<CaseStudyTechnologyCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1519,13 +2329,22 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     blog?: BlogOmit
-    gallery?: GalleryOmit
+    blogGallery?: BlogGalleryOmit
     category?: CategoryOmit
     blogCategory?: BlogCategoryOmit
     tag?: TagOmit
     blogTag?: BlogTagOmit
     comment?: CommentOmit
     favorite?: FavoriteOmit
+    project?: ProjectOmit
+    projectGallery?: ProjectGalleryOmit
+    projectLink?: ProjectLinkOmit
+    caseStudy?: CaseStudyOmit
+    caseStudyGallery?: CaseStudyGalleryOmit
+    caseStudyLink?: CaseStudyLinkOmit
+    technology?: TechnologyOmit
+    projectTechnology?: ProjectTechnologyOmit
+    caseStudyTechnology?: CaseStudyTechnologyOmit
   }
 
   /* Types for Logging */
@@ -1713,7 +2532,7 @@ export namespace Prisma {
    * BlogCountOutputType without action
    */
   export type BlogCountOutputTypeCountGalleriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
   }
 
 
@@ -1776,6 +2595,144 @@ export namespace Prisma {
    */
   export type TagCountOutputTypeCountBlogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BlogTagWhereInput
+  }
+
+
+  /**
+   * Count Type ProjectCountOutputType
+   */
+
+  export type ProjectCountOutputType = {
+    links: number
+    technologies: number
+    galleries: number
+  }
+
+  export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    links?: boolean | ProjectCountOutputTypeCountLinksArgs
+    technologies?: boolean | ProjectCountOutputTypeCountTechnologiesArgs
+    galleries?: boolean | ProjectCountOutputTypeCountGalleriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectCountOutputType
+     */
+    select?: ProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectLinkWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountTechnologiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectTechnologyWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountGalleriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectGalleryWhereInput
+  }
+
+
+  /**
+   * Count Type CaseStudyCountOutputType
+   */
+
+  export type CaseStudyCountOutputType = {
+    links: number
+    technologies: number
+    galleries: number
+  }
+
+  export type CaseStudyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    links?: boolean | CaseStudyCountOutputTypeCountLinksArgs
+    technologies?: boolean | CaseStudyCountOutputTypeCountTechnologiesArgs
+    galleries?: boolean | CaseStudyCountOutputTypeCountGalleriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CaseStudyCountOutputType without action
+   */
+  export type CaseStudyCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyCountOutputType
+     */
+    select?: CaseStudyCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyCountOutputType without action
+   */
+  export type CaseStudyCountOutputTypeCountLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyLinkWhereInput
+  }
+
+  /**
+   * CaseStudyCountOutputType without action
+   */
+  export type CaseStudyCountOutputTypeCountTechnologiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyTechnologyWhereInput
+  }
+
+  /**
+   * CaseStudyCountOutputType without action
+   */
+  export type CaseStudyCountOutputTypeCountGalleriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyGalleryWhereInput
+  }
+
+
+  /**
+   * Count Type TechnologyCountOutputType
+   */
+
+  export type TechnologyCountOutputType = {
+    projects: number
+    caseStudies: number
+  }
+
+  export type TechnologyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projects?: boolean | TechnologyCountOutputTypeCountProjectsArgs
+    caseStudies?: boolean | TechnologyCountOutputTypeCountCaseStudiesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TechnologyCountOutputType without action
+   */
+  export type TechnologyCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TechnologyCountOutputType
+     */
+    select?: TechnologyCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TechnologyCountOutputType without action
+   */
+  export type TechnologyCountOutputTypeCountProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectTechnologyWhereInput
+  }
+
+  /**
+   * TechnologyCountOutputType without action
+   */
+  export type TechnologyCountOutputTypeCountCaseStudiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyTechnologyWhereInput
   }
 
 
@@ -3327,7 +4284,7 @@ export namespace Prisma {
       tags: Prisma.$BlogTagPayload<ExtArgs>[]
       favorites: Prisma.$FavoritePayload<ExtArgs>[]
       comments: Prisma.$CommentPayload<ExtArgs>[]
-      galleries: Prisma.$GalleryPayload<ExtArgs>[]
+      galleries: Prisma.$BlogGalleryPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3740,7 +4697,7 @@ export namespace Prisma {
     tags<T extends Blog$tagsArgs<ExtArgs> = {}>(args?: Subset<T, Blog$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlogTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favorites<T extends Blog$favoritesArgs<ExtArgs> = {}>(args?: Subset<T, Blog$favoritesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     comments<T extends Blog$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Blog$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    galleries<T extends Blog$galleriesArgs<ExtArgs> = {}>(args?: Subset<T, Blog$galleriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    galleries<T extends Blog$galleriesArgs<ExtArgs> = {}>(args?: Subset<T, Blog$galleriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4277,23 +5234,23 @@ export namespace Prisma {
    */
   export type Blog$galleriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
-    where?: GalleryWhereInput
-    orderBy?: GalleryOrderByWithRelationInput | GalleryOrderByWithRelationInput[]
-    cursor?: GalleryWhereUniqueInput
+    include?: BlogGalleryInclude<ExtArgs> | null
+    where?: BlogGalleryWhereInput
+    orderBy?: BlogGalleryOrderByWithRelationInput | BlogGalleryOrderByWithRelationInput[]
+    cursor?: BlogGalleryWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: GalleryScalarFieldEnum | GalleryScalarFieldEnum[]
+    distinct?: BlogGalleryScalarFieldEnum | BlogGalleryScalarFieldEnum[]
   }
 
   /**
@@ -4316,40 +5273,40 @@ export namespace Prisma {
 
 
   /**
-   * Model Gallery
+   * Model BlogGallery
    */
 
-  export type AggregateGallery = {
-    _count: GalleryCountAggregateOutputType | null
-    _avg: GalleryAvgAggregateOutputType | null
-    _sum: GallerySumAggregateOutputType | null
-    _min: GalleryMinAggregateOutputType | null
-    _max: GalleryMaxAggregateOutputType | null
+  export type AggregateBlogGallery = {
+    _count: BlogGalleryCountAggregateOutputType | null
+    _avg: BlogGalleryAvgAggregateOutputType | null
+    _sum: BlogGallerySumAggregateOutputType | null
+    _min: BlogGalleryMinAggregateOutputType | null
+    _max: BlogGalleryMaxAggregateOutputType | null
   }
 
-  export type GalleryAvgAggregateOutputType = {
+  export type BlogGalleryAvgAggregateOutputType = {
     id: number | null
     blogId: number | null
   }
 
-  export type GallerySumAggregateOutputType = {
+  export type BlogGallerySumAggregateOutputType = {
     id: number | null
     blogId: number | null
   }
 
-  export type GalleryMinAggregateOutputType = {
-    id: number | null
-    url: string | null
-    blogId: number | null
-  }
-
-  export type GalleryMaxAggregateOutputType = {
+  export type BlogGalleryMinAggregateOutputType = {
     id: number | null
     url: string | null
     blogId: number | null
   }
 
-  export type GalleryCountAggregateOutputType = {
+  export type BlogGalleryMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    blogId: number | null
+  }
+
+  export type BlogGalleryCountAggregateOutputType = {
     id: number
     url: number
     blogId: number
@@ -4357,186 +5314,186 @@ export namespace Prisma {
   }
 
 
-  export type GalleryAvgAggregateInputType = {
+  export type BlogGalleryAvgAggregateInputType = {
     id?: true
     blogId?: true
   }
 
-  export type GallerySumAggregateInputType = {
+  export type BlogGallerySumAggregateInputType = {
     id?: true
     blogId?: true
   }
 
-  export type GalleryMinAggregateInputType = {
-    id?: true
-    url?: true
-    blogId?: true
-  }
-
-  export type GalleryMaxAggregateInputType = {
+  export type BlogGalleryMinAggregateInputType = {
     id?: true
     url?: true
     blogId?: true
   }
 
-  export type GalleryCountAggregateInputType = {
+  export type BlogGalleryMaxAggregateInputType = {
+    id?: true
+    url?: true
+    blogId?: true
+  }
+
+  export type BlogGalleryCountAggregateInputType = {
     id?: true
     url?: true
     blogId?: true
     _all?: true
   }
 
-  export type GalleryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Gallery to aggregate.
+     * Filter which BlogGallery to aggregate.
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Galleries to fetch.
+     * Determine the order of BlogGalleries to fetch.
      */
-    orderBy?: GalleryOrderByWithRelationInput | GalleryOrderByWithRelationInput[]
+    orderBy?: BlogGalleryOrderByWithRelationInput | BlogGalleryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: GalleryWhereUniqueInput
+    cursor?: BlogGalleryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Galleries from the position of the cursor.
+     * Take `±n` BlogGalleries from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Galleries.
+     * Skip the first `n` BlogGalleries.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Galleries
+     * Count returned BlogGalleries
     **/
-    _count?: true | GalleryCountAggregateInputType
+    _count?: true | BlogGalleryCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: GalleryAvgAggregateInputType
+    _avg?: BlogGalleryAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: GallerySumAggregateInputType
+    _sum?: BlogGallerySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GalleryMinAggregateInputType
+    _min?: BlogGalleryMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GalleryMaxAggregateInputType
+    _max?: BlogGalleryMaxAggregateInputType
   }
 
-  export type GetGalleryAggregateType<T extends GalleryAggregateArgs> = {
-        [P in keyof T & keyof AggregateGallery]: P extends '_count' | 'count'
+  export type GetBlogGalleryAggregateType<T extends BlogGalleryAggregateArgs> = {
+        [P in keyof T & keyof AggregateBlogGallery]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGallery[P]>
-      : GetScalarType<T[P], AggregateGallery[P]>
+        : GetScalarType<T[P], AggregateBlogGallery[P]>
+      : GetScalarType<T[P], AggregateBlogGallery[P]>
   }
 
 
 
 
-  export type GalleryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GalleryWhereInput
-    orderBy?: GalleryOrderByWithAggregationInput | GalleryOrderByWithAggregationInput[]
-    by: GalleryScalarFieldEnum[] | GalleryScalarFieldEnum
-    having?: GalleryScalarWhereWithAggregatesInput
+  export type BlogGalleryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BlogGalleryWhereInput
+    orderBy?: BlogGalleryOrderByWithAggregationInput | BlogGalleryOrderByWithAggregationInput[]
+    by: BlogGalleryScalarFieldEnum[] | BlogGalleryScalarFieldEnum
+    having?: BlogGalleryScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GalleryCountAggregateInputType | true
-    _avg?: GalleryAvgAggregateInputType
-    _sum?: GallerySumAggregateInputType
-    _min?: GalleryMinAggregateInputType
-    _max?: GalleryMaxAggregateInputType
+    _count?: BlogGalleryCountAggregateInputType | true
+    _avg?: BlogGalleryAvgAggregateInputType
+    _sum?: BlogGallerySumAggregateInputType
+    _min?: BlogGalleryMinAggregateInputType
+    _max?: BlogGalleryMaxAggregateInputType
   }
 
-  export type GalleryGroupByOutputType = {
+  export type BlogGalleryGroupByOutputType = {
     id: number
     url: string
     blogId: number
-    _count: GalleryCountAggregateOutputType | null
-    _avg: GalleryAvgAggregateOutputType | null
-    _sum: GallerySumAggregateOutputType | null
-    _min: GalleryMinAggregateOutputType | null
-    _max: GalleryMaxAggregateOutputType | null
+    _count: BlogGalleryCountAggregateOutputType | null
+    _avg: BlogGalleryAvgAggregateOutputType | null
+    _sum: BlogGallerySumAggregateOutputType | null
+    _min: BlogGalleryMinAggregateOutputType | null
+    _max: BlogGalleryMaxAggregateOutputType | null
   }
 
-  type GetGalleryGroupByPayload<T extends GalleryGroupByArgs> = Prisma.PrismaPromise<
+  type GetBlogGalleryGroupByPayload<T extends BlogGalleryGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GalleryGroupByOutputType, T['by']> &
+      PickEnumerable<BlogGalleryGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GalleryGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof BlogGalleryGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GalleryGroupByOutputType[P]>
-            : GetScalarType<T[P], GalleryGroupByOutputType[P]>
+              : GetScalarType<T[P], BlogGalleryGroupByOutputType[P]>
+            : GetScalarType<T[P], BlogGalleryGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type GallerySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type BlogGallerySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
     blogId?: boolean
     blog?: boolean | BlogDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["gallery"]>
+  }, ExtArgs["result"]["blogGallery"]>
 
-  export type GallerySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type BlogGallerySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
     blogId?: boolean
     blog?: boolean | BlogDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["gallery"]>
+  }, ExtArgs["result"]["blogGallery"]>
 
-  export type GallerySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type BlogGallerySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
     blogId?: boolean
     blog?: boolean | BlogDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["gallery"]>
+  }, ExtArgs["result"]["blogGallery"]>
 
-  export type GallerySelectScalar = {
+  export type BlogGallerySelectScalar = {
     id?: boolean
     url?: boolean
     blogId?: boolean
   }
 
-  export type GalleryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "blogId", ExtArgs["result"]["gallery"]>
-  export type GalleryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "blogId", ExtArgs["result"]["blogGallery"]>
+  export type BlogGalleryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     blog?: boolean | BlogDefaultArgs<ExtArgs>
   }
-  export type GalleryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     blog?: boolean | BlogDefaultArgs<ExtArgs>
   }
-  export type GalleryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     blog?: boolean | BlogDefaultArgs<ExtArgs>
   }
 
-  export type $GalleryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Gallery"
+  export type $BlogGalleryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BlogGallery"
     objects: {
       blog: Prisma.$BlogPayload<ExtArgs>
     }
@@ -4544,136 +5501,136 @@ export namespace Prisma {
       id: number
       url: string
       blogId: number
-    }, ExtArgs["result"]["gallery"]>
+    }, ExtArgs["result"]["blogGallery"]>
     composites: {}
   }
 
-  type GalleryGetPayload<S extends boolean | null | undefined | GalleryDefaultArgs> = $Result.GetResult<Prisma.$GalleryPayload, S>
+  type BlogGalleryGetPayload<S extends boolean | null | undefined | BlogGalleryDefaultArgs> = $Result.GetResult<Prisma.$BlogGalleryPayload, S>
 
-  type GalleryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<GalleryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: GalleryCountAggregateInputType | true
+  type BlogGalleryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BlogGalleryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BlogGalleryCountAggregateInputType | true
     }
 
-  export interface GalleryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Gallery'], meta: { name: 'Gallery' } }
+  export interface BlogGalleryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BlogGallery'], meta: { name: 'BlogGallery' } }
     /**
-     * Find zero or one Gallery that matches the filter.
-     * @param {GalleryFindUniqueArgs} args - Arguments to find a Gallery
+     * Find zero or one BlogGallery that matches the filter.
+     * @param {BlogGalleryFindUniqueArgs} args - Arguments to find a BlogGallery
      * @example
-     * // Get one Gallery
-     * const gallery = await prisma.gallery.findUnique({
+     * // Get one BlogGallery
+     * const blogGallery = await prisma.blogGallery.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends GalleryFindUniqueArgs>(args: SelectSubset<T, GalleryFindUniqueArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends BlogGalleryFindUniqueArgs>(args: SelectSubset<T, BlogGalleryFindUniqueArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Gallery that matches the filter or throw an error with `error.code='P2025'`
+     * Find one BlogGallery that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {GalleryFindUniqueOrThrowArgs} args - Arguments to find a Gallery
+     * @param {BlogGalleryFindUniqueOrThrowArgs} args - Arguments to find a BlogGallery
      * @example
-     * // Get one Gallery
-     * const gallery = await prisma.gallery.findUniqueOrThrow({
+     * // Get one BlogGallery
+     * const blogGallery = await prisma.blogGallery.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends GalleryFindUniqueOrThrowArgs>(args: SelectSubset<T, GalleryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends BlogGalleryFindUniqueOrThrowArgs>(args: SelectSubset<T, BlogGalleryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Gallery that matches the filter.
+     * Find the first BlogGallery that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryFindFirstArgs} args - Arguments to find a Gallery
+     * @param {BlogGalleryFindFirstArgs} args - Arguments to find a BlogGallery
      * @example
-     * // Get one Gallery
-     * const gallery = await prisma.gallery.findFirst({
+     * // Get one BlogGallery
+     * const blogGallery = await prisma.blogGallery.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends GalleryFindFirstArgs>(args?: SelectSubset<T, GalleryFindFirstArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends BlogGalleryFindFirstArgs>(args?: SelectSubset<T, BlogGalleryFindFirstArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Gallery that matches the filter or
+     * Find the first BlogGallery that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryFindFirstOrThrowArgs} args - Arguments to find a Gallery
+     * @param {BlogGalleryFindFirstOrThrowArgs} args - Arguments to find a BlogGallery
      * @example
-     * // Get one Gallery
-     * const gallery = await prisma.gallery.findFirstOrThrow({
+     * // Get one BlogGallery
+     * const blogGallery = await prisma.blogGallery.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends GalleryFindFirstOrThrowArgs>(args?: SelectSubset<T, GalleryFindFirstOrThrowArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends BlogGalleryFindFirstOrThrowArgs>(args?: SelectSubset<T, BlogGalleryFindFirstOrThrowArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Galleries that matches the filter.
+     * Find zero or more BlogGalleries that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {BlogGalleryFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Galleries
-     * const galleries = await prisma.gallery.findMany()
+     * // Get all BlogGalleries
+     * const blogGalleries = await prisma.blogGallery.findMany()
      * 
-     * // Get first 10 Galleries
-     * const galleries = await prisma.gallery.findMany({ take: 10 })
+     * // Get first 10 BlogGalleries
+     * const blogGalleries = await prisma.blogGallery.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const galleryWithIdOnly = await prisma.gallery.findMany({ select: { id: true } })
+     * const blogGalleryWithIdOnly = await prisma.blogGallery.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends GalleryFindManyArgs>(args?: SelectSubset<T, GalleryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends BlogGalleryFindManyArgs>(args?: SelectSubset<T, BlogGalleryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Gallery.
-     * @param {GalleryCreateArgs} args - Arguments to create a Gallery.
+     * Create a BlogGallery.
+     * @param {BlogGalleryCreateArgs} args - Arguments to create a BlogGallery.
      * @example
-     * // Create one Gallery
-     * const Gallery = await prisma.gallery.create({
+     * // Create one BlogGallery
+     * const BlogGallery = await prisma.blogGallery.create({
      *   data: {
-     *     // ... data to create a Gallery
+     *     // ... data to create a BlogGallery
      *   }
      * })
      * 
      */
-    create<T extends GalleryCreateArgs>(args: SelectSubset<T, GalleryCreateArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends BlogGalleryCreateArgs>(args: SelectSubset<T, BlogGalleryCreateArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Galleries.
-     * @param {GalleryCreateManyArgs} args - Arguments to create many Galleries.
+     * Create many BlogGalleries.
+     * @param {BlogGalleryCreateManyArgs} args - Arguments to create many BlogGalleries.
      * @example
-     * // Create many Galleries
-     * const gallery = await prisma.gallery.createMany({
+     * // Create many BlogGalleries
+     * const blogGallery = await prisma.blogGallery.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends GalleryCreateManyArgs>(args?: SelectSubset<T, GalleryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends BlogGalleryCreateManyArgs>(args?: SelectSubset<T, BlogGalleryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Galleries and returns the data saved in the database.
-     * @param {GalleryCreateManyAndReturnArgs} args - Arguments to create many Galleries.
+     * Create many BlogGalleries and returns the data saved in the database.
+     * @param {BlogGalleryCreateManyAndReturnArgs} args - Arguments to create many BlogGalleries.
      * @example
-     * // Create many Galleries
-     * const gallery = await prisma.gallery.createManyAndReturn({
+     * // Create many BlogGalleries
+     * const blogGallery = await prisma.blogGallery.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Galleries and only return the `id`
-     * const galleryWithIdOnly = await prisma.gallery.createManyAndReturn({
+     * // Create many BlogGalleries and only return the `id`
+     * const blogGalleryWithIdOnly = await prisma.blogGallery.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -4683,28 +5640,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends GalleryCreateManyAndReturnArgs>(args?: SelectSubset<T, GalleryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends BlogGalleryCreateManyAndReturnArgs>(args?: SelectSubset<T, BlogGalleryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Gallery.
-     * @param {GalleryDeleteArgs} args - Arguments to delete one Gallery.
+     * Delete a BlogGallery.
+     * @param {BlogGalleryDeleteArgs} args - Arguments to delete one BlogGallery.
      * @example
-     * // Delete one Gallery
-     * const Gallery = await prisma.gallery.delete({
+     * // Delete one BlogGallery
+     * const BlogGallery = await prisma.blogGallery.delete({
      *   where: {
-     *     // ... filter to delete one Gallery
+     *     // ... filter to delete one BlogGallery
      *   }
      * })
      * 
      */
-    delete<T extends GalleryDeleteArgs>(args: SelectSubset<T, GalleryDeleteArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends BlogGalleryDeleteArgs>(args: SelectSubset<T, BlogGalleryDeleteArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Gallery.
-     * @param {GalleryUpdateArgs} args - Arguments to update one Gallery.
+     * Update one BlogGallery.
+     * @param {BlogGalleryUpdateArgs} args - Arguments to update one BlogGallery.
      * @example
-     * // Update one Gallery
-     * const gallery = await prisma.gallery.update({
+     * // Update one BlogGallery
+     * const blogGallery = await prisma.blogGallery.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4714,30 +5671,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends GalleryUpdateArgs>(args: SelectSubset<T, GalleryUpdateArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends BlogGalleryUpdateArgs>(args: SelectSubset<T, BlogGalleryUpdateArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Galleries.
-     * @param {GalleryDeleteManyArgs} args - Arguments to filter Galleries to delete.
+     * Delete zero or more BlogGalleries.
+     * @param {BlogGalleryDeleteManyArgs} args - Arguments to filter BlogGalleries to delete.
      * @example
-     * // Delete a few Galleries
-     * const { count } = await prisma.gallery.deleteMany({
+     * // Delete a few BlogGalleries
+     * const { count } = await prisma.blogGallery.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends GalleryDeleteManyArgs>(args?: SelectSubset<T, GalleryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends BlogGalleryDeleteManyArgs>(args?: SelectSubset<T, BlogGalleryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Galleries.
+     * Update zero or more BlogGalleries.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {BlogGalleryUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Galleries
-     * const gallery = await prisma.gallery.updateMany({
+     * // Update many BlogGalleries
+     * const blogGallery = await prisma.blogGallery.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4747,14 +5704,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends GalleryUpdateManyArgs>(args: SelectSubset<T, GalleryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends BlogGalleryUpdateManyArgs>(args: SelectSubset<T, BlogGalleryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Galleries and returns the data updated in the database.
-     * @param {GalleryUpdateManyAndReturnArgs} args - Arguments to update many Galleries.
+     * Update zero or more BlogGalleries and returns the data updated in the database.
+     * @param {BlogGalleryUpdateManyAndReturnArgs} args - Arguments to update many BlogGalleries.
      * @example
-     * // Update many Galleries
-     * const gallery = await prisma.gallery.updateManyAndReturn({
+     * // Update many BlogGalleries
+     * const blogGallery = await prisma.blogGallery.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4763,8 +5720,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Galleries and only return the `id`
-     * const galleryWithIdOnly = await prisma.gallery.updateManyAndReturn({
+     * // Update zero or more BlogGalleries and only return the `id`
+     * const blogGalleryWithIdOnly = await prisma.blogGallery.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -4777,56 +5734,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends GalleryUpdateManyAndReturnArgs>(args: SelectSubset<T, GalleryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends BlogGalleryUpdateManyAndReturnArgs>(args: SelectSubset<T, BlogGalleryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Gallery.
-     * @param {GalleryUpsertArgs} args - Arguments to update or create a Gallery.
+     * Create or update one BlogGallery.
+     * @param {BlogGalleryUpsertArgs} args - Arguments to update or create a BlogGallery.
      * @example
-     * // Update or create a Gallery
-     * const gallery = await prisma.gallery.upsert({
+     * // Update or create a BlogGallery
+     * const blogGallery = await prisma.blogGallery.upsert({
      *   create: {
-     *     // ... data to create a Gallery
+     *     // ... data to create a BlogGallery
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Gallery we want to update
+     *     // ... the filter for the BlogGallery we want to update
      *   }
      * })
      */
-    upsert<T extends GalleryUpsertArgs>(args: SelectSubset<T, GalleryUpsertArgs<ExtArgs>>): Prisma__GalleryClient<$Result.GetResult<Prisma.$GalleryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends BlogGalleryUpsertArgs>(args: SelectSubset<T, BlogGalleryUpsertArgs<ExtArgs>>): Prisma__BlogGalleryClient<$Result.GetResult<Prisma.$BlogGalleryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Galleries.
+     * Count the number of BlogGalleries.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryCountArgs} args - Arguments to filter Galleries to count.
+     * @param {BlogGalleryCountArgs} args - Arguments to filter BlogGalleries to count.
      * @example
-     * // Count the number of Galleries
-     * const count = await prisma.gallery.count({
+     * // Count the number of BlogGalleries
+     * const count = await prisma.blogGallery.count({
      *   where: {
-     *     // ... the filter for the Galleries we want to count
+     *     // ... the filter for the BlogGalleries we want to count
      *   }
      * })
     **/
-    count<T extends GalleryCountArgs>(
-      args?: Subset<T, GalleryCountArgs>,
+    count<T extends BlogGalleryCountArgs>(
+      args?: Subset<T, BlogGalleryCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GalleryCountAggregateOutputType>
+          : GetScalarType<T['select'], BlogGalleryCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Gallery.
+     * Allows you to perform aggregations operations on a BlogGallery.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {BlogGalleryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4846,13 +5803,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GalleryAggregateArgs>(args: Subset<T, GalleryAggregateArgs>): Prisma.PrismaPromise<GetGalleryAggregateType<T>>
+    aggregate<T extends BlogGalleryAggregateArgs>(args: Subset<T, BlogGalleryAggregateArgs>): Prisma.PrismaPromise<GetBlogGalleryAggregateType<T>>
 
     /**
-     * Group by Gallery.
+     * Group by BlogGallery.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GalleryGroupByArgs} args - Group by arguments.
+     * @param {BlogGalleryGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4867,14 +5824,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends GalleryGroupByArgs,
+      T extends BlogGalleryGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: GalleryGroupByArgs['orderBy'] }
-        : { orderBy?: GalleryGroupByArgs['orderBy'] },
+        ? { orderBy: BlogGalleryGroupByArgs['orderBy'] }
+        : { orderBy?: BlogGalleryGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4923,20 +5880,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, GalleryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGalleryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, BlogGalleryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBlogGalleryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Gallery model
+   * Fields of the BlogGallery model
    */
-  readonly fields: GalleryFieldRefs;
+  readonly fields: BlogGalleryFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Gallery.
+   * The delegate class that acts as a "Promise-like" for BlogGallery.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__GalleryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__BlogGalleryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     blog<T extends BlogDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BlogDefaultArgs<ExtArgs>>): Prisma__BlogClient<$Result.GetResult<Prisma.$BlogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -4965,423 +5922,423 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Gallery model
+   * Fields of the BlogGallery model
    */
-  interface GalleryFieldRefs {
-    readonly id: FieldRef<"Gallery", 'Int'>
-    readonly url: FieldRef<"Gallery", 'String'>
-    readonly blogId: FieldRef<"Gallery", 'Int'>
+  interface BlogGalleryFieldRefs {
+    readonly id: FieldRef<"BlogGallery", 'Int'>
+    readonly url: FieldRef<"BlogGallery", 'String'>
+    readonly blogId: FieldRef<"BlogGallery", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Gallery findUnique
+   * BlogGallery findUnique
    */
-  export type GalleryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * Filter, which Gallery to fetch.
+     * Filter, which BlogGallery to fetch.
      */
-    where: GalleryWhereUniqueInput
+    where: BlogGalleryWhereUniqueInput
   }
 
   /**
-   * Gallery findUniqueOrThrow
+   * BlogGallery findUniqueOrThrow
    */
-  export type GalleryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * Filter, which Gallery to fetch.
+     * Filter, which BlogGallery to fetch.
      */
-    where: GalleryWhereUniqueInput
+    where: BlogGalleryWhereUniqueInput
   }
 
   /**
-   * Gallery findFirst
+   * BlogGallery findFirst
    */
-  export type GalleryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * Filter, which Gallery to fetch.
+     * Filter, which BlogGallery to fetch.
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Galleries to fetch.
+     * Determine the order of BlogGalleries to fetch.
      */
-    orderBy?: GalleryOrderByWithRelationInput | GalleryOrderByWithRelationInput[]
+    orderBy?: BlogGalleryOrderByWithRelationInput | BlogGalleryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Galleries.
+     * Sets the position for searching for BlogGalleries.
      */
-    cursor?: GalleryWhereUniqueInput
+    cursor?: BlogGalleryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Galleries from the position of the cursor.
+     * Take `±n` BlogGalleries from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Galleries.
+     * Skip the first `n` BlogGalleries.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Galleries.
+     * Filter by unique combinations of BlogGalleries.
      */
-    distinct?: GalleryScalarFieldEnum | GalleryScalarFieldEnum[]
+    distinct?: BlogGalleryScalarFieldEnum | BlogGalleryScalarFieldEnum[]
   }
 
   /**
-   * Gallery findFirstOrThrow
+   * BlogGallery findFirstOrThrow
    */
-  export type GalleryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * Filter, which Gallery to fetch.
+     * Filter, which BlogGallery to fetch.
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Galleries to fetch.
+     * Determine the order of BlogGalleries to fetch.
      */
-    orderBy?: GalleryOrderByWithRelationInput | GalleryOrderByWithRelationInput[]
+    orderBy?: BlogGalleryOrderByWithRelationInput | BlogGalleryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Galleries.
+     * Sets the position for searching for BlogGalleries.
      */
-    cursor?: GalleryWhereUniqueInput
+    cursor?: BlogGalleryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Galleries from the position of the cursor.
+     * Take `±n` BlogGalleries from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Galleries.
+     * Skip the first `n` BlogGalleries.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Galleries.
+     * Filter by unique combinations of BlogGalleries.
      */
-    distinct?: GalleryScalarFieldEnum | GalleryScalarFieldEnum[]
+    distinct?: BlogGalleryScalarFieldEnum | BlogGalleryScalarFieldEnum[]
   }
 
   /**
-   * Gallery findMany
+   * BlogGallery findMany
    */
-  export type GalleryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * Filter, which Galleries to fetch.
+     * Filter, which BlogGalleries to fetch.
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Galleries to fetch.
+     * Determine the order of BlogGalleries to fetch.
      */
-    orderBy?: GalleryOrderByWithRelationInput | GalleryOrderByWithRelationInput[]
+    orderBy?: BlogGalleryOrderByWithRelationInput | BlogGalleryOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Galleries.
+     * Sets the position for listing BlogGalleries.
      */
-    cursor?: GalleryWhereUniqueInput
+    cursor?: BlogGalleryWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Galleries from the position of the cursor.
+     * Take `±n` BlogGalleries from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Galleries.
+     * Skip the first `n` BlogGalleries.
      */
     skip?: number
-    distinct?: GalleryScalarFieldEnum | GalleryScalarFieldEnum[]
+    distinct?: BlogGalleryScalarFieldEnum | BlogGalleryScalarFieldEnum[]
   }
 
   /**
-   * Gallery create
+   * BlogGallery create
    */
-  export type GalleryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * The data needed to create a Gallery.
+     * The data needed to create a BlogGallery.
      */
-    data: XOR<GalleryCreateInput, GalleryUncheckedCreateInput>
+    data: XOR<BlogGalleryCreateInput, BlogGalleryUncheckedCreateInput>
   }
 
   /**
-   * Gallery createMany
+   * BlogGallery createMany
    */
-  export type GalleryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Galleries.
+     * The data used to create many BlogGalleries.
      */
-    data: GalleryCreateManyInput | GalleryCreateManyInput[]
+    data: BlogGalleryCreateManyInput | BlogGalleryCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Gallery createManyAndReturn
+   * BlogGallery createManyAndReturn
    */
-  export type GalleryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelectCreateManyAndReturn<ExtArgs> | null
+    select?: BlogGallerySelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
-     * The data used to create many Galleries.
+     * The data used to create many BlogGalleries.
      */
-    data: GalleryCreateManyInput | GalleryCreateManyInput[]
+    data: BlogGalleryCreateManyInput | BlogGalleryCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: BlogGalleryIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Gallery update
+   * BlogGallery update
    */
-  export type GalleryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * The data needed to update a Gallery.
+     * The data needed to update a BlogGallery.
      */
-    data: XOR<GalleryUpdateInput, GalleryUncheckedUpdateInput>
+    data: XOR<BlogGalleryUpdateInput, BlogGalleryUncheckedUpdateInput>
     /**
-     * Choose, which Gallery to update.
+     * Choose, which BlogGallery to update.
      */
-    where: GalleryWhereUniqueInput
+    where: BlogGalleryWhereUniqueInput
   }
 
   /**
-   * Gallery updateMany
+   * BlogGallery updateMany
    */
-  export type GalleryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Galleries.
+     * The data used to update BlogGalleries.
      */
-    data: XOR<GalleryUpdateManyMutationInput, GalleryUncheckedUpdateManyInput>
+    data: XOR<BlogGalleryUpdateManyMutationInput, BlogGalleryUncheckedUpdateManyInput>
     /**
-     * Filter which Galleries to update
+     * Filter which BlogGalleries to update
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
-     * Limit how many Galleries to update.
+     * Limit how many BlogGalleries to update.
      */
     limit?: number
   }
 
   /**
-   * Gallery updateManyAndReturn
+   * BlogGallery updateManyAndReturn
    */
-  export type GalleryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelectUpdateManyAndReturn<ExtArgs> | null
+    select?: BlogGallerySelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
-     * The data used to update Galleries.
+     * The data used to update BlogGalleries.
      */
-    data: XOR<GalleryUpdateManyMutationInput, GalleryUncheckedUpdateManyInput>
+    data: XOR<BlogGalleryUpdateManyMutationInput, BlogGalleryUncheckedUpdateManyInput>
     /**
-     * Filter which Galleries to update
+     * Filter which BlogGalleries to update
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
-     * Limit how many Galleries to update.
+     * Limit how many BlogGalleries to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: BlogGalleryIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Gallery upsert
+   * BlogGallery upsert
    */
-  export type GalleryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * The filter to search for the Gallery to update in case it exists.
+     * The filter to search for the BlogGallery to update in case it exists.
      */
-    where: GalleryWhereUniqueInput
+    where: BlogGalleryWhereUniqueInput
     /**
-     * In case the Gallery found by the `where` argument doesn't exist, create a new Gallery with this data.
+     * In case the BlogGallery found by the `where` argument doesn't exist, create a new BlogGallery with this data.
      */
-    create: XOR<GalleryCreateInput, GalleryUncheckedCreateInput>
+    create: XOR<BlogGalleryCreateInput, BlogGalleryUncheckedCreateInput>
     /**
-     * In case the Gallery was found with the provided `where` argument, update it with this data.
+     * In case the BlogGallery was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<GalleryUpdateInput, GalleryUncheckedUpdateInput>
+    update: XOR<BlogGalleryUpdateInput, BlogGalleryUncheckedUpdateInput>
   }
 
   /**
-   * Gallery delete
+   * BlogGallery delete
    */
-  export type GalleryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
     /**
-     * Filter which Gallery to delete.
+     * Filter which BlogGallery to delete.
      */
-    where: GalleryWhereUniqueInput
+    where: BlogGalleryWhereUniqueInput
   }
 
   /**
-   * Gallery deleteMany
+   * BlogGallery deleteMany
    */
-  export type GalleryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Galleries to delete
+     * Filter which BlogGalleries to delete
      */
-    where?: GalleryWhereInput
+    where?: BlogGalleryWhereInput
     /**
-     * Limit how many Galleries to delete.
+     * Limit how many BlogGalleries to delete.
      */
     limit?: number
   }
 
   /**
-   * Gallery without action
+   * BlogGallery without action
    */
-  export type GalleryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BlogGalleryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Gallery
+     * Select specific fields to fetch from the BlogGallery
      */
-    select?: GallerySelect<ExtArgs> | null
+    select?: BlogGallerySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Gallery
+     * Omit specific fields from the BlogGallery
      */
-    omit?: GalleryOmit<ExtArgs> | null
+    omit?: BlogGalleryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GalleryInclude<ExtArgs> | null
+    include?: BlogGalleryInclude<ExtArgs> | null
   }
 
 
@@ -11884,6 +12841,10001 @@ export namespace Prisma {
 
 
   /**
+   * Model Project
+   */
+
+  export type AggregateProject = {
+    _count: ProjectCountAggregateOutputType | null
+    _avg: ProjectAvgAggregateOutputType | null
+    _sum: ProjectSumAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  export type ProjectAvgAggregateOutputType = {
+    id: number | null
+    views: number | null
+  }
+
+  export type ProjectSumAggregateOutputType = {
+    id: number | null
+    views: number | null
+  }
+
+  export type ProjectMinAggregateOutputType = {
+    id: number | null
+    title: string | null
+    description: string | null
+    poster: string | null
+    excerpt: string | null
+    views: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProjectMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    description: string | null
+    poster: string | null
+    excerpt: string | null
+    views: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProjectCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    poster: number
+    excerpt: number
+    views: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProjectAvgAggregateInputType = {
+    id?: true
+    views?: true
+  }
+
+  export type ProjectSumAggregateInputType = {
+    id?: true
+    views?: true
+  }
+
+  export type ProjectMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    poster?: true
+    excerpt?: true
+    views?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProjectMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    poster?: true
+    excerpt?: true
+    views?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProjectCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    poster?: true
+    excerpt?: true
+    views?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Project to aggregate.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Projects
+    **/
+    _count?: true | ProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type GetProjectAggregateType<T extends ProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProject[P]>
+      : GetScalarType<T[P], AggregateProject[P]>
+  }
+
+
+
+
+  export type ProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithAggregationInput | ProjectOrderByWithAggregationInput[]
+    by: ProjectScalarFieldEnum[] | ProjectScalarFieldEnum
+    having?: ProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectCountAggregateInputType | true
+    _avg?: ProjectAvgAggregateInputType
+    _sum?: ProjectSumAggregateInputType
+    _min?: ProjectMinAggregateInputType
+    _max?: ProjectMaxAggregateInputType
+  }
+
+  export type ProjectGroupByOutputType = {
+    id: number
+    title: string
+    description: string
+    poster: string | null
+    excerpt: string | null
+    views: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ProjectCountAggregateOutputType | null
+    _avg: ProjectAvgAggregateOutputType | null
+    _sum: ProjectSumAggregateOutputType | null
+    _min: ProjectMinAggregateOutputType | null
+    _max: ProjectMaxAggregateOutputType | null
+  }
+
+  type GetProjectGroupByPayload<T extends ProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    links?: boolean | Project$linksArgs<ExtArgs>
+    technologies?: boolean | Project$technologiesArgs<ExtArgs>
+    galleries?: boolean | Project$galleriesArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["project"]>
+
+  export type ProjectSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "poster" | "excerpt" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+  export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    links?: boolean | Project$linksArgs<ExtArgs>
+    technologies?: boolean | Project$technologiesArgs<ExtArgs>
+    galleries?: boolean | Project$galleriesArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Project"
+    objects: {
+      links: Prisma.$ProjectLinkPayload<ExtArgs>[]
+      technologies: Prisma.$ProjectTechnologyPayload<ExtArgs>[]
+      galleries: Prisma.$ProjectGalleryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      title: string
+      description: string
+      poster: string | null
+      excerpt: string | null
+      views: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["project"]>
+    composites: {}
+  }
+
+  type ProjectGetPayload<S extends boolean | null | undefined | ProjectDefaultArgs> = $Result.GetResult<Prisma.$ProjectPayload, S>
+
+  type ProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectCountAggregateInputType | true
+    }
+
+  export interface ProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Project'], meta: { name: 'Project' } }
+    /**
+     * Find zero or one Project that matches the filter.
+     * @param {ProjectFindUniqueArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectFindUniqueArgs>(args: SelectSubset<T, ProjectFindUniqueArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Project that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectFindUniqueOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectFindFirstArgs>(args?: SelectSubset<T, ProjectFindFirstArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Project that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindFirstOrThrowArgs} args - Arguments to find a Project
+     * @example
+     * // Get one Project
+     * const project = await prisma.project.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Projects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Projects
+     * const projects = await prisma.project.findMany()
+     * 
+     * // Get first 10 Projects
+     * const projects = await prisma.project.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectWithIdOnly = await prisma.project.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectFindManyArgs>(args?: SelectSubset<T, ProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Project.
+     * @param {ProjectCreateArgs} args - Arguments to create a Project.
+     * @example
+     * // Create one Project
+     * const Project = await prisma.project.create({
+     *   data: {
+     *     // ... data to create a Project
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectCreateArgs>(args: SelectSubset<T, ProjectCreateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Projects.
+     * @param {ProjectCreateManyArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectCreateManyArgs>(args?: SelectSubset<T, ProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Projects and returns the data saved in the database.
+     * @param {ProjectCreateManyAndReturnArgs} args - Arguments to create many Projects.
+     * @example
+     * // Create many Projects
+     * const project = await prisma.project.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Projects and only return the `id`
+     * const projectWithIdOnly = await prisma.project.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Project.
+     * @param {ProjectDeleteArgs} args - Arguments to delete one Project.
+     * @example
+     * // Delete one Project
+     * const Project = await prisma.project.delete({
+     *   where: {
+     *     // ... filter to delete one Project
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectDeleteArgs>(args: SelectSubset<T, ProjectDeleteArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Project.
+     * @param {ProjectUpdateArgs} args - Arguments to update one Project.
+     * @example
+     * // Update one Project
+     * const project = await prisma.project.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectUpdateArgs>(args: SelectSubset<T, ProjectUpdateArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Projects.
+     * @param {ProjectDeleteManyArgs} args - Arguments to filter Projects to delete.
+     * @example
+     * // Delete a few Projects
+     * const { count } = await prisma.project.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectDeleteManyArgs>(args?: SelectSubset<T, ProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectUpdateManyArgs>(args: SelectSubset<T, ProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Projects and returns the data updated in the database.
+     * @param {ProjectUpdateManyAndReturnArgs} args - Arguments to update many Projects.
+     * @example
+     * // Update many Projects
+     * const project = await prisma.project.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Projects and only return the `id`
+     * const projectWithIdOnly = await prisma.project.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Project.
+     * @param {ProjectUpsertArgs} args - Arguments to update or create a Project.
+     * @example
+     * // Update or create a Project
+     * const project = await prisma.project.upsert({
+     *   create: {
+     *     // ... data to create a Project
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Project we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectUpsertArgs>(args: SelectSubset<T, ProjectUpsertArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Projects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectCountArgs} args - Arguments to filter Projects to count.
+     * @example
+     * // Count the number of Projects
+     * const count = await prisma.project.count({
+     *   where: {
+     *     // ... the filter for the Projects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectCountArgs>(
+      args?: Subset<T, ProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectAggregateArgs>(args: Subset<T, ProjectAggregateArgs>): Prisma.PrismaPromise<GetProjectAggregateType<T>>
+
+    /**
+     * Group by Project.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Project model
+   */
+  readonly fields: ProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Project.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    links<T extends Project$linksArgs<ExtArgs> = {}>(args?: Subset<T, Project$linksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    technologies<T extends Project$technologiesArgs<ExtArgs> = {}>(args?: Subset<T, Project$technologiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    galleries<T extends Project$galleriesArgs<ExtArgs> = {}>(args?: Subset<T, Project$galleriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Project model
+   */
+  interface ProjectFieldRefs {
+    readonly id: FieldRef<"Project", 'Int'>
+    readonly title: FieldRef<"Project", 'String'>
+    readonly description: FieldRef<"Project", 'String'>
+    readonly poster: FieldRef<"Project", 'String'>
+    readonly excerpt: FieldRef<"Project", 'String'>
+    readonly views: FieldRef<"Project", 'Int'>
+    readonly createdAt: FieldRef<"Project", 'DateTime'>
+    readonly updatedAt: FieldRef<"Project", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Project findUnique
+   */
+  export type ProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findUniqueOrThrow
+   */
+  export type ProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project findFirst
+   */
+  export type ProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findFirstOrThrow
+   */
+  export type ProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Project to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Projects.
+     */
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project findMany
+   */
+  export type ProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which Projects to fetch.
+     */
+    where?: ProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Projects to fetch.
+     */
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Projects.
+     */
+    cursor?: ProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Projects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Projects.
+     */
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Project create
+   */
+  export type ProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Project.
+     */
+    data: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+  }
+
+  /**
+   * Project createMany
+   */
+  export type ProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Project createManyAndReturn
+   */
+  export type ProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many Projects.
+     */
+    data: ProjectCreateManyInput | ProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Project update
+   */
+  export type ProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Project.
+     */
+    data: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+    /**
+     * Choose, which Project to update.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project updateMany
+   */
+  export type ProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project updateManyAndReturn
+   */
+  export type ProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update Projects.
+     */
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which Projects to update
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project upsert
+   */
+  export type ProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Project to update in case it exists.
+     */
+    where: ProjectWhereUniqueInput
+    /**
+     * In case the Project found by the `where` argument doesn't exist, create a new Project with this data.
+     */
+    create: XOR<ProjectCreateInput, ProjectUncheckedCreateInput>
+    /**
+     * In case the Project was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectUpdateInput, ProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * Project delete
+   */
+  export type ProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    /**
+     * Filter which Project to delete.
+     */
+    where: ProjectWhereUniqueInput
+  }
+
+  /**
+   * Project deleteMany
+   */
+  export type ProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Projects to delete
+     */
+    where?: ProjectWhereInput
+    /**
+     * Limit how many Projects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Project.links
+   */
+  export type Project$linksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    where?: ProjectLinkWhereInput
+    orderBy?: ProjectLinkOrderByWithRelationInput | ProjectLinkOrderByWithRelationInput[]
+    cursor?: ProjectLinkWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectLinkScalarFieldEnum | ProjectLinkScalarFieldEnum[]
+  }
+
+  /**
+   * Project.technologies
+   */
+  export type Project$technologiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    where?: ProjectTechnologyWhereInput
+    orderBy?: ProjectTechnologyOrderByWithRelationInput | ProjectTechnologyOrderByWithRelationInput[]
+    cursor?: ProjectTechnologyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectTechnologyScalarFieldEnum | ProjectTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * Project.galleries
+   */
+  export type Project$galleriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    where?: ProjectGalleryWhereInput
+    orderBy?: ProjectGalleryOrderByWithRelationInput | ProjectGalleryOrderByWithRelationInput[]
+    cursor?: ProjectGalleryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectGalleryScalarFieldEnum | ProjectGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * Project without action
+   */
+  export type ProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Project
+     */
+    omit?: ProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProjectGallery
+   */
+
+  export type AggregateProjectGallery = {
+    _count: ProjectGalleryCountAggregateOutputType | null
+    _avg: ProjectGalleryAvgAggregateOutputType | null
+    _sum: ProjectGallerySumAggregateOutputType | null
+    _min: ProjectGalleryMinAggregateOutputType | null
+    _max: ProjectGalleryMaxAggregateOutputType | null
+  }
+
+  export type ProjectGalleryAvgAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+  }
+
+  export type ProjectGallerySumAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+  }
+
+  export type ProjectGalleryMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    projectId: number | null
+  }
+
+  export type ProjectGalleryMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    projectId: number | null
+  }
+
+  export type ProjectGalleryCountAggregateOutputType = {
+    id: number
+    url: number
+    projectId: number
+    _all: number
+  }
+
+
+  export type ProjectGalleryAvgAggregateInputType = {
+    id?: true
+    projectId?: true
+  }
+
+  export type ProjectGallerySumAggregateInputType = {
+    id?: true
+    projectId?: true
+  }
+
+  export type ProjectGalleryMinAggregateInputType = {
+    id?: true
+    url?: true
+    projectId?: true
+  }
+
+  export type ProjectGalleryMaxAggregateInputType = {
+    id?: true
+    url?: true
+    projectId?: true
+  }
+
+  export type ProjectGalleryCountAggregateInputType = {
+    id?: true
+    url?: true
+    projectId?: true
+    _all?: true
+  }
+
+  export type ProjectGalleryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectGallery to aggregate.
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectGalleries to fetch.
+     */
+    orderBy?: ProjectGalleryOrderByWithRelationInput | ProjectGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectGalleries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectGalleries
+    **/
+    _count?: true | ProjectGalleryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectGalleryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectGallerySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectGalleryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectGalleryMaxAggregateInputType
+  }
+
+  export type GetProjectGalleryAggregateType<T extends ProjectGalleryAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectGallery]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectGallery[P]>
+      : GetScalarType<T[P], AggregateProjectGallery[P]>
+  }
+
+
+
+
+  export type ProjectGalleryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectGalleryWhereInput
+    orderBy?: ProjectGalleryOrderByWithAggregationInput | ProjectGalleryOrderByWithAggregationInput[]
+    by: ProjectGalleryScalarFieldEnum[] | ProjectGalleryScalarFieldEnum
+    having?: ProjectGalleryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectGalleryCountAggregateInputType | true
+    _avg?: ProjectGalleryAvgAggregateInputType
+    _sum?: ProjectGallerySumAggregateInputType
+    _min?: ProjectGalleryMinAggregateInputType
+    _max?: ProjectGalleryMaxAggregateInputType
+  }
+
+  export type ProjectGalleryGroupByOutputType = {
+    id: number
+    url: string
+    projectId: number
+    _count: ProjectGalleryCountAggregateOutputType | null
+    _avg: ProjectGalleryAvgAggregateOutputType | null
+    _sum: ProjectGallerySumAggregateOutputType | null
+    _min: ProjectGalleryMinAggregateOutputType | null
+    _max: ProjectGalleryMaxAggregateOutputType | null
+  }
+
+  type GetProjectGalleryGroupByPayload<T extends ProjectGalleryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectGalleryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectGalleryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectGalleryGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectGalleryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectGallerySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectGallery"]>
+
+  export type ProjectGallerySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectGallery"]>
+
+  export type ProjectGallerySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectGallery"]>
+
+  export type ProjectGallerySelectScalar = {
+    id?: boolean
+    url?: boolean
+    projectId?: boolean
+  }
+
+  export type ProjectGalleryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "projectId", ExtArgs["result"]["projectGallery"]>
+  export type ProjectGalleryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type ProjectGalleryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type ProjectGalleryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectGalleryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectGallery"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      projectId: number
+    }, ExtArgs["result"]["projectGallery"]>
+    composites: {}
+  }
+
+  type ProjectGalleryGetPayload<S extends boolean | null | undefined | ProjectGalleryDefaultArgs> = $Result.GetResult<Prisma.$ProjectGalleryPayload, S>
+
+  type ProjectGalleryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectGalleryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectGalleryCountAggregateInputType | true
+    }
+
+  export interface ProjectGalleryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectGallery'], meta: { name: 'ProjectGallery' } }
+    /**
+     * Find zero or one ProjectGallery that matches the filter.
+     * @param {ProjectGalleryFindUniqueArgs} args - Arguments to find a ProjectGallery
+     * @example
+     * // Get one ProjectGallery
+     * const projectGallery = await prisma.projectGallery.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectGalleryFindUniqueArgs>(args: SelectSubset<T, ProjectGalleryFindUniqueArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProjectGallery that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectGalleryFindUniqueOrThrowArgs} args - Arguments to find a ProjectGallery
+     * @example
+     * // Get one ProjectGallery
+     * const projectGallery = await prisma.projectGallery.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectGalleryFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectGalleryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectGallery that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryFindFirstArgs} args - Arguments to find a ProjectGallery
+     * @example
+     * // Get one ProjectGallery
+     * const projectGallery = await prisma.projectGallery.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectGalleryFindFirstArgs>(args?: SelectSubset<T, ProjectGalleryFindFirstArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectGallery that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryFindFirstOrThrowArgs} args - Arguments to find a ProjectGallery
+     * @example
+     * // Get one ProjectGallery
+     * const projectGallery = await prisma.projectGallery.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectGalleryFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectGalleryFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProjectGalleries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectGalleries
+     * const projectGalleries = await prisma.projectGallery.findMany()
+     * 
+     * // Get first 10 ProjectGalleries
+     * const projectGalleries = await prisma.projectGallery.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectGalleryWithIdOnly = await prisma.projectGallery.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectGalleryFindManyArgs>(args?: SelectSubset<T, ProjectGalleryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProjectGallery.
+     * @param {ProjectGalleryCreateArgs} args - Arguments to create a ProjectGallery.
+     * @example
+     * // Create one ProjectGallery
+     * const ProjectGallery = await prisma.projectGallery.create({
+     *   data: {
+     *     // ... data to create a ProjectGallery
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectGalleryCreateArgs>(args: SelectSubset<T, ProjectGalleryCreateArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProjectGalleries.
+     * @param {ProjectGalleryCreateManyArgs} args - Arguments to create many ProjectGalleries.
+     * @example
+     * // Create many ProjectGalleries
+     * const projectGallery = await prisma.projectGallery.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectGalleryCreateManyArgs>(args?: SelectSubset<T, ProjectGalleryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectGalleries and returns the data saved in the database.
+     * @param {ProjectGalleryCreateManyAndReturnArgs} args - Arguments to create many ProjectGalleries.
+     * @example
+     * // Create many ProjectGalleries
+     * const projectGallery = await prisma.projectGallery.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectGalleries and only return the `id`
+     * const projectGalleryWithIdOnly = await prisma.projectGallery.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectGalleryCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectGalleryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProjectGallery.
+     * @param {ProjectGalleryDeleteArgs} args - Arguments to delete one ProjectGallery.
+     * @example
+     * // Delete one ProjectGallery
+     * const ProjectGallery = await prisma.projectGallery.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectGallery
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectGalleryDeleteArgs>(args: SelectSubset<T, ProjectGalleryDeleteArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProjectGallery.
+     * @param {ProjectGalleryUpdateArgs} args - Arguments to update one ProjectGallery.
+     * @example
+     * // Update one ProjectGallery
+     * const projectGallery = await prisma.projectGallery.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectGalleryUpdateArgs>(args: SelectSubset<T, ProjectGalleryUpdateArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProjectGalleries.
+     * @param {ProjectGalleryDeleteManyArgs} args - Arguments to filter ProjectGalleries to delete.
+     * @example
+     * // Delete a few ProjectGalleries
+     * const { count } = await prisma.projectGallery.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectGalleryDeleteManyArgs>(args?: SelectSubset<T, ProjectGalleryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectGalleries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectGalleries
+     * const projectGallery = await prisma.projectGallery.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectGalleryUpdateManyArgs>(args: SelectSubset<T, ProjectGalleryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectGalleries and returns the data updated in the database.
+     * @param {ProjectGalleryUpdateManyAndReturnArgs} args - Arguments to update many ProjectGalleries.
+     * @example
+     * // Update many ProjectGalleries
+     * const projectGallery = await prisma.projectGallery.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProjectGalleries and only return the `id`
+     * const projectGalleryWithIdOnly = await prisma.projectGallery.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectGalleryUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectGalleryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProjectGallery.
+     * @param {ProjectGalleryUpsertArgs} args - Arguments to update or create a ProjectGallery.
+     * @example
+     * // Update or create a ProjectGallery
+     * const projectGallery = await prisma.projectGallery.upsert({
+     *   create: {
+     *     // ... data to create a ProjectGallery
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectGallery we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectGalleryUpsertArgs>(args: SelectSubset<T, ProjectGalleryUpsertArgs<ExtArgs>>): Prisma__ProjectGalleryClient<$Result.GetResult<Prisma.$ProjectGalleryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProjectGalleries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryCountArgs} args - Arguments to filter ProjectGalleries to count.
+     * @example
+     * // Count the number of ProjectGalleries
+     * const count = await prisma.projectGallery.count({
+     *   where: {
+     *     // ... the filter for the ProjectGalleries we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectGalleryCountArgs>(
+      args?: Subset<T, ProjectGalleryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectGalleryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectGallery.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectGalleryAggregateArgs>(args: Subset<T, ProjectGalleryAggregateArgs>): Prisma.PrismaPromise<GetProjectGalleryAggregateType<T>>
+
+    /**
+     * Group by ProjectGallery.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectGalleryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectGalleryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectGalleryGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectGalleryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectGalleryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectGalleryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectGallery model
+   */
+  readonly fields: ProjectGalleryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectGallery.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectGalleryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectGallery model
+   */
+  interface ProjectGalleryFieldRefs {
+    readonly id: FieldRef<"ProjectGallery", 'Int'>
+    readonly url: FieldRef<"ProjectGallery", 'String'>
+    readonly projectId: FieldRef<"ProjectGallery", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectGallery findUnique
+   */
+  export type ProjectGalleryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectGallery to fetch.
+     */
+    where: ProjectGalleryWhereUniqueInput
+  }
+
+  /**
+   * ProjectGallery findUniqueOrThrow
+   */
+  export type ProjectGalleryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectGallery to fetch.
+     */
+    where: ProjectGalleryWhereUniqueInput
+  }
+
+  /**
+   * ProjectGallery findFirst
+   */
+  export type ProjectGalleryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectGallery to fetch.
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectGalleries to fetch.
+     */
+    orderBy?: ProjectGalleryOrderByWithRelationInput | ProjectGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectGalleries.
+     */
+    cursor?: ProjectGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectGalleries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectGalleries.
+     */
+    distinct?: ProjectGalleryScalarFieldEnum | ProjectGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectGallery findFirstOrThrow
+   */
+  export type ProjectGalleryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectGallery to fetch.
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectGalleries to fetch.
+     */
+    orderBy?: ProjectGalleryOrderByWithRelationInput | ProjectGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectGalleries.
+     */
+    cursor?: ProjectGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectGalleries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectGalleries.
+     */
+    distinct?: ProjectGalleryScalarFieldEnum | ProjectGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectGallery findMany
+   */
+  export type ProjectGalleryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectGalleries to fetch.
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectGalleries to fetch.
+     */
+    orderBy?: ProjectGalleryOrderByWithRelationInput | ProjectGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectGalleries.
+     */
+    cursor?: ProjectGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectGalleries.
+     */
+    skip?: number
+    distinct?: ProjectGalleryScalarFieldEnum | ProjectGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectGallery create
+   */
+  export type ProjectGalleryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectGallery.
+     */
+    data: XOR<ProjectGalleryCreateInput, ProjectGalleryUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectGallery createMany
+   */
+  export type ProjectGalleryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectGalleries.
+     */
+    data: ProjectGalleryCreateManyInput | ProjectGalleryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectGallery createManyAndReturn
+   */
+  export type ProjectGalleryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProjectGalleries.
+     */
+    data: ProjectGalleryCreateManyInput | ProjectGalleryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectGallery update
+   */
+  export type ProjectGalleryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectGallery.
+     */
+    data: XOR<ProjectGalleryUpdateInput, ProjectGalleryUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectGallery to update.
+     */
+    where: ProjectGalleryWhereUniqueInput
+  }
+
+  /**
+   * ProjectGallery updateMany
+   */
+  export type ProjectGalleryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectGalleries.
+     */
+    data: XOR<ProjectGalleryUpdateManyMutationInput, ProjectGalleryUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectGalleries to update
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * Limit how many ProjectGalleries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectGallery updateManyAndReturn
+   */
+  export type ProjectGalleryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * The data used to update ProjectGalleries.
+     */
+    data: XOR<ProjectGalleryUpdateManyMutationInput, ProjectGalleryUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectGalleries to update
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * Limit how many ProjectGalleries to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectGallery upsert
+   */
+  export type ProjectGalleryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectGallery to update in case it exists.
+     */
+    where: ProjectGalleryWhereUniqueInput
+    /**
+     * In case the ProjectGallery found by the `where` argument doesn't exist, create a new ProjectGallery with this data.
+     */
+    create: XOR<ProjectGalleryCreateInput, ProjectGalleryUncheckedCreateInput>
+    /**
+     * In case the ProjectGallery was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectGalleryUpdateInput, ProjectGalleryUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectGallery delete
+   */
+  export type ProjectGalleryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+    /**
+     * Filter which ProjectGallery to delete.
+     */
+    where: ProjectGalleryWhereUniqueInput
+  }
+
+  /**
+   * ProjectGallery deleteMany
+   */
+  export type ProjectGalleryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectGalleries to delete
+     */
+    where?: ProjectGalleryWhereInput
+    /**
+     * Limit how many ProjectGalleries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectGallery without action
+   */
+  export type ProjectGalleryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectGallery
+     */
+    select?: ProjectGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectGallery
+     */
+    omit?: ProjectGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectGalleryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProjectLink
+   */
+
+  export type AggregateProjectLink = {
+    _count: ProjectLinkCountAggregateOutputType | null
+    _avg: ProjectLinkAvgAggregateOutputType | null
+    _sum: ProjectLinkSumAggregateOutputType | null
+    _min: ProjectLinkMinAggregateOutputType | null
+    _max: ProjectLinkMaxAggregateOutputType | null
+  }
+
+  export type ProjectLinkAvgAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+  }
+
+  export type ProjectLinkSumAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+  }
+
+  export type ProjectLinkMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    url: string | null
+    projectId: number | null
+  }
+
+  export type ProjectLinkMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    url: string | null
+    projectId: number | null
+  }
+
+  export type ProjectLinkCountAggregateOutputType = {
+    id: number
+    name: number
+    url: number
+    projectId: number
+    _all: number
+  }
+
+
+  export type ProjectLinkAvgAggregateInputType = {
+    id?: true
+    projectId?: true
+  }
+
+  export type ProjectLinkSumAggregateInputType = {
+    id?: true
+    projectId?: true
+  }
+
+  export type ProjectLinkMinAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    projectId?: true
+  }
+
+  export type ProjectLinkMaxAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    projectId?: true
+  }
+
+  export type ProjectLinkCountAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    projectId?: true
+    _all?: true
+  }
+
+  export type ProjectLinkAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectLink to aggregate.
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectLinks to fetch.
+     */
+    orderBy?: ProjectLinkOrderByWithRelationInput | ProjectLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectLinks
+    **/
+    _count?: true | ProjectLinkCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectLinkAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectLinkSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectLinkMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectLinkMaxAggregateInputType
+  }
+
+  export type GetProjectLinkAggregateType<T extends ProjectLinkAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectLink]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectLink[P]>
+      : GetScalarType<T[P], AggregateProjectLink[P]>
+  }
+
+
+
+
+  export type ProjectLinkGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectLinkWhereInput
+    orderBy?: ProjectLinkOrderByWithAggregationInput | ProjectLinkOrderByWithAggregationInput[]
+    by: ProjectLinkScalarFieldEnum[] | ProjectLinkScalarFieldEnum
+    having?: ProjectLinkScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectLinkCountAggregateInputType | true
+    _avg?: ProjectLinkAvgAggregateInputType
+    _sum?: ProjectLinkSumAggregateInputType
+    _min?: ProjectLinkMinAggregateInputType
+    _max?: ProjectLinkMaxAggregateInputType
+  }
+
+  export type ProjectLinkGroupByOutputType = {
+    id: number
+    name: string
+    url: string
+    projectId: number
+    _count: ProjectLinkCountAggregateOutputType | null
+    _avg: ProjectLinkAvgAggregateOutputType | null
+    _sum: ProjectLinkSumAggregateOutputType | null
+    _min: ProjectLinkMinAggregateOutputType | null
+    _max: ProjectLinkMaxAggregateOutputType | null
+  }
+
+  type GetProjectLinkGroupByPayload<T extends ProjectLinkGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectLinkGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectLinkGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectLinkGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectLinkGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectLinkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectLink"]>
+
+  export type ProjectLinkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectLink"]>
+
+  export type ProjectLinkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    projectId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectLink"]>
+
+  export type ProjectLinkSelectScalar = {
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    projectId?: boolean
+  }
+
+  export type ProjectLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "url" | "projectId", ExtArgs["result"]["projectLink"]>
+  export type ProjectLinkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type ProjectLinkIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type ProjectLinkIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectLinkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectLink"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      url: string
+      projectId: number
+    }, ExtArgs["result"]["projectLink"]>
+    composites: {}
+  }
+
+  type ProjectLinkGetPayload<S extends boolean | null | undefined | ProjectLinkDefaultArgs> = $Result.GetResult<Prisma.$ProjectLinkPayload, S>
+
+  type ProjectLinkCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectLinkFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectLinkCountAggregateInputType | true
+    }
+
+  export interface ProjectLinkDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectLink'], meta: { name: 'ProjectLink' } }
+    /**
+     * Find zero or one ProjectLink that matches the filter.
+     * @param {ProjectLinkFindUniqueArgs} args - Arguments to find a ProjectLink
+     * @example
+     * // Get one ProjectLink
+     * const projectLink = await prisma.projectLink.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectLinkFindUniqueArgs>(args: SelectSubset<T, ProjectLinkFindUniqueArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProjectLink that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectLinkFindUniqueOrThrowArgs} args - Arguments to find a ProjectLink
+     * @example
+     * // Get one ProjectLink
+     * const projectLink = await prisma.projectLink.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectLinkFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectLinkFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectLink that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkFindFirstArgs} args - Arguments to find a ProjectLink
+     * @example
+     * // Get one ProjectLink
+     * const projectLink = await prisma.projectLink.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectLinkFindFirstArgs>(args?: SelectSubset<T, ProjectLinkFindFirstArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectLink that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkFindFirstOrThrowArgs} args - Arguments to find a ProjectLink
+     * @example
+     * // Get one ProjectLink
+     * const projectLink = await prisma.projectLink.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectLinkFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectLinkFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProjectLinks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectLinks
+     * const projectLinks = await prisma.projectLink.findMany()
+     * 
+     * // Get first 10 ProjectLinks
+     * const projectLinks = await prisma.projectLink.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectLinkWithIdOnly = await prisma.projectLink.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectLinkFindManyArgs>(args?: SelectSubset<T, ProjectLinkFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProjectLink.
+     * @param {ProjectLinkCreateArgs} args - Arguments to create a ProjectLink.
+     * @example
+     * // Create one ProjectLink
+     * const ProjectLink = await prisma.projectLink.create({
+     *   data: {
+     *     // ... data to create a ProjectLink
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectLinkCreateArgs>(args: SelectSubset<T, ProjectLinkCreateArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProjectLinks.
+     * @param {ProjectLinkCreateManyArgs} args - Arguments to create many ProjectLinks.
+     * @example
+     * // Create many ProjectLinks
+     * const projectLink = await prisma.projectLink.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectLinkCreateManyArgs>(args?: SelectSubset<T, ProjectLinkCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectLinks and returns the data saved in the database.
+     * @param {ProjectLinkCreateManyAndReturnArgs} args - Arguments to create many ProjectLinks.
+     * @example
+     * // Create many ProjectLinks
+     * const projectLink = await prisma.projectLink.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectLinks and only return the `id`
+     * const projectLinkWithIdOnly = await prisma.projectLink.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectLinkCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectLinkCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProjectLink.
+     * @param {ProjectLinkDeleteArgs} args - Arguments to delete one ProjectLink.
+     * @example
+     * // Delete one ProjectLink
+     * const ProjectLink = await prisma.projectLink.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectLink
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectLinkDeleteArgs>(args: SelectSubset<T, ProjectLinkDeleteArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProjectLink.
+     * @param {ProjectLinkUpdateArgs} args - Arguments to update one ProjectLink.
+     * @example
+     * // Update one ProjectLink
+     * const projectLink = await prisma.projectLink.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectLinkUpdateArgs>(args: SelectSubset<T, ProjectLinkUpdateArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProjectLinks.
+     * @param {ProjectLinkDeleteManyArgs} args - Arguments to filter ProjectLinks to delete.
+     * @example
+     * // Delete a few ProjectLinks
+     * const { count } = await prisma.projectLink.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectLinkDeleteManyArgs>(args?: SelectSubset<T, ProjectLinkDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectLinks
+     * const projectLink = await prisma.projectLink.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectLinkUpdateManyArgs>(args: SelectSubset<T, ProjectLinkUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectLinks and returns the data updated in the database.
+     * @param {ProjectLinkUpdateManyAndReturnArgs} args - Arguments to update many ProjectLinks.
+     * @example
+     * // Update many ProjectLinks
+     * const projectLink = await prisma.projectLink.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProjectLinks and only return the `id`
+     * const projectLinkWithIdOnly = await prisma.projectLink.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectLinkUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectLinkUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProjectLink.
+     * @param {ProjectLinkUpsertArgs} args - Arguments to update or create a ProjectLink.
+     * @example
+     * // Update or create a ProjectLink
+     * const projectLink = await prisma.projectLink.upsert({
+     *   create: {
+     *     // ... data to create a ProjectLink
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectLink we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectLinkUpsertArgs>(args: SelectSubset<T, ProjectLinkUpsertArgs<ExtArgs>>): Prisma__ProjectLinkClient<$Result.GetResult<Prisma.$ProjectLinkPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProjectLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkCountArgs} args - Arguments to filter ProjectLinks to count.
+     * @example
+     * // Count the number of ProjectLinks
+     * const count = await prisma.projectLink.count({
+     *   where: {
+     *     // ... the filter for the ProjectLinks we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectLinkCountArgs>(
+      args?: Subset<T, ProjectLinkCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectLinkCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectLink.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectLinkAggregateArgs>(args: Subset<T, ProjectLinkAggregateArgs>): Prisma.PrismaPromise<GetProjectLinkAggregateType<T>>
+
+    /**
+     * Group by ProjectLink.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectLinkGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectLinkGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectLinkGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectLinkGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectLinkGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectLinkGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectLink model
+   */
+  readonly fields: ProjectLinkFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectLink.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectLinkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectLink model
+   */
+  interface ProjectLinkFieldRefs {
+    readonly id: FieldRef<"ProjectLink", 'Int'>
+    readonly name: FieldRef<"ProjectLink", 'String'>
+    readonly url: FieldRef<"ProjectLink", 'String'>
+    readonly projectId: FieldRef<"ProjectLink", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectLink findUnique
+   */
+  export type ProjectLinkFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectLink to fetch.
+     */
+    where: ProjectLinkWhereUniqueInput
+  }
+
+  /**
+   * ProjectLink findUniqueOrThrow
+   */
+  export type ProjectLinkFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectLink to fetch.
+     */
+    where: ProjectLinkWhereUniqueInput
+  }
+
+  /**
+   * ProjectLink findFirst
+   */
+  export type ProjectLinkFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectLink to fetch.
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectLinks to fetch.
+     */
+    orderBy?: ProjectLinkOrderByWithRelationInput | ProjectLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectLinks.
+     */
+    cursor?: ProjectLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectLinks.
+     */
+    distinct?: ProjectLinkScalarFieldEnum | ProjectLinkScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectLink findFirstOrThrow
+   */
+  export type ProjectLinkFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectLink to fetch.
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectLinks to fetch.
+     */
+    orderBy?: ProjectLinkOrderByWithRelationInput | ProjectLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectLinks.
+     */
+    cursor?: ProjectLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectLinks.
+     */
+    distinct?: ProjectLinkScalarFieldEnum | ProjectLinkScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectLink findMany
+   */
+  export type ProjectLinkFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectLinks to fetch.
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectLinks to fetch.
+     */
+    orderBy?: ProjectLinkOrderByWithRelationInput | ProjectLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectLinks.
+     */
+    cursor?: ProjectLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectLinks.
+     */
+    skip?: number
+    distinct?: ProjectLinkScalarFieldEnum | ProjectLinkScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectLink create
+   */
+  export type ProjectLinkCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectLink.
+     */
+    data: XOR<ProjectLinkCreateInput, ProjectLinkUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectLink createMany
+   */
+  export type ProjectLinkCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectLinks.
+     */
+    data: ProjectLinkCreateManyInput | ProjectLinkCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectLink createManyAndReturn
+   */
+  export type ProjectLinkCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProjectLinks.
+     */
+    data: ProjectLinkCreateManyInput | ProjectLinkCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectLink update
+   */
+  export type ProjectLinkUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectLink.
+     */
+    data: XOR<ProjectLinkUpdateInput, ProjectLinkUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectLink to update.
+     */
+    where: ProjectLinkWhereUniqueInput
+  }
+
+  /**
+   * ProjectLink updateMany
+   */
+  export type ProjectLinkUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectLinks.
+     */
+    data: XOR<ProjectLinkUpdateManyMutationInput, ProjectLinkUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectLinks to update
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * Limit how many ProjectLinks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectLink updateManyAndReturn
+   */
+  export type ProjectLinkUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * The data used to update ProjectLinks.
+     */
+    data: XOR<ProjectLinkUpdateManyMutationInput, ProjectLinkUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectLinks to update
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * Limit how many ProjectLinks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectLink upsert
+   */
+  export type ProjectLinkUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectLink to update in case it exists.
+     */
+    where: ProjectLinkWhereUniqueInput
+    /**
+     * In case the ProjectLink found by the `where` argument doesn't exist, create a new ProjectLink with this data.
+     */
+    create: XOR<ProjectLinkCreateInput, ProjectLinkUncheckedCreateInput>
+    /**
+     * In case the ProjectLink was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectLinkUpdateInput, ProjectLinkUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectLink delete
+   */
+  export type ProjectLinkDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+    /**
+     * Filter which ProjectLink to delete.
+     */
+    where: ProjectLinkWhereUniqueInput
+  }
+
+  /**
+   * ProjectLink deleteMany
+   */
+  export type ProjectLinkDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectLinks to delete
+     */
+    where?: ProjectLinkWhereInput
+    /**
+     * Limit how many ProjectLinks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectLink without action
+   */
+  export type ProjectLinkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectLink
+     */
+    select?: ProjectLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectLink
+     */
+    omit?: ProjectLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectLinkInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CaseStudy
+   */
+
+  export type AggregateCaseStudy = {
+    _count: CaseStudyCountAggregateOutputType | null
+    _avg: CaseStudyAvgAggregateOutputType | null
+    _sum: CaseStudySumAggregateOutputType | null
+    _min: CaseStudyMinAggregateOutputType | null
+    _max: CaseStudyMaxAggregateOutputType | null
+  }
+
+  export type CaseStudyAvgAggregateOutputType = {
+    id: number | null
+    views: number | null
+  }
+
+  export type CaseStudySumAggregateOutputType = {
+    id: number | null
+    views: number | null
+  }
+
+  export type CaseStudyMinAggregateOutputType = {
+    id: number | null
+    title: string | null
+    content: string | null
+    poster: string | null
+    excerpt: string | null
+    views: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CaseStudyMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    content: string | null
+    poster: string | null
+    excerpt: string | null
+    views: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CaseStudyCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    poster: number
+    excerpt: number
+    views: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CaseStudyAvgAggregateInputType = {
+    id?: true
+    views?: true
+  }
+
+  export type CaseStudySumAggregateInputType = {
+    id?: true
+    views?: true
+  }
+
+  export type CaseStudyMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    poster?: true
+    excerpt?: true
+    views?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CaseStudyMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    poster?: true
+    excerpt?: true
+    views?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CaseStudyCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    poster?: true
+    excerpt?: true
+    views?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CaseStudyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudy to aggregate.
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudies to fetch.
+     */
+    orderBy?: CaseStudyOrderByWithRelationInput | CaseStudyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CaseStudyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CaseStudies
+    **/
+    _count?: true | CaseStudyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CaseStudyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CaseStudySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CaseStudyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CaseStudyMaxAggregateInputType
+  }
+
+  export type GetCaseStudyAggregateType<T extends CaseStudyAggregateArgs> = {
+        [P in keyof T & keyof AggregateCaseStudy]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCaseStudy[P]>
+      : GetScalarType<T[P], AggregateCaseStudy[P]>
+  }
+
+
+
+
+  export type CaseStudyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyWhereInput
+    orderBy?: CaseStudyOrderByWithAggregationInput | CaseStudyOrderByWithAggregationInput[]
+    by: CaseStudyScalarFieldEnum[] | CaseStudyScalarFieldEnum
+    having?: CaseStudyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CaseStudyCountAggregateInputType | true
+    _avg?: CaseStudyAvgAggregateInputType
+    _sum?: CaseStudySumAggregateInputType
+    _min?: CaseStudyMinAggregateInputType
+    _max?: CaseStudyMaxAggregateInputType
+  }
+
+  export type CaseStudyGroupByOutputType = {
+    id: number
+    title: string
+    content: string
+    poster: string | null
+    excerpt: string | null
+    views: number
+    createdAt: Date
+    updatedAt: Date
+    _count: CaseStudyCountAggregateOutputType | null
+    _avg: CaseStudyAvgAggregateOutputType | null
+    _sum: CaseStudySumAggregateOutputType | null
+    _min: CaseStudyMinAggregateOutputType | null
+    _max: CaseStudyMaxAggregateOutputType | null
+  }
+
+  type GetCaseStudyGroupByPayload<T extends CaseStudyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CaseStudyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CaseStudyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CaseStudyGroupByOutputType[P]>
+            : GetScalarType<T[P], CaseStudyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CaseStudySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    links?: boolean | CaseStudy$linksArgs<ExtArgs>
+    technologies?: boolean | CaseStudy$technologiesArgs<ExtArgs>
+    galleries?: boolean | CaseStudy$galleriesArgs<ExtArgs>
+    _count?: boolean | CaseStudyCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudy"]>
+
+  export type CaseStudySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["caseStudy"]>
+
+  export type CaseStudySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["caseStudy"]>
+
+  export type CaseStudySelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    poster?: boolean
+    excerpt?: boolean
+    views?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CaseStudyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "poster" | "excerpt" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
+  export type CaseStudyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    links?: boolean | CaseStudy$linksArgs<ExtArgs>
+    technologies?: boolean | CaseStudy$technologiesArgs<ExtArgs>
+    galleries?: boolean | CaseStudy$galleriesArgs<ExtArgs>
+    _count?: boolean | CaseStudyCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CaseStudyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $CaseStudyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CaseStudy"
+    objects: {
+      links: Prisma.$CaseStudyLinkPayload<ExtArgs>[]
+      technologies: Prisma.$CaseStudyTechnologyPayload<ExtArgs>[]
+      galleries: Prisma.$CaseStudyGalleryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      title: string
+      content: string
+      poster: string | null
+      excerpt: string | null
+      views: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["caseStudy"]>
+    composites: {}
+  }
+
+  type CaseStudyGetPayload<S extends boolean | null | undefined | CaseStudyDefaultArgs> = $Result.GetResult<Prisma.$CaseStudyPayload, S>
+
+  type CaseStudyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CaseStudyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CaseStudyCountAggregateInputType | true
+    }
+
+  export interface CaseStudyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CaseStudy'], meta: { name: 'CaseStudy' } }
+    /**
+     * Find zero or one CaseStudy that matches the filter.
+     * @param {CaseStudyFindUniqueArgs} args - Arguments to find a CaseStudy
+     * @example
+     * // Get one CaseStudy
+     * const caseStudy = await prisma.caseStudy.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CaseStudyFindUniqueArgs>(args: SelectSubset<T, CaseStudyFindUniqueArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CaseStudy that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CaseStudyFindUniqueOrThrowArgs} args - Arguments to find a CaseStudy
+     * @example
+     * // Get one CaseStudy
+     * const caseStudy = await prisma.caseStudy.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CaseStudyFindUniqueOrThrowArgs>(args: SelectSubset<T, CaseStudyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudy that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyFindFirstArgs} args - Arguments to find a CaseStudy
+     * @example
+     * // Get one CaseStudy
+     * const caseStudy = await prisma.caseStudy.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CaseStudyFindFirstArgs>(args?: SelectSubset<T, CaseStudyFindFirstArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudy that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyFindFirstOrThrowArgs} args - Arguments to find a CaseStudy
+     * @example
+     * // Get one CaseStudy
+     * const caseStudy = await prisma.caseStudy.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CaseStudyFindFirstOrThrowArgs>(args?: SelectSubset<T, CaseStudyFindFirstOrThrowArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CaseStudies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CaseStudies
+     * const caseStudies = await prisma.caseStudy.findMany()
+     * 
+     * // Get first 10 CaseStudies
+     * const caseStudies = await prisma.caseStudy.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const caseStudyWithIdOnly = await prisma.caseStudy.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CaseStudyFindManyArgs>(args?: SelectSubset<T, CaseStudyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CaseStudy.
+     * @param {CaseStudyCreateArgs} args - Arguments to create a CaseStudy.
+     * @example
+     * // Create one CaseStudy
+     * const CaseStudy = await prisma.caseStudy.create({
+     *   data: {
+     *     // ... data to create a CaseStudy
+     *   }
+     * })
+     * 
+     */
+    create<T extends CaseStudyCreateArgs>(args: SelectSubset<T, CaseStudyCreateArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CaseStudies.
+     * @param {CaseStudyCreateManyArgs} args - Arguments to create many CaseStudies.
+     * @example
+     * // Create many CaseStudies
+     * const caseStudy = await prisma.caseStudy.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CaseStudyCreateManyArgs>(args?: SelectSubset<T, CaseStudyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CaseStudies and returns the data saved in the database.
+     * @param {CaseStudyCreateManyAndReturnArgs} args - Arguments to create many CaseStudies.
+     * @example
+     * // Create many CaseStudies
+     * const caseStudy = await prisma.caseStudy.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CaseStudies and only return the `id`
+     * const caseStudyWithIdOnly = await prisma.caseStudy.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CaseStudyCreateManyAndReturnArgs>(args?: SelectSubset<T, CaseStudyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CaseStudy.
+     * @param {CaseStudyDeleteArgs} args - Arguments to delete one CaseStudy.
+     * @example
+     * // Delete one CaseStudy
+     * const CaseStudy = await prisma.caseStudy.delete({
+     *   where: {
+     *     // ... filter to delete one CaseStudy
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CaseStudyDeleteArgs>(args: SelectSubset<T, CaseStudyDeleteArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CaseStudy.
+     * @param {CaseStudyUpdateArgs} args - Arguments to update one CaseStudy.
+     * @example
+     * // Update one CaseStudy
+     * const caseStudy = await prisma.caseStudy.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CaseStudyUpdateArgs>(args: SelectSubset<T, CaseStudyUpdateArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CaseStudies.
+     * @param {CaseStudyDeleteManyArgs} args - Arguments to filter CaseStudies to delete.
+     * @example
+     * // Delete a few CaseStudies
+     * const { count } = await prisma.caseStudy.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CaseStudyDeleteManyArgs>(args?: SelectSubset<T, CaseStudyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CaseStudies
+     * const caseStudy = await prisma.caseStudy.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CaseStudyUpdateManyArgs>(args: SelectSubset<T, CaseStudyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudies and returns the data updated in the database.
+     * @param {CaseStudyUpdateManyAndReturnArgs} args - Arguments to update many CaseStudies.
+     * @example
+     * // Update many CaseStudies
+     * const caseStudy = await prisma.caseStudy.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CaseStudies and only return the `id`
+     * const caseStudyWithIdOnly = await prisma.caseStudy.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CaseStudyUpdateManyAndReturnArgs>(args: SelectSubset<T, CaseStudyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CaseStudy.
+     * @param {CaseStudyUpsertArgs} args - Arguments to update or create a CaseStudy.
+     * @example
+     * // Update or create a CaseStudy
+     * const caseStudy = await prisma.caseStudy.upsert({
+     *   create: {
+     *     // ... data to create a CaseStudy
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CaseStudy we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CaseStudyUpsertArgs>(args: SelectSubset<T, CaseStudyUpsertArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CaseStudies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyCountArgs} args - Arguments to filter CaseStudies to count.
+     * @example
+     * // Count the number of CaseStudies
+     * const count = await prisma.caseStudy.count({
+     *   where: {
+     *     // ... the filter for the CaseStudies we want to count
+     *   }
+     * })
+    **/
+    count<T extends CaseStudyCountArgs>(
+      args?: Subset<T, CaseStudyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CaseStudyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CaseStudy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CaseStudyAggregateArgs>(args: Subset<T, CaseStudyAggregateArgs>): Prisma.PrismaPromise<GetCaseStudyAggregateType<T>>
+
+    /**
+     * Group by CaseStudy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CaseStudyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CaseStudyGroupByArgs['orderBy'] }
+        : { orderBy?: CaseStudyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CaseStudyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCaseStudyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CaseStudy model
+   */
+  readonly fields: CaseStudyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CaseStudy.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CaseStudyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    links<T extends CaseStudy$linksArgs<ExtArgs> = {}>(args?: Subset<T, CaseStudy$linksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    technologies<T extends CaseStudy$technologiesArgs<ExtArgs> = {}>(args?: Subset<T, CaseStudy$technologiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    galleries<T extends CaseStudy$galleriesArgs<ExtArgs> = {}>(args?: Subset<T, CaseStudy$galleriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CaseStudy model
+   */
+  interface CaseStudyFieldRefs {
+    readonly id: FieldRef<"CaseStudy", 'Int'>
+    readonly title: FieldRef<"CaseStudy", 'String'>
+    readonly content: FieldRef<"CaseStudy", 'String'>
+    readonly poster: FieldRef<"CaseStudy", 'String'>
+    readonly excerpt: FieldRef<"CaseStudy", 'String'>
+    readonly views: FieldRef<"CaseStudy", 'Int'>
+    readonly createdAt: FieldRef<"CaseStudy", 'DateTime'>
+    readonly updatedAt: FieldRef<"CaseStudy", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CaseStudy findUnique
+   */
+  export type CaseStudyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudy to fetch.
+     */
+    where: CaseStudyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudy findUniqueOrThrow
+   */
+  export type CaseStudyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudy to fetch.
+     */
+    where: CaseStudyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudy findFirst
+   */
+  export type CaseStudyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudy to fetch.
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudies to fetch.
+     */
+    orderBy?: CaseStudyOrderByWithRelationInput | CaseStudyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudies.
+     */
+    cursor?: CaseStudyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudies.
+     */
+    distinct?: CaseStudyScalarFieldEnum | CaseStudyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudy findFirstOrThrow
+   */
+  export type CaseStudyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudy to fetch.
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudies to fetch.
+     */
+    orderBy?: CaseStudyOrderByWithRelationInput | CaseStudyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudies.
+     */
+    cursor?: CaseStudyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudies.
+     */
+    distinct?: CaseStudyScalarFieldEnum | CaseStudyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudy findMany
+   */
+  export type CaseStudyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudies to fetch.
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudies to fetch.
+     */
+    orderBy?: CaseStudyOrderByWithRelationInput | CaseStudyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CaseStudies.
+     */
+    cursor?: CaseStudyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudies.
+     */
+    skip?: number
+    distinct?: CaseStudyScalarFieldEnum | CaseStudyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudy create
+   */
+  export type CaseStudyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CaseStudy.
+     */
+    data: XOR<CaseStudyCreateInput, CaseStudyUncheckedCreateInput>
+  }
+
+  /**
+   * CaseStudy createMany
+   */
+  export type CaseStudyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CaseStudies.
+     */
+    data: CaseStudyCreateManyInput | CaseStudyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CaseStudy createManyAndReturn
+   */
+  export type CaseStudyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * The data used to create many CaseStudies.
+     */
+    data: CaseStudyCreateManyInput | CaseStudyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CaseStudy update
+   */
+  export type CaseStudyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CaseStudy.
+     */
+    data: XOR<CaseStudyUpdateInput, CaseStudyUncheckedUpdateInput>
+    /**
+     * Choose, which CaseStudy to update.
+     */
+    where: CaseStudyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudy updateMany
+   */
+  export type CaseStudyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CaseStudies.
+     */
+    data: XOR<CaseStudyUpdateManyMutationInput, CaseStudyUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudies to update
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * Limit how many CaseStudies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudy updateManyAndReturn
+   */
+  export type CaseStudyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * The data used to update CaseStudies.
+     */
+    data: XOR<CaseStudyUpdateManyMutationInput, CaseStudyUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudies to update
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * Limit how many CaseStudies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudy upsert
+   */
+  export type CaseStudyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CaseStudy to update in case it exists.
+     */
+    where: CaseStudyWhereUniqueInput
+    /**
+     * In case the CaseStudy found by the `where` argument doesn't exist, create a new CaseStudy with this data.
+     */
+    create: XOR<CaseStudyCreateInput, CaseStudyUncheckedCreateInput>
+    /**
+     * In case the CaseStudy was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CaseStudyUpdateInput, CaseStudyUncheckedUpdateInput>
+  }
+
+  /**
+   * CaseStudy delete
+   */
+  export type CaseStudyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+    /**
+     * Filter which CaseStudy to delete.
+     */
+    where: CaseStudyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudy deleteMany
+   */
+  export type CaseStudyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudies to delete
+     */
+    where?: CaseStudyWhereInput
+    /**
+     * Limit how many CaseStudies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudy.links
+   */
+  export type CaseStudy$linksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    where?: CaseStudyLinkWhereInput
+    orderBy?: CaseStudyLinkOrderByWithRelationInput | CaseStudyLinkOrderByWithRelationInput[]
+    cursor?: CaseStudyLinkWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseStudyLinkScalarFieldEnum | CaseStudyLinkScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudy.technologies
+   */
+  export type CaseStudy$technologiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    where?: CaseStudyTechnologyWhereInput
+    orderBy?: CaseStudyTechnologyOrderByWithRelationInput | CaseStudyTechnologyOrderByWithRelationInput[]
+    cursor?: CaseStudyTechnologyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseStudyTechnologyScalarFieldEnum | CaseStudyTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudy.galleries
+   */
+  export type CaseStudy$galleriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    where?: CaseStudyGalleryWhereInput
+    orderBy?: CaseStudyGalleryOrderByWithRelationInput | CaseStudyGalleryOrderByWithRelationInput[]
+    cursor?: CaseStudyGalleryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseStudyGalleryScalarFieldEnum | CaseStudyGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudy without action
+   */
+  export type CaseStudyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudy
+     */
+    select?: CaseStudySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudy
+     */
+    omit?: CaseStudyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CaseStudyGallery
+   */
+
+  export type AggregateCaseStudyGallery = {
+    _count: CaseStudyGalleryCountAggregateOutputType | null
+    _avg: CaseStudyGalleryAvgAggregateOutputType | null
+    _sum: CaseStudyGallerySumAggregateOutputType | null
+    _min: CaseStudyGalleryMinAggregateOutputType | null
+    _max: CaseStudyGalleryMaxAggregateOutputType | null
+  }
+
+  export type CaseStudyGalleryAvgAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyGallerySumAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyGalleryMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyGalleryMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyGalleryCountAggregateOutputType = {
+    id: number
+    url: number
+    caseStudyId: number
+    _all: number
+  }
+
+
+  export type CaseStudyGalleryAvgAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyGallerySumAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyGalleryMinAggregateInputType = {
+    id?: true
+    url?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyGalleryMaxAggregateInputType = {
+    id?: true
+    url?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyGalleryCountAggregateInputType = {
+    id?: true
+    url?: true
+    caseStudyId?: true
+    _all?: true
+  }
+
+  export type CaseStudyGalleryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudyGallery to aggregate.
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyGalleries to fetch.
+     */
+    orderBy?: CaseStudyGalleryOrderByWithRelationInput | CaseStudyGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CaseStudyGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyGalleries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CaseStudyGalleries
+    **/
+    _count?: true | CaseStudyGalleryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CaseStudyGalleryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CaseStudyGallerySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CaseStudyGalleryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CaseStudyGalleryMaxAggregateInputType
+  }
+
+  export type GetCaseStudyGalleryAggregateType<T extends CaseStudyGalleryAggregateArgs> = {
+        [P in keyof T & keyof AggregateCaseStudyGallery]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCaseStudyGallery[P]>
+      : GetScalarType<T[P], AggregateCaseStudyGallery[P]>
+  }
+
+
+
+
+  export type CaseStudyGalleryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyGalleryWhereInput
+    orderBy?: CaseStudyGalleryOrderByWithAggregationInput | CaseStudyGalleryOrderByWithAggregationInput[]
+    by: CaseStudyGalleryScalarFieldEnum[] | CaseStudyGalleryScalarFieldEnum
+    having?: CaseStudyGalleryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CaseStudyGalleryCountAggregateInputType | true
+    _avg?: CaseStudyGalleryAvgAggregateInputType
+    _sum?: CaseStudyGallerySumAggregateInputType
+    _min?: CaseStudyGalleryMinAggregateInputType
+    _max?: CaseStudyGalleryMaxAggregateInputType
+  }
+
+  export type CaseStudyGalleryGroupByOutputType = {
+    id: number
+    url: string
+    caseStudyId: number
+    _count: CaseStudyGalleryCountAggregateOutputType | null
+    _avg: CaseStudyGalleryAvgAggregateOutputType | null
+    _sum: CaseStudyGallerySumAggregateOutputType | null
+    _min: CaseStudyGalleryMinAggregateOutputType | null
+    _max: CaseStudyGalleryMaxAggregateOutputType | null
+  }
+
+  type GetCaseStudyGalleryGroupByPayload<T extends CaseStudyGalleryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CaseStudyGalleryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CaseStudyGalleryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CaseStudyGalleryGroupByOutputType[P]>
+            : GetScalarType<T[P], CaseStudyGalleryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CaseStudyGallerySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyGallery"]>
+
+  export type CaseStudyGallerySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyGallery"]>
+
+  export type CaseStudyGallerySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyGallery"]>
+
+  export type CaseStudyGallerySelectScalar = {
+    id?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+  }
+
+  export type CaseStudyGalleryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "caseStudyId", ExtArgs["result"]["caseStudyGallery"]>
+  export type CaseStudyGalleryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyGalleryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyGalleryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }
+
+  export type $CaseStudyGalleryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CaseStudyGallery"
+    objects: {
+      caseStudy: Prisma.$CaseStudyPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      caseStudyId: number
+    }, ExtArgs["result"]["caseStudyGallery"]>
+    composites: {}
+  }
+
+  type CaseStudyGalleryGetPayload<S extends boolean | null | undefined | CaseStudyGalleryDefaultArgs> = $Result.GetResult<Prisma.$CaseStudyGalleryPayload, S>
+
+  type CaseStudyGalleryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CaseStudyGalleryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CaseStudyGalleryCountAggregateInputType | true
+    }
+
+  export interface CaseStudyGalleryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CaseStudyGallery'], meta: { name: 'CaseStudyGallery' } }
+    /**
+     * Find zero or one CaseStudyGallery that matches the filter.
+     * @param {CaseStudyGalleryFindUniqueArgs} args - Arguments to find a CaseStudyGallery
+     * @example
+     * // Get one CaseStudyGallery
+     * const caseStudyGallery = await prisma.caseStudyGallery.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CaseStudyGalleryFindUniqueArgs>(args: SelectSubset<T, CaseStudyGalleryFindUniqueArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CaseStudyGallery that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CaseStudyGalleryFindUniqueOrThrowArgs} args - Arguments to find a CaseStudyGallery
+     * @example
+     * // Get one CaseStudyGallery
+     * const caseStudyGallery = await prisma.caseStudyGallery.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CaseStudyGalleryFindUniqueOrThrowArgs>(args: SelectSubset<T, CaseStudyGalleryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudyGallery that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryFindFirstArgs} args - Arguments to find a CaseStudyGallery
+     * @example
+     * // Get one CaseStudyGallery
+     * const caseStudyGallery = await prisma.caseStudyGallery.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CaseStudyGalleryFindFirstArgs>(args?: SelectSubset<T, CaseStudyGalleryFindFirstArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudyGallery that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryFindFirstOrThrowArgs} args - Arguments to find a CaseStudyGallery
+     * @example
+     * // Get one CaseStudyGallery
+     * const caseStudyGallery = await prisma.caseStudyGallery.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CaseStudyGalleryFindFirstOrThrowArgs>(args?: SelectSubset<T, CaseStudyGalleryFindFirstOrThrowArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CaseStudyGalleries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CaseStudyGalleries
+     * const caseStudyGalleries = await prisma.caseStudyGallery.findMany()
+     * 
+     * // Get first 10 CaseStudyGalleries
+     * const caseStudyGalleries = await prisma.caseStudyGallery.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const caseStudyGalleryWithIdOnly = await prisma.caseStudyGallery.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CaseStudyGalleryFindManyArgs>(args?: SelectSubset<T, CaseStudyGalleryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CaseStudyGallery.
+     * @param {CaseStudyGalleryCreateArgs} args - Arguments to create a CaseStudyGallery.
+     * @example
+     * // Create one CaseStudyGallery
+     * const CaseStudyGallery = await prisma.caseStudyGallery.create({
+     *   data: {
+     *     // ... data to create a CaseStudyGallery
+     *   }
+     * })
+     * 
+     */
+    create<T extends CaseStudyGalleryCreateArgs>(args: SelectSubset<T, CaseStudyGalleryCreateArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CaseStudyGalleries.
+     * @param {CaseStudyGalleryCreateManyArgs} args - Arguments to create many CaseStudyGalleries.
+     * @example
+     * // Create many CaseStudyGalleries
+     * const caseStudyGallery = await prisma.caseStudyGallery.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CaseStudyGalleryCreateManyArgs>(args?: SelectSubset<T, CaseStudyGalleryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CaseStudyGalleries and returns the data saved in the database.
+     * @param {CaseStudyGalleryCreateManyAndReturnArgs} args - Arguments to create many CaseStudyGalleries.
+     * @example
+     * // Create many CaseStudyGalleries
+     * const caseStudyGallery = await prisma.caseStudyGallery.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CaseStudyGalleries and only return the `id`
+     * const caseStudyGalleryWithIdOnly = await prisma.caseStudyGallery.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CaseStudyGalleryCreateManyAndReturnArgs>(args?: SelectSubset<T, CaseStudyGalleryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CaseStudyGallery.
+     * @param {CaseStudyGalleryDeleteArgs} args - Arguments to delete one CaseStudyGallery.
+     * @example
+     * // Delete one CaseStudyGallery
+     * const CaseStudyGallery = await prisma.caseStudyGallery.delete({
+     *   where: {
+     *     // ... filter to delete one CaseStudyGallery
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CaseStudyGalleryDeleteArgs>(args: SelectSubset<T, CaseStudyGalleryDeleteArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CaseStudyGallery.
+     * @param {CaseStudyGalleryUpdateArgs} args - Arguments to update one CaseStudyGallery.
+     * @example
+     * // Update one CaseStudyGallery
+     * const caseStudyGallery = await prisma.caseStudyGallery.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CaseStudyGalleryUpdateArgs>(args: SelectSubset<T, CaseStudyGalleryUpdateArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CaseStudyGalleries.
+     * @param {CaseStudyGalleryDeleteManyArgs} args - Arguments to filter CaseStudyGalleries to delete.
+     * @example
+     * // Delete a few CaseStudyGalleries
+     * const { count } = await prisma.caseStudyGallery.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CaseStudyGalleryDeleteManyArgs>(args?: SelectSubset<T, CaseStudyGalleryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudyGalleries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CaseStudyGalleries
+     * const caseStudyGallery = await prisma.caseStudyGallery.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CaseStudyGalleryUpdateManyArgs>(args: SelectSubset<T, CaseStudyGalleryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudyGalleries and returns the data updated in the database.
+     * @param {CaseStudyGalleryUpdateManyAndReturnArgs} args - Arguments to update many CaseStudyGalleries.
+     * @example
+     * // Update many CaseStudyGalleries
+     * const caseStudyGallery = await prisma.caseStudyGallery.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CaseStudyGalleries and only return the `id`
+     * const caseStudyGalleryWithIdOnly = await prisma.caseStudyGallery.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CaseStudyGalleryUpdateManyAndReturnArgs>(args: SelectSubset<T, CaseStudyGalleryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CaseStudyGallery.
+     * @param {CaseStudyGalleryUpsertArgs} args - Arguments to update or create a CaseStudyGallery.
+     * @example
+     * // Update or create a CaseStudyGallery
+     * const caseStudyGallery = await prisma.caseStudyGallery.upsert({
+     *   create: {
+     *     // ... data to create a CaseStudyGallery
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CaseStudyGallery we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CaseStudyGalleryUpsertArgs>(args: SelectSubset<T, CaseStudyGalleryUpsertArgs<ExtArgs>>): Prisma__CaseStudyGalleryClient<$Result.GetResult<Prisma.$CaseStudyGalleryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CaseStudyGalleries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryCountArgs} args - Arguments to filter CaseStudyGalleries to count.
+     * @example
+     * // Count the number of CaseStudyGalleries
+     * const count = await prisma.caseStudyGallery.count({
+     *   where: {
+     *     // ... the filter for the CaseStudyGalleries we want to count
+     *   }
+     * })
+    **/
+    count<T extends CaseStudyGalleryCountArgs>(
+      args?: Subset<T, CaseStudyGalleryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CaseStudyGalleryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CaseStudyGallery.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CaseStudyGalleryAggregateArgs>(args: Subset<T, CaseStudyGalleryAggregateArgs>): Prisma.PrismaPromise<GetCaseStudyGalleryAggregateType<T>>
+
+    /**
+     * Group by CaseStudyGallery.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyGalleryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CaseStudyGalleryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CaseStudyGalleryGroupByArgs['orderBy'] }
+        : { orderBy?: CaseStudyGalleryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CaseStudyGalleryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCaseStudyGalleryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CaseStudyGallery model
+   */
+  readonly fields: CaseStudyGalleryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CaseStudyGallery.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CaseStudyGalleryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    caseStudy<T extends CaseStudyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CaseStudyDefaultArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CaseStudyGallery model
+   */
+  interface CaseStudyGalleryFieldRefs {
+    readonly id: FieldRef<"CaseStudyGallery", 'Int'>
+    readonly url: FieldRef<"CaseStudyGallery", 'String'>
+    readonly caseStudyId: FieldRef<"CaseStudyGallery", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CaseStudyGallery findUnique
+   */
+  export type CaseStudyGalleryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyGallery to fetch.
+     */
+    where: CaseStudyGalleryWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyGallery findUniqueOrThrow
+   */
+  export type CaseStudyGalleryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyGallery to fetch.
+     */
+    where: CaseStudyGalleryWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyGallery findFirst
+   */
+  export type CaseStudyGalleryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyGallery to fetch.
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyGalleries to fetch.
+     */
+    orderBy?: CaseStudyGalleryOrderByWithRelationInput | CaseStudyGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudyGalleries.
+     */
+    cursor?: CaseStudyGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyGalleries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudyGalleries.
+     */
+    distinct?: CaseStudyGalleryScalarFieldEnum | CaseStudyGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyGallery findFirstOrThrow
+   */
+  export type CaseStudyGalleryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyGallery to fetch.
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyGalleries to fetch.
+     */
+    orderBy?: CaseStudyGalleryOrderByWithRelationInput | CaseStudyGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudyGalleries.
+     */
+    cursor?: CaseStudyGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyGalleries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudyGalleries.
+     */
+    distinct?: CaseStudyGalleryScalarFieldEnum | CaseStudyGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyGallery findMany
+   */
+  export type CaseStudyGalleryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyGalleries to fetch.
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyGalleries to fetch.
+     */
+    orderBy?: CaseStudyGalleryOrderByWithRelationInput | CaseStudyGalleryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CaseStudyGalleries.
+     */
+    cursor?: CaseStudyGalleryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyGalleries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyGalleries.
+     */
+    skip?: number
+    distinct?: CaseStudyGalleryScalarFieldEnum | CaseStudyGalleryScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyGallery create
+   */
+  export type CaseStudyGalleryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CaseStudyGallery.
+     */
+    data: XOR<CaseStudyGalleryCreateInput, CaseStudyGalleryUncheckedCreateInput>
+  }
+
+  /**
+   * CaseStudyGallery createMany
+   */
+  export type CaseStudyGalleryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CaseStudyGalleries.
+     */
+    data: CaseStudyGalleryCreateManyInput | CaseStudyGalleryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CaseStudyGallery createManyAndReturn
+   */
+  export type CaseStudyGalleryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * The data used to create many CaseStudyGalleries.
+     */
+    data: CaseStudyGalleryCreateManyInput | CaseStudyGalleryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyGallery update
+   */
+  export type CaseStudyGalleryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CaseStudyGallery.
+     */
+    data: XOR<CaseStudyGalleryUpdateInput, CaseStudyGalleryUncheckedUpdateInput>
+    /**
+     * Choose, which CaseStudyGallery to update.
+     */
+    where: CaseStudyGalleryWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyGallery updateMany
+   */
+  export type CaseStudyGalleryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CaseStudyGalleries.
+     */
+    data: XOR<CaseStudyGalleryUpdateManyMutationInput, CaseStudyGalleryUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudyGalleries to update
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * Limit how many CaseStudyGalleries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudyGallery updateManyAndReturn
+   */
+  export type CaseStudyGalleryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * The data used to update CaseStudyGalleries.
+     */
+    data: XOR<CaseStudyGalleryUpdateManyMutationInput, CaseStudyGalleryUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudyGalleries to update
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * Limit how many CaseStudyGalleries to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyGallery upsert
+   */
+  export type CaseStudyGalleryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CaseStudyGallery to update in case it exists.
+     */
+    where: CaseStudyGalleryWhereUniqueInput
+    /**
+     * In case the CaseStudyGallery found by the `where` argument doesn't exist, create a new CaseStudyGallery with this data.
+     */
+    create: XOR<CaseStudyGalleryCreateInput, CaseStudyGalleryUncheckedCreateInput>
+    /**
+     * In case the CaseStudyGallery was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CaseStudyGalleryUpdateInput, CaseStudyGalleryUncheckedUpdateInput>
+  }
+
+  /**
+   * CaseStudyGallery delete
+   */
+  export type CaseStudyGalleryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+    /**
+     * Filter which CaseStudyGallery to delete.
+     */
+    where: CaseStudyGalleryWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyGallery deleteMany
+   */
+  export type CaseStudyGalleryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudyGalleries to delete
+     */
+    where?: CaseStudyGalleryWhereInput
+    /**
+     * Limit how many CaseStudyGalleries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudyGallery without action
+   */
+  export type CaseStudyGalleryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyGallery
+     */
+    select?: CaseStudyGallerySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyGallery
+     */
+    omit?: CaseStudyGalleryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyGalleryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CaseStudyLink
+   */
+
+  export type AggregateCaseStudyLink = {
+    _count: CaseStudyLinkCountAggregateOutputType | null
+    _avg: CaseStudyLinkAvgAggregateOutputType | null
+    _sum: CaseStudyLinkSumAggregateOutputType | null
+    _min: CaseStudyLinkMinAggregateOutputType | null
+    _max: CaseStudyLinkMaxAggregateOutputType | null
+  }
+
+  export type CaseStudyLinkAvgAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyLinkSumAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyLinkMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    url: string | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyLinkMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    url: string | null
+    caseStudyId: number | null
+  }
+
+  export type CaseStudyLinkCountAggregateOutputType = {
+    id: number
+    name: number
+    url: number
+    caseStudyId: number
+    _all: number
+  }
+
+
+  export type CaseStudyLinkAvgAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyLinkSumAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyLinkMinAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyLinkMaxAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    caseStudyId?: true
+  }
+
+  export type CaseStudyLinkCountAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    caseStudyId?: true
+    _all?: true
+  }
+
+  export type CaseStudyLinkAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudyLink to aggregate.
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyLinks to fetch.
+     */
+    orderBy?: CaseStudyLinkOrderByWithRelationInput | CaseStudyLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CaseStudyLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CaseStudyLinks
+    **/
+    _count?: true | CaseStudyLinkCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CaseStudyLinkAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CaseStudyLinkSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CaseStudyLinkMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CaseStudyLinkMaxAggregateInputType
+  }
+
+  export type GetCaseStudyLinkAggregateType<T extends CaseStudyLinkAggregateArgs> = {
+        [P in keyof T & keyof AggregateCaseStudyLink]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCaseStudyLink[P]>
+      : GetScalarType<T[P], AggregateCaseStudyLink[P]>
+  }
+
+
+
+
+  export type CaseStudyLinkGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyLinkWhereInput
+    orderBy?: CaseStudyLinkOrderByWithAggregationInput | CaseStudyLinkOrderByWithAggregationInput[]
+    by: CaseStudyLinkScalarFieldEnum[] | CaseStudyLinkScalarFieldEnum
+    having?: CaseStudyLinkScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CaseStudyLinkCountAggregateInputType | true
+    _avg?: CaseStudyLinkAvgAggregateInputType
+    _sum?: CaseStudyLinkSumAggregateInputType
+    _min?: CaseStudyLinkMinAggregateInputType
+    _max?: CaseStudyLinkMaxAggregateInputType
+  }
+
+  export type CaseStudyLinkGroupByOutputType = {
+    id: number
+    name: string
+    url: string
+    caseStudyId: number
+    _count: CaseStudyLinkCountAggregateOutputType | null
+    _avg: CaseStudyLinkAvgAggregateOutputType | null
+    _sum: CaseStudyLinkSumAggregateOutputType | null
+    _min: CaseStudyLinkMinAggregateOutputType | null
+    _max: CaseStudyLinkMaxAggregateOutputType | null
+  }
+
+  type GetCaseStudyLinkGroupByPayload<T extends CaseStudyLinkGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CaseStudyLinkGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CaseStudyLinkGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CaseStudyLinkGroupByOutputType[P]>
+            : GetScalarType<T[P], CaseStudyLinkGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CaseStudyLinkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyLink"]>
+
+  export type CaseStudyLinkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyLink"]>
+
+  export type CaseStudyLinkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyLink"]>
+
+  export type CaseStudyLinkSelectScalar = {
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    caseStudyId?: boolean
+  }
+
+  export type CaseStudyLinkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "url" | "caseStudyId", ExtArgs["result"]["caseStudyLink"]>
+  export type CaseStudyLinkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyLinkIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyLinkIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+  }
+
+  export type $CaseStudyLinkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CaseStudyLink"
+    objects: {
+      caseStudy: Prisma.$CaseStudyPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      url: string
+      caseStudyId: number
+    }, ExtArgs["result"]["caseStudyLink"]>
+    composites: {}
+  }
+
+  type CaseStudyLinkGetPayload<S extends boolean | null | undefined | CaseStudyLinkDefaultArgs> = $Result.GetResult<Prisma.$CaseStudyLinkPayload, S>
+
+  type CaseStudyLinkCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CaseStudyLinkFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CaseStudyLinkCountAggregateInputType | true
+    }
+
+  export interface CaseStudyLinkDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CaseStudyLink'], meta: { name: 'CaseStudyLink' } }
+    /**
+     * Find zero or one CaseStudyLink that matches the filter.
+     * @param {CaseStudyLinkFindUniqueArgs} args - Arguments to find a CaseStudyLink
+     * @example
+     * // Get one CaseStudyLink
+     * const caseStudyLink = await prisma.caseStudyLink.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CaseStudyLinkFindUniqueArgs>(args: SelectSubset<T, CaseStudyLinkFindUniqueArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CaseStudyLink that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CaseStudyLinkFindUniqueOrThrowArgs} args - Arguments to find a CaseStudyLink
+     * @example
+     * // Get one CaseStudyLink
+     * const caseStudyLink = await prisma.caseStudyLink.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CaseStudyLinkFindUniqueOrThrowArgs>(args: SelectSubset<T, CaseStudyLinkFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudyLink that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkFindFirstArgs} args - Arguments to find a CaseStudyLink
+     * @example
+     * // Get one CaseStudyLink
+     * const caseStudyLink = await prisma.caseStudyLink.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CaseStudyLinkFindFirstArgs>(args?: SelectSubset<T, CaseStudyLinkFindFirstArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudyLink that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkFindFirstOrThrowArgs} args - Arguments to find a CaseStudyLink
+     * @example
+     * // Get one CaseStudyLink
+     * const caseStudyLink = await prisma.caseStudyLink.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CaseStudyLinkFindFirstOrThrowArgs>(args?: SelectSubset<T, CaseStudyLinkFindFirstOrThrowArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CaseStudyLinks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CaseStudyLinks
+     * const caseStudyLinks = await prisma.caseStudyLink.findMany()
+     * 
+     * // Get first 10 CaseStudyLinks
+     * const caseStudyLinks = await prisma.caseStudyLink.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const caseStudyLinkWithIdOnly = await prisma.caseStudyLink.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CaseStudyLinkFindManyArgs>(args?: SelectSubset<T, CaseStudyLinkFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CaseStudyLink.
+     * @param {CaseStudyLinkCreateArgs} args - Arguments to create a CaseStudyLink.
+     * @example
+     * // Create one CaseStudyLink
+     * const CaseStudyLink = await prisma.caseStudyLink.create({
+     *   data: {
+     *     // ... data to create a CaseStudyLink
+     *   }
+     * })
+     * 
+     */
+    create<T extends CaseStudyLinkCreateArgs>(args: SelectSubset<T, CaseStudyLinkCreateArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CaseStudyLinks.
+     * @param {CaseStudyLinkCreateManyArgs} args - Arguments to create many CaseStudyLinks.
+     * @example
+     * // Create many CaseStudyLinks
+     * const caseStudyLink = await prisma.caseStudyLink.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CaseStudyLinkCreateManyArgs>(args?: SelectSubset<T, CaseStudyLinkCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CaseStudyLinks and returns the data saved in the database.
+     * @param {CaseStudyLinkCreateManyAndReturnArgs} args - Arguments to create many CaseStudyLinks.
+     * @example
+     * // Create many CaseStudyLinks
+     * const caseStudyLink = await prisma.caseStudyLink.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CaseStudyLinks and only return the `id`
+     * const caseStudyLinkWithIdOnly = await prisma.caseStudyLink.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CaseStudyLinkCreateManyAndReturnArgs>(args?: SelectSubset<T, CaseStudyLinkCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CaseStudyLink.
+     * @param {CaseStudyLinkDeleteArgs} args - Arguments to delete one CaseStudyLink.
+     * @example
+     * // Delete one CaseStudyLink
+     * const CaseStudyLink = await prisma.caseStudyLink.delete({
+     *   where: {
+     *     // ... filter to delete one CaseStudyLink
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CaseStudyLinkDeleteArgs>(args: SelectSubset<T, CaseStudyLinkDeleteArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CaseStudyLink.
+     * @param {CaseStudyLinkUpdateArgs} args - Arguments to update one CaseStudyLink.
+     * @example
+     * // Update one CaseStudyLink
+     * const caseStudyLink = await prisma.caseStudyLink.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CaseStudyLinkUpdateArgs>(args: SelectSubset<T, CaseStudyLinkUpdateArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CaseStudyLinks.
+     * @param {CaseStudyLinkDeleteManyArgs} args - Arguments to filter CaseStudyLinks to delete.
+     * @example
+     * // Delete a few CaseStudyLinks
+     * const { count } = await prisma.caseStudyLink.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CaseStudyLinkDeleteManyArgs>(args?: SelectSubset<T, CaseStudyLinkDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudyLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CaseStudyLinks
+     * const caseStudyLink = await prisma.caseStudyLink.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CaseStudyLinkUpdateManyArgs>(args: SelectSubset<T, CaseStudyLinkUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudyLinks and returns the data updated in the database.
+     * @param {CaseStudyLinkUpdateManyAndReturnArgs} args - Arguments to update many CaseStudyLinks.
+     * @example
+     * // Update many CaseStudyLinks
+     * const caseStudyLink = await prisma.caseStudyLink.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CaseStudyLinks and only return the `id`
+     * const caseStudyLinkWithIdOnly = await prisma.caseStudyLink.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CaseStudyLinkUpdateManyAndReturnArgs>(args: SelectSubset<T, CaseStudyLinkUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CaseStudyLink.
+     * @param {CaseStudyLinkUpsertArgs} args - Arguments to update or create a CaseStudyLink.
+     * @example
+     * // Update or create a CaseStudyLink
+     * const caseStudyLink = await prisma.caseStudyLink.upsert({
+     *   create: {
+     *     // ... data to create a CaseStudyLink
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CaseStudyLink we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CaseStudyLinkUpsertArgs>(args: SelectSubset<T, CaseStudyLinkUpsertArgs<ExtArgs>>): Prisma__CaseStudyLinkClient<$Result.GetResult<Prisma.$CaseStudyLinkPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CaseStudyLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkCountArgs} args - Arguments to filter CaseStudyLinks to count.
+     * @example
+     * // Count the number of CaseStudyLinks
+     * const count = await prisma.caseStudyLink.count({
+     *   where: {
+     *     // ... the filter for the CaseStudyLinks we want to count
+     *   }
+     * })
+    **/
+    count<T extends CaseStudyLinkCountArgs>(
+      args?: Subset<T, CaseStudyLinkCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CaseStudyLinkCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CaseStudyLink.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CaseStudyLinkAggregateArgs>(args: Subset<T, CaseStudyLinkAggregateArgs>): Prisma.PrismaPromise<GetCaseStudyLinkAggregateType<T>>
+
+    /**
+     * Group by CaseStudyLink.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyLinkGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CaseStudyLinkGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CaseStudyLinkGroupByArgs['orderBy'] }
+        : { orderBy?: CaseStudyLinkGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CaseStudyLinkGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCaseStudyLinkGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CaseStudyLink model
+   */
+  readonly fields: CaseStudyLinkFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CaseStudyLink.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CaseStudyLinkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    caseStudy<T extends CaseStudyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CaseStudyDefaultArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CaseStudyLink model
+   */
+  interface CaseStudyLinkFieldRefs {
+    readonly id: FieldRef<"CaseStudyLink", 'Int'>
+    readonly name: FieldRef<"CaseStudyLink", 'String'>
+    readonly url: FieldRef<"CaseStudyLink", 'String'>
+    readonly caseStudyId: FieldRef<"CaseStudyLink", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CaseStudyLink findUnique
+   */
+  export type CaseStudyLinkFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyLink to fetch.
+     */
+    where: CaseStudyLinkWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyLink findUniqueOrThrow
+   */
+  export type CaseStudyLinkFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyLink to fetch.
+     */
+    where: CaseStudyLinkWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyLink findFirst
+   */
+  export type CaseStudyLinkFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyLink to fetch.
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyLinks to fetch.
+     */
+    orderBy?: CaseStudyLinkOrderByWithRelationInput | CaseStudyLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudyLinks.
+     */
+    cursor?: CaseStudyLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudyLinks.
+     */
+    distinct?: CaseStudyLinkScalarFieldEnum | CaseStudyLinkScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyLink findFirstOrThrow
+   */
+  export type CaseStudyLinkFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyLink to fetch.
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyLinks to fetch.
+     */
+    orderBy?: CaseStudyLinkOrderByWithRelationInput | CaseStudyLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudyLinks.
+     */
+    cursor?: CaseStudyLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudyLinks.
+     */
+    distinct?: CaseStudyLinkScalarFieldEnum | CaseStudyLinkScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyLink findMany
+   */
+  export type CaseStudyLinkFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyLinks to fetch.
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyLinks to fetch.
+     */
+    orderBy?: CaseStudyLinkOrderByWithRelationInput | CaseStudyLinkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CaseStudyLinks.
+     */
+    cursor?: CaseStudyLinkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyLinks.
+     */
+    skip?: number
+    distinct?: CaseStudyLinkScalarFieldEnum | CaseStudyLinkScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyLink create
+   */
+  export type CaseStudyLinkCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CaseStudyLink.
+     */
+    data: XOR<CaseStudyLinkCreateInput, CaseStudyLinkUncheckedCreateInput>
+  }
+
+  /**
+   * CaseStudyLink createMany
+   */
+  export type CaseStudyLinkCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CaseStudyLinks.
+     */
+    data: CaseStudyLinkCreateManyInput | CaseStudyLinkCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CaseStudyLink createManyAndReturn
+   */
+  export type CaseStudyLinkCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * The data used to create many CaseStudyLinks.
+     */
+    data: CaseStudyLinkCreateManyInput | CaseStudyLinkCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyLink update
+   */
+  export type CaseStudyLinkUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CaseStudyLink.
+     */
+    data: XOR<CaseStudyLinkUpdateInput, CaseStudyLinkUncheckedUpdateInput>
+    /**
+     * Choose, which CaseStudyLink to update.
+     */
+    where: CaseStudyLinkWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyLink updateMany
+   */
+  export type CaseStudyLinkUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CaseStudyLinks.
+     */
+    data: XOR<CaseStudyLinkUpdateManyMutationInput, CaseStudyLinkUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudyLinks to update
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * Limit how many CaseStudyLinks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudyLink updateManyAndReturn
+   */
+  export type CaseStudyLinkUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * The data used to update CaseStudyLinks.
+     */
+    data: XOR<CaseStudyLinkUpdateManyMutationInput, CaseStudyLinkUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudyLinks to update
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * Limit how many CaseStudyLinks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyLink upsert
+   */
+  export type CaseStudyLinkUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CaseStudyLink to update in case it exists.
+     */
+    where: CaseStudyLinkWhereUniqueInput
+    /**
+     * In case the CaseStudyLink found by the `where` argument doesn't exist, create a new CaseStudyLink with this data.
+     */
+    create: XOR<CaseStudyLinkCreateInput, CaseStudyLinkUncheckedCreateInput>
+    /**
+     * In case the CaseStudyLink was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CaseStudyLinkUpdateInput, CaseStudyLinkUncheckedUpdateInput>
+  }
+
+  /**
+   * CaseStudyLink delete
+   */
+  export type CaseStudyLinkDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+    /**
+     * Filter which CaseStudyLink to delete.
+     */
+    where: CaseStudyLinkWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyLink deleteMany
+   */
+  export type CaseStudyLinkDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudyLinks to delete
+     */
+    where?: CaseStudyLinkWhereInput
+    /**
+     * Limit how many CaseStudyLinks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudyLink without action
+   */
+  export type CaseStudyLinkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyLink
+     */
+    select?: CaseStudyLinkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyLink
+     */
+    omit?: CaseStudyLinkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyLinkInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Technology
+   */
+
+  export type AggregateTechnology = {
+    _count: TechnologyCountAggregateOutputType | null
+    _avg: TechnologyAvgAggregateOutputType | null
+    _sum: TechnologySumAggregateOutputType | null
+    _min: TechnologyMinAggregateOutputType | null
+    _max: TechnologyMaxAggregateOutputType | null
+  }
+
+  export type TechnologyAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TechnologySumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TechnologyMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TechnologyMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TechnologyCountAggregateOutputType = {
+    id: number
+    name: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TechnologyAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type TechnologySumAggregateInputType = {
+    id?: true
+  }
+
+  export type TechnologyMinAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TechnologyMaxAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TechnologyCountAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TechnologyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Technology to aggregate.
+     */
+    where?: TechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Technologies to fetch.
+     */
+    orderBy?: TechnologyOrderByWithRelationInput | TechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Technologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Technologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Technologies
+    **/
+    _count?: true | TechnologyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TechnologyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TechnologySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TechnologyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TechnologyMaxAggregateInputType
+  }
+
+  export type GetTechnologyAggregateType<T extends TechnologyAggregateArgs> = {
+        [P in keyof T & keyof AggregateTechnology]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTechnology[P]>
+      : GetScalarType<T[P], AggregateTechnology[P]>
+  }
+
+
+
+
+  export type TechnologyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TechnologyWhereInput
+    orderBy?: TechnologyOrderByWithAggregationInput | TechnologyOrderByWithAggregationInput[]
+    by: TechnologyScalarFieldEnum[] | TechnologyScalarFieldEnum
+    having?: TechnologyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TechnologyCountAggregateInputType | true
+    _avg?: TechnologyAvgAggregateInputType
+    _sum?: TechnologySumAggregateInputType
+    _min?: TechnologyMinAggregateInputType
+    _max?: TechnologyMaxAggregateInputType
+  }
+
+  export type TechnologyGroupByOutputType = {
+    id: number
+    name: string
+    createdAt: Date
+    updatedAt: Date
+    _count: TechnologyCountAggregateOutputType | null
+    _avg: TechnologyAvgAggregateOutputType | null
+    _sum: TechnologySumAggregateOutputType | null
+    _min: TechnologyMinAggregateOutputType | null
+    _max: TechnologyMaxAggregateOutputType | null
+  }
+
+  type GetTechnologyGroupByPayload<T extends TechnologyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TechnologyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TechnologyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TechnologyGroupByOutputType[P]>
+            : GetScalarType<T[P], TechnologyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TechnologySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    projects?: boolean | Technology$projectsArgs<ExtArgs>
+    caseStudies?: boolean | Technology$caseStudiesArgs<ExtArgs>
+    _count?: boolean | TechnologyCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["technology"]>
+
+  export type TechnologySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["technology"]>
+
+  export type TechnologySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["technology"]>
+
+  export type TechnologySelectScalar = {
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TechnologyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["technology"]>
+  export type TechnologyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    projects?: boolean | Technology$projectsArgs<ExtArgs>
+    caseStudies?: boolean | Technology$caseStudiesArgs<ExtArgs>
+    _count?: boolean | TechnologyCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TechnologyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TechnologyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TechnologyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Technology"
+    objects: {
+      projects: Prisma.$ProjectTechnologyPayload<ExtArgs>[]
+      caseStudies: Prisma.$CaseStudyTechnologyPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["technology"]>
+    composites: {}
+  }
+
+  type TechnologyGetPayload<S extends boolean | null | undefined | TechnologyDefaultArgs> = $Result.GetResult<Prisma.$TechnologyPayload, S>
+
+  type TechnologyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TechnologyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TechnologyCountAggregateInputType | true
+    }
+
+  export interface TechnologyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Technology'], meta: { name: 'Technology' } }
+    /**
+     * Find zero or one Technology that matches the filter.
+     * @param {TechnologyFindUniqueArgs} args - Arguments to find a Technology
+     * @example
+     * // Get one Technology
+     * const technology = await prisma.technology.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TechnologyFindUniqueArgs>(args: SelectSubset<T, TechnologyFindUniqueArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Technology that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TechnologyFindUniqueOrThrowArgs} args - Arguments to find a Technology
+     * @example
+     * // Get one Technology
+     * const technology = await prisma.technology.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TechnologyFindUniqueOrThrowArgs>(args: SelectSubset<T, TechnologyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Technology that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyFindFirstArgs} args - Arguments to find a Technology
+     * @example
+     * // Get one Technology
+     * const technology = await prisma.technology.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TechnologyFindFirstArgs>(args?: SelectSubset<T, TechnologyFindFirstArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Technology that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyFindFirstOrThrowArgs} args - Arguments to find a Technology
+     * @example
+     * // Get one Technology
+     * const technology = await prisma.technology.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TechnologyFindFirstOrThrowArgs>(args?: SelectSubset<T, TechnologyFindFirstOrThrowArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Technologies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Technologies
+     * const technologies = await prisma.technology.findMany()
+     * 
+     * // Get first 10 Technologies
+     * const technologies = await prisma.technology.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const technologyWithIdOnly = await prisma.technology.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TechnologyFindManyArgs>(args?: SelectSubset<T, TechnologyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Technology.
+     * @param {TechnologyCreateArgs} args - Arguments to create a Technology.
+     * @example
+     * // Create one Technology
+     * const Technology = await prisma.technology.create({
+     *   data: {
+     *     // ... data to create a Technology
+     *   }
+     * })
+     * 
+     */
+    create<T extends TechnologyCreateArgs>(args: SelectSubset<T, TechnologyCreateArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Technologies.
+     * @param {TechnologyCreateManyArgs} args - Arguments to create many Technologies.
+     * @example
+     * // Create many Technologies
+     * const technology = await prisma.technology.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TechnologyCreateManyArgs>(args?: SelectSubset<T, TechnologyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Technologies and returns the data saved in the database.
+     * @param {TechnologyCreateManyAndReturnArgs} args - Arguments to create many Technologies.
+     * @example
+     * // Create many Technologies
+     * const technology = await prisma.technology.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Technologies and only return the `id`
+     * const technologyWithIdOnly = await prisma.technology.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TechnologyCreateManyAndReturnArgs>(args?: SelectSubset<T, TechnologyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Technology.
+     * @param {TechnologyDeleteArgs} args - Arguments to delete one Technology.
+     * @example
+     * // Delete one Technology
+     * const Technology = await prisma.technology.delete({
+     *   where: {
+     *     // ... filter to delete one Technology
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TechnologyDeleteArgs>(args: SelectSubset<T, TechnologyDeleteArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Technology.
+     * @param {TechnologyUpdateArgs} args - Arguments to update one Technology.
+     * @example
+     * // Update one Technology
+     * const technology = await prisma.technology.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TechnologyUpdateArgs>(args: SelectSubset<T, TechnologyUpdateArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Technologies.
+     * @param {TechnologyDeleteManyArgs} args - Arguments to filter Technologies to delete.
+     * @example
+     * // Delete a few Technologies
+     * const { count } = await prisma.technology.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TechnologyDeleteManyArgs>(args?: SelectSubset<T, TechnologyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Technologies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Technologies
+     * const technology = await prisma.technology.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TechnologyUpdateManyArgs>(args: SelectSubset<T, TechnologyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Technologies and returns the data updated in the database.
+     * @param {TechnologyUpdateManyAndReturnArgs} args - Arguments to update many Technologies.
+     * @example
+     * // Update many Technologies
+     * const technology = await prisma.technology.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Technologies and only return the `id`
+     * const technologyWithIdOnly = await prisma.technology.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TechnologyUpdateManyAndReturnArgs>(args: SelectSubset<T, TechnologyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Technology.
+     * @param {TechnologyUpsertArgs} args - Arguments to update or create a Technology.
+     * @example
+     * // Update or create a Technology
+     * const technology = await prisma.technology.upsert({
+     *   create: {
+     *     // ... data to create a Technology
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Technology we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TechnologyUpsertArgs>(args: SelectSubset<T, TechnologyUpsertArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Technologies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyCountArgs} args - Arguments to filter Technologies to count.
+     * @example
+     * // Count the number of Technologies
+     * const count = await prisma.technology.count({
+     *   where: {
+     *     // ... the filter for the Technologies we want to count
+     *   }
+     * })
+    **/
+    count<T extends TechnologyCountArgs>(
+      args?: Subset<T, TechnologyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TechnologyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Technology.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TechnologyAggregateArgs>(args: Subset<T, TechnologyAggregateArgs>): Prisma.PrismaPromise<GetTechnologyAggregateType<T>>
+
+    /**
+     * Group by Technology.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TechnologyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TechnologyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TechnologyGroupByArgs['orderBy'] }
+        : { orderBy?: TechnologyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TechnologyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTechnologyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Technology model
+   */
+  readonly fields: TechnologyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Technology.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TechnologyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    projects<T extends Technology$projectsArgs<ExtArgs> = {}>(args?: Subset<T, Technology$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    caseStudies<T extends Technology$caseStudiesArgs<ExtArgs> = {}>(args?: Subset<T, Technology$caseStudiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Technology model
+   */
+  interface TechnologyFieldRefs {
+    readonly id: FieldRef<"Technology", 'Int'>
+    readonly name: FieldRef<"Technology", 'String'>
+    readonly createdAt: FieldRef<"Technology", 'DateTime'>
+    readonly updatedAt: FieldRef<"Technology", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Technology findUnique
+   */
+  export type TechnologyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which Technology to fetch.
+     */
+    where: TechnologyWhereUniqueInput
+  }
+
+  /**
+   * Technology findUniqueOrThrow
+   */
+  export type TechnologyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which Technology to fetch.
+     */
+    where: TechnologyWhereUniqueInput
+  }
+
+  /**
+   * Technology findFirst
+   */
+  export type TechnologyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which Technology to fetch.
+     */
+    where?: TechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Technologies to fetch.
+     */
+    orderBy?: TechnologyOrderByWithRelationInput | TechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Technologies.
+     */
+    cursor?: TechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Technologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Technologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Technologies.
+     */
+    distinct?: TechnologyScalarFieldEnum | TechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * Technology findFirstOrThrow
+   */
+  export type TechnologyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which Technology to fetch.
+     */
+    where?: TechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Technologies to fetch.
+     */
+    orderBy?: TechnologyOrderByWithRelationInput | TechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Technologies.
+     */
+    cursor?: TechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Technologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Technologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Technologies.
+     */
+    distinct?: TechnologyScalarFieldEnum | TechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * Technology findMany
+   */
+  export type TechnologyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which Technologies to fetch.
+     */
+    where?: TechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Technologies to fetch.
+     */
+    orderBy?: TechnologyOrderByWithRelationInput | TechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Technologies.
+     */
+    cursor?: TechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Technologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Technologies.
+     */
+    skip?: number
+    distinct?: TechnologyScalarFieldEnum | TechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * Technology create
+   */
+  export type TechnologyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Technology.
+     */
+    data: XOR<TechnologyCreateInput, TechnologyUncheckedCreateInput>
+  }
+
+  /**
+   * Technology createMany
+   */
+  export type TechnologyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Technologies.
+     */
+    data: TechnologyCreateManyInput | TechnologyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Technology createManyAndReturn
+   */
+  export type TechnologyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * The data used to create many Technologies.
+     */
+    data: TechnologyCreateManyInput | TechnologyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Technology update
+   */
+  export type TechnologyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Technology.
+     */
+    data: XOR<TechnologyUpdateInput, TechnologyUncheckedUpdateInput>
+    /**
+     * Choose, which Technology to update.
+     */
+    where: TechnologyWhereUniqueInput
+  }
+
+  /**
+   * Technology updateMany
+   */
+  export type TechnologyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Technologies.
+     */
+    data: XOR<TechnologyUpdateManyMutationInput, TechnologyUncheckedUpdateManyInput>
+    /**
+     * Filter which Technologies to update
+     */
+    where?: TechnologyWhereInput
+    /**
+     * Limit how many Technologies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Technology updateManyAndReturn
+   */
+  export type TechnologyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * The data used to update Technologies.
+     */
+    data: XOR<TechnologyUpdateManyMutationInput, TechnologyUncheckedUpdateManyInput>
+    /**
+     * Filter which Technologies to update
+     */
+    where?: TechnologyWhereInput
+    /**
+     * Limit how many Technologies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Technology upsert
+   */
+  export type TechnologyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Technology to update in case it exists.
+     */
+    where: TechnologyWhereUniqueInput
+    /**
+     * In case the Technology found by the `where` argument doesn't exist, create a new Technology with this data.
+     */
+    create: XOR<TechnologyCreateInput, TechnologyUncheckedCreateInput>
+    /**
+     * In case the Technology was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TechnologyUpdateInput, TechnologyUncheckedUpdateInput>
+  }
+
+  /**
+   * Technology delete
+   */
+  export type TechnologyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+    /**
+     * Filter which Technology to delete.
+     */
+    where: TechnologyWhereUniqueInput
+  }
+
+  /**
+   * Technology deleteMany
+   */
+  export type TechnologyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Technologies to delete
+     */
+    where?: TechnologyWhereInput
+    /**
+     * Limit how many Technologies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Technology.projects
+   */
+  export type Technology$projectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    where?: ProjectTechnologyWhereInput
+    orderBy?: ProjectTechnologyOrderByWithRelationInput | ProjectTechnologyOrderByWithRelationInput[]
+    cursor?: ProjectTechnologyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectTechnologyScalarFieldEnum | ProjectTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * Technology.caseStudies
+   */
+  export type Technology$caseStudiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    where?: CaseStudyTechnologyWhereInput
+    orderBy?: CaseStudyTechnologyOrderByWithRelationInput | CaseStudyTechnologyOrderByWithRelationInput[]
+    cursor?: CaseStudyTechnologyWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseStudyTechnologyScalarFieldEnum | CaseStudyTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * Technology without action
+   */
+  export type TechnologyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Technology
+     */
+    select?: TechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Technology
+     */
+    omit?: TechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TechnologyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProjectTechnology
+   */
+
+  export type AggregateProjectTechnology = {
+    _count: ProjectTechnologyCountAggregateOutputType | null
+    _avg: ProjectTechnologyAvgAggregateOutputType | null
+    _sum: ProjectTechnologySumAggregateOutputType | null
+    _min: ProjectTechnologyMinAggregateOutputType | null
+    _max: ProjectTechnologyMaxAggregateOutputType | null
+  }
+
+  export type ProjectTechnologyAvgAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    technologyId: number | null
+  }
+
+  export type ProjectTechnologySumAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    technologyId: number | null
+  }
+
+  export type ProjectTechnologyMinAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    technologyId: number | null
+  }
+
+  export type ProjectTechnologyMaxAggregateOutputType = {
+    id: number | null
+    projectId: number | null
+    technologyId: number | null
+  }
+
+  export type ProjectTechnologyCountAggregateOutputType = {
+    id: number
+    projectId: number
+    technologyId: number
+    _all: number
+  }
+
+
+  export type ProjectTechnologyAvgAggregateInputType = {
+    id?: true
+    projectId?: true
+    technologyId?: true
+  }
+
+  export type ProjectTechnologySumAggregateInputType = {
+    id?: true
+    projectId?: true
+    technologyId?: true
+  }
+
+  export type ProjectTechnologyMinAggregateInputType = {
+    id?: true
+    projectId?: true
+    technologyId?: true
+  }
+
+  export type ProjectTechnologyMaxAggregateInputType = {
+    id?: true
+    projectId?: true
+    technologyId?: true
+  }
+
+  export type ProjectTechnologyCountAggregateInputType = {
+    id?: true
+    projectId?: true
+    technologyId?: true
+    _all?: true
+  }
+
+  export type ProjectTechnologyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectTechnology to aggregate.
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTechnologies to fetch.
+     */
+    orderBy?: ProjectTechnologyOrderByWithRelationInput | ProjectTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTechnologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectTechnologies
+    **/
+    _count?: true | ProjectTechnologyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectTechnologyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectTechnologySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectTechnologyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectTechnologyMaxAggregateInputType
+  }
+
+  export type GetProjectTechnologyAggregateType<T extends ProjectTechnologyAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectTechnology]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectTechnology[P]>
+      : GetScalarType<T[P], AggregateProjectTechnology[P]>
+  }
+
+
+
+
+  export type ProjectTechnologyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectTechnologyWhereInput
+    orderBy?: ProjectTechnologyOrderByWithAggregationInput | ProjectTechnologyOrderByWithAggregationInput[]
+    by: ProjectTechnologyScalarFieldEnum[] | ProjectTechnologyScalarFieldEnum
+    having?: ProjectTechnologyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectTechnologyCountAggregateInputType | true
+    _avg?: ProjectTechnologyAvgAggregateInputType
+    _sum?: ProjectTechnologySumAggregateInputType
+    _min?: ProjectTechnologyMinAggregateInputType
+    _max?: ProjectTechnologyMaxAggregateInputType
+  }
+
+  export type ProjectTechnologyGroupByOutputType = {
+    id: number
+    projectId: number
+    technologyId: number
+    _count: ProjectTechnologyCountAggregateOutputType | null
+    _avg: ProjectTechnologyAvgAggregateOutputType | null
+    _sum: ProjectTechnologySumAggregateOutputType | null
+    _min: ProjectTechnologyMinAggregateOutputType | null
+    _max: ProjectTechnologyMaxAggregateOutputType | null
+  }
+
+  type GetProjectTechnologyGroupByPayload<T extends ProjectTechnologyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectTechnologyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectTechnologyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectTechnologyGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectTechnologyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectTechnologySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    technologyId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectTechnology"]>
+
+  export type ProjectTechnologySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    technologyId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectTechnology"]>
+
+  export type ProjectTechnologySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    technologyId?: boolean
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectTechnology"]>
+
+  export type ProjectTechnologySelectScalar = {
+    id?: boolean
+    projectId?: boolean
+    technologyId?: boolean
+  }
+
+  export type ProjectTechnologyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "technologyId", ExtArgs["result"]["projectTechnology"]>
+  export type ProjectTechnologyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }
+  export type ProjectTechnologyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }
+  export type ProjectTechnologyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectTechnologyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectTechnology"
+    objects: {
+      project: Prisma.$ProjectPayload<ExtArgs>
+      technology: Prisma.$TechnologyPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      projectId: number
+      technologyId: number
+    }, ExtArgs["result"]["projectTechnology"]>
+    composites: {}
+  }
+
+  type ProjectTechnologyGetPayload<S extends boolean | null | undefined | ProjectTechnologyDefaultArgs> = $Result.GetResult<Prisma.$ProjectTechnologyPayload, S>
+
+  type ProjectTechnologyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectTechnologyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectTechnologyCountAggregateInputType | true
+    }
+
+  export interface ProjectTechnologyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectTechnology'], meta: { name: 'ProjectTechnology' } }
+    /**
+     * Find zero or one ProjectTechnology that matches the filter.
+     * @param {ProjectTechnologyFindUniqueArgs} args - Arguments to find a ProjectTechnology
+     * @example
+     * // Get one ProjectTechnology
+     * const projectTechnology = await prisma.projectTechnology.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectTechnologyFindUniqueArgs>(args: SelectSubset<T, ProjectTechnologyFindUniqueArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProjectTechnology that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectTechnologyFindUniqueOrThrowArgs} args - Arguments to find a ProjectTechnology
+     * @example
+     * // Get one ProjectTechnology
+     * const projectTechnology = await prisma.projectTechnology.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectTechnologyFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectTechnologyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectTechnology that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyFindFirstArgs} args - Arguments to find a ProjectTechnology
+     * @example
+     * // Get one ProjectTechnology
+     * const projectTechnology = await prisma.projectTechnology.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectTechnologyFindFirstArgs>(args?: SelectSubset<T, ProjectTechnologyFindFirstArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectTechnology that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyFindFirstOrThrowArgs} args - Arguments to find a ProjectTechnology
+     * @example
+     * // Get one ProjectTechnology
+     * const projectTechnology = await prisma.projectTechnology.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectTechnologyFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectTechnologyFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProjectTechnologies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectTechnologies
+     * const projectTechnologies = await prisma.projectTechnology.findMany()
+     * 
+     * // Get first 10 ProjectTechnologies
+     * const projectTechnologies = await prisma.projectTechnology.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectTechnologyWithIdOnly = await prisma.projectTechnology.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectTechnologyFindManyArgs>(args?: SelectSubset<T, ProjectTechnologyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProjectTechnology.
+     * @param {ProjectTechnologyCreateArgs} args - Arguments to create a ProjectTechnology.
+     * @example
+     * // Create one ProjectTechnology
+     * const ProjectTechnology = await prisma.projectTechnology.create({
+     *   data: {
+     *     // ... data to create a ProjectTechnology
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectTechnologyCreateArgs>(args: SelectSubset<T, ProjectTechnologyCreateArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProjectTechnologies.
+     * @param {ProjectTechnologyCreateManyArgs} args - Arguments to create many ProjectTechnologies.
+     * @example
+     * // Create many ProjectTechnologies
+     * const projectTechnology = await prisma.projectTechnology.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectTechnologyCreateManyArgs>(args?: SelectSubset<T, ProjectTechnologyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectTechnologies and returns the data saved in the database.
+     * @param {ProjectTechnologyCreateManyAndReturnArgs} args - Arguments to create many ProjectTechnologies.
+     * @example
+     * // Create many ProjectTechnologies
+     * const projectTechnology = await prisma.projectTechnology.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectTechnologies and only return the `id`
+     * const projectTechnologyWithIdOnly = await prisma.projectTechnology.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectTechnologyCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectTechnologyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProjectTechnology.
+     * @param {ProjectTechnologyDeleteArgs} args - Arguments to delete one ProjectTechnology.
+     * @example
+     * // Delete one ProjectTechnology
+     * const ProjectTechnology = await prisma.projectTechnology.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectTechnology
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectTechnologyDeleteArgs>(args: SelectSubset<T, ProjectTechnologyDeleteArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProjectTechnology.
+     * @param {ProjectTechnologyUpdateArgs} args - Arguments to update one ProjectTechnology.
+     * @example
+     * // Update one ProjectTechnology
+     * const projectTechnology = await prisma.projectTechnology.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectTechnologyUpdateArgs>(args: SelectSubset<T, ProjectTechnologyUpdateArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProjectTechnologies.
+     * @param {ProjectTechnologyDeleteManyArgs} args - Arguments to filter ProjectTechnologies to delete.
+     * @example
+     * // Delete a few ProjectTechnologies
+     * const { count } = await prisma.projectTechnology.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectTechnologyDeleteManyArgs>(args?: SelectSubset<T, ProjectTechnologyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectTechnologies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectTechnologies
+     * const projectTechnology = await prisma.projectTechnology.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectTechnologyUpdateManyArgs>(args: SelectSubset<T, ProjectTechnologyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectTechnologies and returns the data updated in the database.
+     * @param {ProjectTechnologyUpdateManyAndReturnArgs} args - Arguments to update many ProjectTechnologies.
+     * @example
+     * // Update many ProjectTechnologies
+     * const projectTechnology = await prisma.projectTechnology.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProjectTechnologies and only return the `id`
+     * const projectTechnologyWithIdOnly = await prisma.projectTechnology.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectTechnologyUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectTechnologyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProjectTechnology.
+     * @param {ProjectTechnologyUpsertArgs} args - Arguments to update or create a ProjectTechnology.
+     * @example
+     * // Update or create a ProjectTechnology
+     * const projectTechnology = await prisma.projectTechnology.upsert({
+     *   create: {
+     *     // ... data to create a ProjectTechnology
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectTechnology we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectTechnologyUpsertArgs>(args: SelectSubset<T, ProjectTechnologyUpsertArgs<ExtArgs>>): Prisma__ProjectTechnologyClient<$Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProjectTechnologies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyCountArgs} args - Arguments to filter ProjectTechnologies to count.
+     * @example
+     * // Count the number of ProjectTechnologies
+     * const count = await prisma.projectTechnology.count({
+     *   where: {
+     *     // ... the filter for the ProjectTechnologies we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectTechnologyCountArgs>(
+      args?: Subset<T, ProjectTechnologyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectTechnologyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectTechnology.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectTechnologyAggregateArgs>(args: Subset<T, ProjectTechnologyAggregateArgs>): Prisma.PrismaPromise<GetProjectTechnologyAggregateType<T>>
+
+    /**
+     * Group by ProjectTechnology.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectTechnologyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectTechnologyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectTechnologyGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectTechnologyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectTechnologyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectTechnologyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectTechnology model
+   */
+  readonly fields: ProjectTechnologyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectTechnology.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectTechnologyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    technology<T extends TechnologyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TechnologyDefaultArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectTechnology model
+   */
+  interface ProjectTechnologyFieldRefs {
+    readonly id: FieldRef<"ProjectTechnology", 'Int'>
+    readonly projectId: FieldRef<"ProjectTechnology", 'Int'>
+    readonly technologyId: FieldRef<"ProjectTechnology", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectTechnology findUnique
+   */
+  export type ProjectTechnologyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectTechnology to fetch.
+     */
+    where: ProjectTechnologyWhereUniqueInput
+  }
+
+  /**
+   * ProjectTechnology findUniqueOrThrow
+   */
+  export type ProjectTechnologyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectTechnology to fetch.
+     */
+    where: ProjectTechnologyWhereUniqueInput
+  }
+
+  /**
+   * ProjectTechnology findFirst
+   */
+  export type ProjectTechnologyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectTechnology to fetch.
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTechnologies to fetch.
+     */
+    orderBy?: ProjectTechnologyOrderByWithRelationInput | ProjectTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectTechnologies.
+     */
+    cursor?: ProjectTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTechnologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectTechnologies.
+     */
+    distinct?: ProjectTechnologyScalarFieldEnum | ProjectTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectTechnology findFirstOrThrow
+   */
+  export type ProjectTechnologyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectTechnology to fetch.
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTechnologies to fetch.
+     */
+    orderBy?: ProjectTechnologyOrderByWithRelationInput | ProjectTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectTechnologies.
+     */
+    cursor?: ProjectTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTechnologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectTechnologies.
+     */
+    distinct?: ProjectTechnologyScalarFieldEnum | ProjectTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectTechnology findMany
+   */
+  export type ProjectTechnologyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectTechnologies to fetch.
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectTechnologies to fetch.
+     */
+    orderBy?: ProjectTechnologyOrderByWithRelationInput | ProjectTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectTechnologies.
+     */
+    cursor?: ProjectTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectTechnologies.
+     */
+    skip?: number
+    distinct?: ProjectTechnologyScalarFieldEnum | ProjectTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectTechnology create
+   */
+  export type ProjectTechnologyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectTechnology.
+     */
+    data: XOR<ProjectTechnologyCreateInput, ProjectTechnologyUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectTechnology createMany
+   */
+  export type ProjectTechnologyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectTechnologies.
+     */
+    data: ProjectTechnologyCreateManyInput | ProjectTechnologyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectTechnology createManyAndReturn
+   */
+  export type ProjectTechnologyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProjectTechnologies.
+     */
+    data: ProjectTechnologyCreateManyInput | ProjectTechnologyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectTechnology update
+   */
+  export type ProjectTechnologyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectTechnology.
+     */
+    data: XOR<ProjectTechnologyUpdateInput, ProjectTechnologyUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectTechnology to update.
+     */
+    where: ProjectTechnologyWhereUniqueInput
+  }
+
+  /**
+   * ProjectTechnology updateMany
+   */
+  export type ProjectTechnologyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectTechnologies.
+     */
+    data: XOR<ProjectTechnologyUpdateManyMutationInput, ProjectTechnologyUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectTechnologies to update
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * Limit how many ProjectTechnologies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectTechnology updateManyAndReturn
+   */
+  export type ProjectTechnologyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * The data used to update ProjectTechnologies.
+     */
+    data: XOR<ProjectTechnologyUpdateManyMutationInput, ProjectTechnologyUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectTechnologies to update
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * Limit how many ProjectTechnologies to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectTechnology upsert
+   */
+  export type ProjectTechnologyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectTechnology to update in case it exists.
+     */
+    where: ProjectTechnologyWhereUniqueInput
+    /**
+     * In case the ProjectTechnology found by the `where` argument doesn't exist, create a new ProjectTechnology with this data.
+     */
+    create: XOR<ProjectTechnologyCreateInput, ProjectTechnologyUncheckedCreateInput>
+    /**
+     * In case the ProjectTechnology was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectTechnologyUpdateInput, ProjectTechnologyUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectTechnology delete
+   */
+  export type ProjectTechnologyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter which ProjectTechnology to delete.
+     */
+    where: ProjectTechnologyWhereUniqueInput
+  }
+
+  /**
+   * ProjectTechnology deleteMany
+   */
+  export type ProjectTechnologyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectTechnologies to delete
+     */
+    where?: ProjectTechnologyWhereInput
+    /**
+     * Limit how many ProjectTechnologies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectTechnology without action
+   */
+  export type ProjectTechnologyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectTechnology
+     */
+    select?: ProjectTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectTechnology
+     */
+    omit?: ProjectTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectTechnologyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CaseStudyTechnology
+   */
+
+  export type AggregateCaseStudyTechnology = {
+    _count: CaseStudyTechnologyCountAggregateOutputType | null
+    _avg: CaseStudyTechnologyAvgAggregateOutputType | null
+    _sum: CaseStudyTechnologySumAggregateOutputType | null
+    _min: CaseStudyTechnologyMinAggregateOutputType | null
+    _max: CaseStudyTechnologyMaxAggregateOutputType | null
+  }
+
+  export type CaseStudyTechnologyAvgAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+    technologyId: number | null
+  }
+
+  export type CaseStudyTechnologySumAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+    technologyId: number | null
+  }
+
+  export type CaseStudyTechnologyMinAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+    technologyId: number | null
+  }
+
+  export type CaseStudyTechnologyMaxAggregateOutputType = {
+    id: number | null
+    caseStudyId: number | null
+    technologyId: number | null
+  }
+
+  export type CaseStudyTechnologyCountAggregateOutputType = {
+    id: number
+    caseStudyId: number
+    technologyId: number
+    _all: number
+  }
+
+
+  export type CaseStudyTechnologyAvgAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+    technologyId?: true
+  }
+
+  export type CaseStudyTechnologySumAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+    technologyId?: true
+  }
+
+  export type CaseStudyTechnologyMinAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+    technologyId?: true
+  }
+
+  export type CaseStudyTechnologyMaxAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+    technologyId?: true
+  }
+
+  export type CaseStudyTechnologyCountAggregateInputType = {
+    id?: true
+    caseStudyId?: true
+    technologyId?: true
+    _all?: true
+  }
+
+  export type CaseStudyTechnologyAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudyTechnology to aggregate.
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyTechnologies to fetch.
+     */
+    orderBy?: CaseStudyTechnologyOrderByWithRelationInput | CaseStudyTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CaseStudyTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyTechnologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CaseStudyTechnologies
+    **/
+    _count?: true | CaseStudyTechnologyCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CaseStudyTechnologyAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CaseStudyTechnologySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CaseStudyTechnologyMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CaseStudyTechnologyMaxAggregateInputType
+  }
+
+  export type GetCaseStudyTechnologyAggregateType<T extends CaseStudyTechnologyAggregateArgs> = {
+        [P in keyof T & keyof AggregateCaseStudyTechnology]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCaseStudyTechnology[P]>
+      : GetScalarType<T[P], AggregateCaseStudyTechnology[P]>
+  }
+
+
+
+
+  export type CaseStudyTechnologyGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseStudyTechnologyWhereInput
+    orderBy?: CaseStudyTechnologyOrderByWithAggregationInput | CaseStudyTechnologyOrderByWithAggregationInput[]
+    by: CaseStudyTechnologyScalarFieldEnum[] | CaseStudyTechnologyScalarFieldEnum
+    having?: CaseStudyTechnologyScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CaseStudyTechnologyCountAggregateInputType | true
+    _avg?: CaseStudyTechnologyAvgAggregateInputType
+    _sum?: CaseStudyTechnologySumAggregateInputType
+    _min?: CaseStudyTechnologyMinAggregateInputType
+    _max?: CaseStudyTechnologyMaxAggregateInputType
+  }
+
+  export type CaseStudyTechnologyGroupByOutputType = {
+    id: number
+    caseStudyId: number
+    technologyId: number
+    _count: CaseStudyTechnologyCountAggregateOutputType | null
+    _avg: CaseStudyTechnologyAvgAggregateOutputType | null
+    _sum: CaseStudyTechnologySumAggregateOutputType | null
+    _min: CaseStudyTechnologyMinAggregateOutputType | null
+    _max: CaseStudyTechnologyMaxAggregateOutputType | null
+  }
+
+  type GetCaseStudyTechnologyGroupByPayload<T extends CaseStudyTechnologyGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CaseStudyTechnologyGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CaseStudyTechnologyGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CaseStudyTechnologyGroupByOutputType[P]>
+            : GetScalarType<T[P], CaseStudyTechnologyGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CaseStudyTechnologySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    caseStudyId?: boolean
+    technologyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyTechnology"]>
+
+  export type CaseStudyTechnologySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    caseStudyId?: boolean
+    technologyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyTechnology"]>
+
+  export type CaseStudyTechnologySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    caseStudyId?: boolean
+    technologyId?: boolean
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["caseStudyTechnology"]>
+
+  export type CaseStudyTechnologySelectScalar = {
+    id?: boolean
+    caseStudyId?: boolean
+    technologyId?: boolean
+  }
+
+  export type CaseStudyTechnologyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "caseStudyId" | "technologyId", ExtArgs["result"]["caseStudyTechnology"]>
+  export type CaseStudyTechnologyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyTechnologyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }
+  export type CaseStudyTechnologyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    caseStudy?: boolean | CaseStudyDefaultArgs<ExtArgs>
+    technology?: boolean | TechnologyDefaultArgs<ExtArgs>
+  }
+
+  export type $CaseStudyTechnologyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CaseStudyTechnology"
+    objects: {
+      caseStudy: Prisma.$CaseStudyPayload<ExtArgs>
+      technology: Prisma.$TechnologyPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      caseStudyId: number
+      technologyId: number
+    }, ExtArgs["result"]["caseStudyTechnology"]>
+    composites: {}
+  }
+
+  type CaseStudyTechnologyGetPayload<S extends boolean | null | undefined | CaseStudyTechnologyDefaultArgs> = $Result.GetResult<Prisma.$CaseStudyTechnologyPayload, S>
+
+  type CaseStudyTechnologyCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CaseStudyTechnologyFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CaseStudyTechnologyCountAggregateInputType | true
+    }
+
+  export interface CaseStudyTechnologyDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CaseStudyTechnology'], meta: { name: 'CaseStudyTechnology' } }
+    /**
+     * Find zero or one CaseStudyTechnology that matches the filter.
+     * @param {CaseStudyTechnologyFindUniqueArgs} args - Arguments to find a CaseStudyTechnology
+     * @example
+     * // Get one CaseStudyTechnology
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CaseStudyTechnologyFindUniqueArgs>(args: SelectSubset<T, CaseStudyTechnologyFindUniqueArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CaseStudyTechnology that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CaseStudyTechnologyFindUniqueOrThrowArgs} args - Arguments to find a CaseStudyTechnology
+     * @example
+     * // Get one CaseStudyTechnology
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CaseStudyTechnologyFindUniqueOrThrowArgs>(args: SelectSubset<T, CaseStudyTechnologyFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudyTechnology that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyFindFirstArgs} args - Arguments to find a CaseStudyTechnology
+     * @example
+     * // Get one CaseStudyTechnology
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CaseStudyTechnologyFindFirstArgs>(args?: SelectSubset<T, CaseStudyTechnologyFindFirstArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CaseStudyTechnology that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyFindFirstOrThrowArgs} args - Arguments to find a CaseStudyTechnology
+     * @example
+     * // Get one CaseStudyTechnology
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CaseStudyTechnologyFindFirstOrThrowArgs>(args?: SelectSubset<T, CaseStudyTechnologyFindFirstOrThrowArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CaseStudyTechnologies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CaseStudyTechnologies
+     * const caseStudyTechnologies = await prisma.caseStudyTechnology.findMany()
+     * 
+     * // Get first 10 CaseStudyTechnologies
+     * const caseStudyTechnologies = await prisma.caseStudyTechnology.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const caseStudyTechnologyWithIdOnly = await prisma.caseStudyTechnology.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CaseStudyTechnologyFindManyArgs>(args?: SelectSubset<T, CaseStudyTechnologyFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CaseStudyTechnology.
+     * @param {CaseStudyTechnologyCreateArgs} args - Arguments to create a CaseStudyTechnology.
+     * @example
+     * // Create one CaseStudyTechnology
+     * const CaseStudyTechnology = await prisma.caseStudyTechnology.create({
+     *   data: {
+     *     // ... data to create a CaseStudyTechnology
+     *   }
+     * })
+     * 
+     */
+    create<T extends CaseStudyTechnologyCreateArgs>(args: SelectSubset<T, CaseStudyTechnologyCreateArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CaseStudyTechnologies.
+     * @param {CaseStudyTechnologyCreateManyArgs} args - Arguments to create many CaseStudyTechnologies.
+     * @example
+     * // Create many CaseStudyTechnologies
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CaseStudyTechnologyCreateManyArgs>(args?: SelectSubset<T, CaseStudyTechnologyCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CaseStudyTechnologies and returns the data saved in the database.
+     * @param {CaseStudyTechnologyCreateManyAndReturnArgs} args - Arguments to create many CaseStudyTechnologies.
+     * @example
+     * // Create many CaseStudyTechnologies
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CaseStudyTechnologies and only return the `id`
+     * const caseStudyTechnologyWithIdOnly = await prisma.caseStudyTechnology.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CaseStudyTechnologyCreateManyAndReturnArgs>(args?: SelectSubset<T, CaseStudyTechnologyCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CaseStudyTechnology.
+     * @param {CaseStudyTechnologyDeleteArgs} args - Arguments to delete one CaseStudyTechnology.
+     * @example
+     * // Delete one CaseStudyTechnology
+     * const CaseStudyTechnology = await prisma.caseStudyTechnology.delete({
+     *   where: {
+     *     // ... filter to delete one CaseStudyTechnology
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CaseStudyTechnologyDeleteArgs>(args: SelectSubset<T, CaseStudyTechnologyDeleteArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CaseStudyTechnology.
+     * @param {CaseStudyTechnologyUpdateArgs} args - Arguments to update one CaseStudyTechnology.
+     * @example
+     * // Update one CaseStudyTechnology
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CaseStudyTechnologyUpdateArgs>(args: SelectSubset<T, CaseStudyTechnologyUpdateArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CaseStudyTechnologies.
+     * @param {CaseStudyTechnologyDeleteManyArgs} args - Arguments to filter CaseStudyTechnologies to delete.
+     * @example
+     * // Delete a few CaseStudyTechnologies
+     * const { count } = await prisma.caseStudyTechnology.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CaseStudyTechnologyDeleteManyArgs>(args?: SelectSubset<T, CaseStudyTechnologyDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudyTechnologies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CaseStudyTechnologies
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CaseStudyTechnologyUpdateManyArgs>(args: SelectSubset<T, CaseStudyTechnologyUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CaseStudyTechnologies and returns the data updated in the database.
+     * @param {CaseStudyTechnologyUpdateManyAndReturnArgs} args - Arguments to update many CaseStudyTechnologies.
+     * @example
+     * // Update many CaseStudyTechnologies
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CaseStudyTechnologies and only return the `id`
+     * const caseStudyTechnologyWithIdOnly = await prisma.caseStudyTechnology.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CaseStudyTechnologyUpdateManyAndReturnArgs>(args: SelectSubset<T, CaseStudyTechnologyUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CaseStudyTechnology.
+     * @param {CaseStudyTechnologyUpsertArgs} args - Arguments to update or create a CaseStudyTechnology.
+     * @example
+     * // Update or create a CaseStudyTechnology
+     * const caseStudyTechnology = await prisma.caseStudyTechnology.upsert({
+     *   create: {
+     *     // ... data to create a CaseStudyTechnology
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CaseStudyTechnology we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CaseStudyTechnologyUpsertArgs>(args: SelectSubset<T, CaseStudyTechnologyUpsertArgs<ExtArgs>>): Prisma__CaseStudyTechnologyClient<$Result.GetResult<Prisma.$CaseStudyTechnologyPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CaseStudyTechnologies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyCountArgs} args - Arguments to filter CaseStudyTechnologies to count.
+     * @example
+     * // Count the number of CaseStudyTechnologies
+     * const count = await prisma.caseStudyTechnology.count({
+     *   where: {
+     *     // ... the filter for the CaseStudyTechnologies we want to count
+     *   }
+     * })
+    **/
+    count<T extends CaseStudyTechnologyCountArgs>(
+      args?: Subset<T, CaseStudyTechnologyCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CaseStudyTechnologyCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CaseStudyTechnology.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CaseStudyTechnologyAggregateArgs>(args: Subset<T, CaseStudyTechnologyAggregateArgs>): Prisma.PrismaPromise<GetCaseStudyTechnologyAggregateType<T>>
+
+    /**
+     * Group by CaseStudyTechnology.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseStudyTechnologyGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CaseStudyTechnologyGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CaseStudyTechnologyGroupByArgs['orderBy'] }
+        : { orderBy?: CaseStudyTechnologyGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CaseStudyTechnologyGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCaseStudyTechnologyGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CaseStudyTechnology model
+   */
+  readonly fields: CaseStudyTechnologyFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CaseStudyTechnology.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CaseStudyTechnologyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    caseStudy<T extends CaseStudyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CaseStudyDefaultArgs<ExtArgs>>): Prisma__CaseStudyClient<$Result.GetResult<Prisma.$CaseStudyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    technology<T extends TechnologyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TechnologyDefaultArgs<ExtArgs>>): Prisma__TechnologyClient<$Result.GetResult<Prisma.$TechnologyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CaseStudyTechnology model
+   */
+  interface CaseStudyTechnologyFieldRefs {
+    readonly id: FieldRef<"CaseStudyTechnology", 'Int'>
+    readonly caseStudyId: FieldRef<"CaseStudyTechnology", 'Int'>
+    readonly technologyId: FieldRef<"CaseStudyTechnology", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CaseStudyTechnology findUnique
+   */
+  export type CaseStudyTechnologyFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyTechnology to fetch.
+     */
+    where: CaseStudyTechnologyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyTechnology findUniqueOrThrow
+   */
+  export type CaseStudyTechnologyFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyTechnology to fetch.
+     */
+    where: CaseStudyTechnologyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyTechnology findFirst
+   */
+  export type CaseStudyTechnologyFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyTechnology to fetch.
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyTechnologies to fetch.
+     */
+    orderBy?: CaseStudyTechnologyOrderByWithRelationInput | CaseStudyTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudyTechnologies.
+     */
+    cursor?: CaseStudyTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyTechnologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudyTechnologies.
+     */
+    distinct?: CaseStudyTechnologyScalarFieldEnum | CaseStudyTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyTechnology findFirstOrThrow
+   */
+  export type CaseStudyTechnologyFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyTechnology to fetch.
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyTechnologies to fetch.
+     */
+    orderBy?: CaseStudyTechnologyOrderByWithRelationInput | CaseStudyTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CaseStudyTechnologies.
+     */
+    cursor?: CaseStudyTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyTechnologies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CaseStudyTechnologies.
+     */
+    distinct?: CaseStudyTechnologyScalarFieldEnum | CaseStudyTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyTechnology findMany
+   */
+  export type CaseStudyTechnologyFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter, which CaseStudyTechnologies to fetch.
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CaseStudyTechnologies to fetch.
+     */
+    orderBy?: CaseStudyTechnologyOrderByWithRelationInput | CaseStudyTechnologyOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CaseStudyTechnologies.
+     */
+    cursor?: CaseStudyTechnologyWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CaseStudyTechnologies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CaseStudyTechnologies.
+     */
+    skip?: number
+    distinct?: CaseStudyTechnologyScalarFieldEnum | CaseStudyTechnologyScalarFieldEnum[]
+  }
+
+  /**
+   * CaseStudyTechnology create
+   */
+  export type CaseStudyTechnologyCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CaseStudyTechnology.
+     */
+    data: XOR<CaseStudyTechnologyCreateInput, CaseStudyTechnologyUncheckedCreateInput>
+  }
+
+  /**
+   * CaseStudyTechnology createMany
+   */
+  export type CaseStudyTechnologyCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CaseStudyTechnologies.
+     */
+    data: CaseStudyTechnologyCreateManyInput | CaseStudyTechnologyCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CaseStudyTechnology createManyAndReturn
+   */
+  export type CaseStudyTechnologyCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * The data used to create many CaseStudyTechnologies.
+     */
+    data: CaseStudyTechnologyCreateManyInput | CaseStudyTechnologyCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyTechnology update
+   */
+  export type CaseStudyTechnologyUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CaseStudyTechnology.
+     */
+    data: XOR<CaseStudyTechnologyUpdateInput, CaseStudyTechnologyUncheckedUpdateInput>
+    /**
+     * Choose, which CaseStudyTechnology to update.
+     */
+    where: CaseStudyTechnologyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyTechnology updateMany
+   */
+  export type CaseStudyTechnologyUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CaseStudyTechnologies.
+     */
+    data: XOR<CaseStudyTechnologyUpdateManyMutationInput, CaseStudyTechnologyUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudyTechnologies to update
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * Limit how many CaseStudyTechnologies to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudyTechnology updateManyAndReturn
+   */
+  export type CaseStudyTechnologyUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * The data used to update CaseStudyTechnologies.
+     */
+    data: XOR<CaseStudyTechnologyUpdateManyMutationInput, CaseStudyTechnologyUncheckedUpdateManyInput>
+    /**
+     * Filter which CaseStudyTechnologies to update
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * Limit how many CaseStudyTechnologies to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CaseStudyTechnology upsert
+   */
+  export type CaseStudyTechnologyUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CaseStudyTechnology to update in case it exists.
+     */
+    where: CaseStudyTechnologyWhereUniqueInput
+    /**
+     * In case the CaseStudyTechnology found by the `where` argument doesn't exist, create a new CaseStudyTechnology with this data.
+     */
+    create: XOR<CaseStudyTechnologyCreateInput, CaseStudyTechnologyUncheckedCreateInput>
+    /**
+     * In case the CaseStudyTechnology was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CaseStudyTechnologyUpdateInput, CaseStudyTechnologyUncheckedUpdateInput>
+  }
+
+  /**
+   * CaseStudyTechnology delete
+   */
+  export type CaseStudyTechnologyDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+    /**
+     * Filter which CaseStudyTechnology to delete.
+     */
+    where: CaseStudyTechnologyWhereUniqueInput
+  }
+
+  /**
+   * CaseStudyTechnology deleteMany
+   */
+  export type CaseStudyTechnologyDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CaseStudyTechnologies to delete
+     */
+    where?: CaseStudyTechnologyWhereInput
+    /**
+     * Limit how many CaseStudyTechnologies to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CaseStudyTechnology without action
+   */
+  export type CaseStudyTechnologyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CaseStudyTechnology
+     */
+    select?: CaseStudyTechnologySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CaseStudyTechnology
+     */
+    omit?: CaseStudyTechnologyOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseStudyTechnologyInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -11929,13 +22881,13 @@ export namespace Prisma {
   export type BlogScalarFieldEnum = (typeof BlogScalarFieldEnum)[keyof typeof BlogScalarFieldEnum]
 
 
-  export const GalleryScalarFieldEnum: {
+  export const BlogGalleryScalarFieldEnum: {
     id: 'id',
     url: 'url',
     blogId: 'blogId'
   };
 
-  export type GalleryScalarFieldEnum = (typeof GalleryScalarFieldEnum)[keyof typeof GalleryScalarFieldEnum]
+  export type BlogGalleryScalarFieldEnum = (typeof BlogGalleryScalarFieldEnum)[keyof typeof BlogGalleryScalarFieldEnum]
 
 
   export const CategoryScalarFieldEnum: {
@@ -11992,6 +22944,100 @@ export namespace Prisma {
   };
 
   export type FavoriteScalarFieldEnum = (typeof FavoriteScalarFieldEnum)[keyof typeof FavoriteScalarFieldEnum]
+
+
+  export const ProjectScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    poster: 'poster',
+    excerpt: 'excerpt',
+    views: 'views',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+
+
+  export const ProjectGalleryScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    projectId: 'projectId'
+  };
+
+  export type ProjectGalleryScalarFieldEnum = (typeof ProjectGalleryScalarFieldEnum)[keyof typeof ProjectGalleryScalarFieldEnum]
+
+
+  export const ProjectLinkScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    url: 'url',
+    projectId: 'projectId'
+  };
+
+  export type ProjectLinkScalarFieldEnum = (typeof ProjectLinkScalarFieldEnum)[keyof typeof ProjectLinkScalarFieldEnum]
+
+
+  export const CaseStudyScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    poster: 'poster',
+    excerpt: 'excerpt',
+    views: 'views',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CaseStudyScalarFieldEnum = (typeof CaseStudyScalarFieldEnum)[keyof typeof CaseStudyScalarFieldEnum]
+
+
+  export const CaseStudyGalleryScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    caseStudyId: 'caseStudyId'
+  };
+
+  export type CaseStudyGalleryScalarFieldEnum = (typeof CaseStudyGalleryScalarFieldEnum)[keyof typeof CaseStudyGalleryScalarFieldEnum]
+
+
+  export const CaseStudyLinkScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    url: 'url',
+    caseStudyId: 'caseStudyId'
+  };
+
+  export type CaseStudyLinkScalarFieldEnum = (typeof CaseStudyLinkScalarFieldEnum)[keyof typeof CaseStudyLinkScalarFieldEnum]
+
+
+  export const TechnologyScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TechnologyScalarFieldEnum = (typeof TechnologyScalarFieldEnum)[keyof typeof TechnologyScalarFieldEnum]
+
+
+  export const ProjectTechnologyScalarFieldEnum: {
+    id: 'id',
+    projectId: 'projectId',
+    technologyId: 'technologyId'
+  };
+
+  export type ProjectTechnologyScalarFieldEnum = (typeof ProjectTechnologyScalarFieldEnum)[keyof typeof ProjectTechnologyScalarFieldEnum]
+
+
+  export const CaseStudyTechnologyScalarFieldEnum: {
+    id: 'id',
+    caseStudyId: 'caseStudyId',
+    technologyId: 'technologyId'
+  };
+
+  export type CaseStudyTechnologyScalarFieldEnum = (typeof CaseStudyTechnologyScalarFieldEnum)[keyof typeof CaseStudyTechnologyScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -12206,7 +23252,7 @@ export namespace Prisma {
     tags?: BlogTagListRelationFilter
     favorites?: FavoriteListRelationFilter
     comments?: CommentListRelationFilter
-    galleries?: GalleryListRelationFilter
+    galleries?: BlogGalleryListRelationFilter
   }
 
   export type BlogOrderByWithRelationInput = {
@@ -12226,7 +23272,7 @@ export namespace Prisma {
     tags?: BlogTagOrderByRelationAggregateInput
     favorites?: FavoriteOrderByRelationAggregateInput
     comments?: CommentOrderByRelationAggregateInput
-    galleries?: GalleryOrderByRelationAggregateInput
+    galleries?: BlogGalleryOrderByRelationAggregateInput
   }
 
   export type BlogWhereUniqueInput = Prisma.AtLeast<{
@@ -12249,7 +23295,7 @@ export namespace Prisma {
     tags?: BlogTagListRelationFilter
     favorites?: FavoriteListRelationFilter
     comments?: CommentListRelationFilter
-    galleries?: GalleryListRelationFilter
+    galleries?: BlogGalleryListRelationFilter
   }, "id" | "slug">
 
   export type BlogOrderByWithAggregationInput = {
@@ -12288,51 +23334,51 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
   }
 
-  export type GalleryWhereInput = {
-    AND?: GalleryWhereInput | GalleryWhereInput[]
-    OR?: GalleryWhereInput[]
-    NOT?: GalleryWhereInput | GalleryWhereInput[]
-    id?: IntFilter<"Gallery"> | number
-    url?: StringFilter<"Gallery"> | string
-    blogId?: IntFilter<"Gallery"> | number
+  export type BlogGalleryWhereInput = {
+    AND?: BlogGalleryWhereInput | BlogGalleryWhereInput[]
+    OR?: BlogGalleryWhereInput[]
+    NOT?: BlogGalleryWhereInput | BlogGalleryWhereInput[]
+    id?: IntFilter<"BlogGallery"> | number
+    url?: StringFilter<"BlogGallery"> | string
+    blogId?: IntFilter<"BlogGallery"> | number
     blog?: XOR<BlogScalarRelationFilter, BlogWhereInput>
   }
 
-  export type GalleryOrderByWithRelationInput = {
+  export type BlogGalleryOrderByWithRelationInput = {
     id?: SortOrder
     url?: SortOrder
     blogId?: SortOrder
     blog?: BlogOrderByWithRelationInput
   }
 
-  export type GalleryWhereUniqueInput = Prisma.AtLeast<{
+  export type BlogGalleryWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: GalleryWhereInput | GalleryWhereInput[]
-    OR?: GalleryWhereInput[]
-    NOT?: GalleryWhereInput | GalleryWhereInput[]
-    url?: StringFilter<"Gallery"> | string
-    blogId?: IntFilter<"Gallery"> | number
+    AND?: BlogGalleryWhereInput | BlogGalleryWhereInput[]
+    OR?: BlogGalleryWhereInput[]
+    NOT?: BlogGalleryWhereInput | BlogGalleryWhereInput[]
+    url?: StringFilter<"BlogGallery"> | string
+    blogId?: IntFilter<"BlogGallery"> | number
     blog?: XOR<BlogScalarRelationFilter, BlogWhereInput>
   }, "id">
 
-  export type GalleryOrderByWithAggregationInput = {
+  export type BlogGalleryOrderByWithAggregationInput = {
     id?: SortOrder
     url?: SortOrder
     blogId?: SortOrder
-    _count?: GalleryCountOrderByAggregateInput
-    _avg?: GalleryAvgOrderByAggregateInput
-    _max?: GalleryMaxOrderByAggregateInput
-    _min?: GalleryMinOrderByAggregateInput
-    _sum?: GallerySumOrderByAggregateInput
+    _count?: BlogGalleryCountOrderByAggregateInput
+    _avg?: BlogGalleryAvgOrderByAggregateInput
+    _max?: BlogGalleryMaxOrderByAggregateInput
+    _min?: BlogGalleryMinOrderByAggregateInput
+    _sum?: BlogGallerySumOrderByAggregateInput
   }
 
-  export type GalleryScalarWhereWithAggregatesInput = {
-    AND?: GalleryScalarWhereWithAggregatesInput | GalleryScalarWhereWithAggregatesInput[]
-    OR?: GalleryScalarWhereWithAggregatesInput[]
-    NOT?: GalleryScalarWhereWithAggregatesInput | GalleryScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Gallery"> | number
-    url?: StringWithAggregatesFilter<"Gallery"> | string
-    blogId?: IntWithAggregatesFilter<"Gallery"> | number
+  export type BlogGalleryScalarWhereWithAggregatesInput = {
+    AND?: BlogGalleryScalarWhereWithAggregatesInput | BlogGalleryScalarWhereWithAggregatesInput[]
+    OR?: BlogGalleryScalarWhereWithAggregatesInput[]
+    NOT?: BlogGalleryScalarWhereWithAggregatesInput | BlogGalleryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BlogGallery"> | number
+    url?: StringWithAggregatesFilter<"BlogGallery"> | string
+    blogId?: IntWithAggregatesFilter<"BlogGallery"> | number
   }
 
   export type CategoryWhereInput = {
@@ -12642,6 +23688,517 @@ export namespace Prisma {
     blogId?: IntWithAggregatesFilter<"Favorite"> | number
   }
 
+  export type ProjectWhereInput = {
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    id?: IntFilter<"Project"> | number
+    title?: StringFilter<"Project"> | string
+    description?: StringFilter<"Project"> | string
+    poster?: StringNullableFilter<"Project"> | string | null
+    excerpt?: StringNullableFilter<"Project"> | string | null
+    views?: IntFilter<"Project"> | number
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    updatedAt?: DateTimeFilter<"Project"> | Date | string
+    links?: ProjectLinkListRelationFilter
+    technologies?: ProjectTechnologyListRelationFilter
+    galleries?: ProjectGalleryListRelationFilter
+  }
+
+  export type ProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    poster?: SortOrderInput | SortOrder
+    excerpt?: SortOrderInput | SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    links?: ProjectLinkOrderByRelationAggregateInput
+    technologies?: ProjectTechnologyOrderByRelationAggregateInput
+    galleries?: ProjectGalleryOrderByRelationAggregateInput
+  }
+
+  export type ProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProjectWhereInput | ProjectWhereInput[]
+    OR?: ProjectWhereInput[]
+    NOT?: ProjectWhereInput | ProjectWhereInput[]
+    title?: StringFilter<"Project"> | string
+    description?: StringFilter<"Project"> | string
+    poster?: StringNullableFilter<"Project"> | string | null
+    excerpt?: StringNullableFilter<"Project"> | string | null
+    views?: IntFilter<"Project"> | number
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    updatedAt?: DateTimeFilter<"Project"> | Date | string
+    links?: ProjectLinkListRelationFilter
+    technologies?: ProjectTechnologyListRelationFilter
+    galleries?: ProjectGalleryListRelationFilter
+  }, "id">
+
+  export type ProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    poster?: SortOrderInput | SortOrder
+    excerpt?: SortOrderInput | SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProjectCountOrderByAggregateInput
+    _avg?: ProjectAvgOrderByAggregateInput
+    _max?: ProjectMaxOrderByAggregateInput
+    _min?: ProjectMinOrderByAggregateInput
+    _sum?: ProjectSumOrderByAggregateInput
+  }
+
+  export type ProjectScalarWhereWithAggregatesInput = {
+    AND?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    OR?: ProjectScalarWhereWithAggregatesInput[]
+    NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Project"> | number
+    title?: StringWithAggregatesFilter<"Project"> | string
+    description?: StringWithAggregatesFilter<"Project"> | string
+    poster?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    excerpt?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    views?: IntWithAggregatesFilter<"Project"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
+  }
+
+  export type ProjectGalleryWhereInput = {
+    AND?: ProjectGalleryWhereInput | ProjectGalleryWhereInput[]
+    OR?: ProjectGalleryWhereInput[]
+    NOT?: ProjectGalleryWhereInput | ProjectGalleryWhereInput[]
+    id?: IntFilter<"ProjectGallery"> | number
+    url?: StringFilter<"ProjectGallery"> | string
+    projectId?: IntFilter<"ProjectGallery"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type ProjectGalleryOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type ProjectGalleryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProjectGalleryWhereInput | ProjectGalleryWhereInput[]
+    OR?: ProjectGalleryWhereInput[]
+    NOT?: ProjectGalleryWhereInput | ProjectGalleryWhereInput[]
+    url?: StringFilter<"ProjectGallery"> | string
+    projectId?: IntFilter<"ProjectGallery"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id">
+
+  export type ProjectGalleryOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+    _count?: ProjectGalleryCountOrderByAggregateInput
+    _avg?: ProjectGalleryAvgOrderByAggregateInput
+    _max?: ProjectGalleryMaxOrderByAggregateInput
+    _min?: ProjectGalleryMinOrderByAggregateInput
+    _sum?: ProjectGallerySumOrderByAggregateInput
+  }
+
+  export type ProjectGalleryScalarWhereWithAggregatesInput = {
+    AND?: ProjectGalleryScalarWhereWithAggregatesInput | ProjectGalleryScalarWhereWithAggregatesInput[]
+    OR?: ProjectGalleryScalarWhereWithAggregatesInput[]
+    NOT?: ProjectGalleryScalarWhereWithAggregatesInput | ProjectGalleryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProjectGallery"> | number
+    url?: StringWithAggregatesFilter<"ProjectGallery"> | string
+    projectId?: IntWithAggregatesFilter<"ProjectGallery"> | number
+  }
+
+  export type ProjectLinkWhereInput = {
+    AND?: ProjectLinkWhereInput | ProjectLinkWhereInput[]
+    OR?: ProjectLinkWhereInput[]
+    NOT?: ProjectLinkWhereInput | ProjectLinkWhereInput[]
+    id?: IntFilter<"ProjectLink"> | number
+    name?: StringFilter<"ProjectLink"> | string
+    url?: StringFilter<"ProjectLink"> | string
+    projectId?: IntFilter<"ProjectLink"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type ProjectLinkOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+  }
+
+  export type ProjectLinkWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProjectLinkWhereInput | ProjectLinkWhereInput[]
+    OR?: ProjectLinkWhereInput[]
+    NOT?: ProjectLinkWhereInput | ProjectLinkWhereInput[]
+    name?: StringFilter<"ProjectLink"> | string
+    url?: StringFilter<"ProjectLink"> | string
+    projectId?: IntFilter<"ProjectLink"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id">
+
+  export type ProjectLinkOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+    _count?: ProjectLinkCountOrderByAggregateInput
+    _avg?: ProjectLinkAvgOrderByAggregateInput
+    _max?: ProjectLinkMaxOrderByAggregateInput
+    _min?: ProjectLinkMinOrderByAggregateInput
+    _sum?: ProjectLinkSumOrderByAggregateInput
+  }
+
+  export type ProjectLinkScalarWhereWithAggregatesInput = {
+    AND?: ProjectLinkScalarWhereWithAggregatesInput | ProjectLinkScalarWhereWithAggregatesInput[]
+    OR?: ProjectLinkScalarWhereWithAggregatesInput[]
+    NOT?: ProjectLinkScalarWhereWithAggregatesInput | ProjectLinkScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProjectLink"> | number
+    name?: StringWithAggregatesFilter<"ProjectLink"> | string
+    url?: StringWithAggregatesFilter<"ProjectLink"> | string
+    projectId?: IntWithAggregatesFilter<"ProjectLink"> | number
+  }
+
+  export type CaseStudyWhereInput = {
+    AND?: CaseStudyWhereInput | CaseStudyWhereInput[]
+    OR?: CaseStudyWhereInput[]
+    NOT?: CaseStudyWhereInput | CaseStudyWhereInput[]
+    id?: IntFilter<"CaseStudy"> | number
+    title?: StringFilter<"CaseStudy"> | string
+    content?: StringFilter<"CaseStudy"> | string
+    poster?: StringNullableFilter<"CaseStudy"> | string | null
+    excerpt?: StringNullableFilter<"CaseStudy"> | string | null
+    views?: IntFilter<"CaseStudy"> | number
+    createdAt?: DateTimeFilter<"CaseStudy"> | Date | string
+    updatedAt?: DateTimeFilter<"CaseStudy"> | Date | string
+    links?: CaseStudyLinkListRelationFilter
+    technologies?: CaseStudyTechnologyListRelationFilter
+    galleries?: CaseStudyGalleryListRelationFilter
+  }
+
+  export type CaseStudyOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    poster?: SortOrderInput | SortOrder
+    excerpt?: SortOrderInput | SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    links?: CaseStudyLinkOrderByRelationAggregateInput
+    technologies?: CaseStudyTechnologyOrderByRelationAggregateInput
+    galleries?: CaseStudyGalleryOrderByRelationAggregateInput
+  }
+
+  export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CaseStudyWhereInput | CaseStudyWhereInput[]
+    OR?: CaseStudyWhereInput[]
+    NOT?: CaseStudyWhereInput | CaseStudyWhereInput[]
+    title?: StringFilter<"CaseStudy"> | string
+    content?: StringFilter<"CaseStudy"> | string
+    poster?: StringNullableFilter<"CaseStudy"> | string | null
+    excerpt?: StringNullableFilter<"CaseStudy"> | string | null
+    views?: IntFilter<"CaseStudy"> | number
+    createdAt?: DateTimeFilter<"CaseStudy"> | Date | string
+    updatedAt?: DateTimeFilter<"CaseStudy"> | Date | string
+    links?: CaseStudyLinkListRelationFilter
+    technologies?: CaseStudyTechnologyListRelationFilter
+    galleries?: CaseStudyGalleryListRelationFilter
+  }, "id">
+
+  export type CaseStudyOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    poster?: SortOrderInput | SortOrder
+    excerpt?: SortOrderInput | SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CaseStudyCountOrderByAggregateInput
+    _avg?: CaseStudyAvgOrderByAggregateInput
+    _max?: CaseStudyMaxOrderByAggregateInput
+    _min?: CaseStudyMinOrderByAggregateInput
+    _sum?: CaseStudySumOrderByAggregateInput
+  }
+
+  export type CaseStudyScalarWhereWithAggregatesInput = {
+    AND?: CaseStudyScalarWhereWithAggregatesInput | CaseStudyScalarWhereWithAggregatesInput[]
+    OR?: CaseStudyScalarWhereWithAggregatesInput[]
+    NOT?: CaseStudyScalarWhereWithAggregatesInput | CaseStudyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CaseStudy"> | number
+    title?: StringWithAggregatesFilter<"CaseStudy"> | string
+    content?: StringWithAggregatesFilter<"CaseStudy"> | string
+    poster?: StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+    excerpt?: StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
+    views?: IntWithAggregatesFilter<"CaseStudy"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"CaseStudy"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CaseStudy"> | Date | string
+  }
+
+  export type CaseStudyGalleryWhereInput = {
+    AND?: CaseStudyGalleryWhereInput | CaseStudyGalleryWhereInput[]
+    OR?: CaseStudyGalleryWhereInput[]
+    NOT?: CaseStudyGalleryWhereInput | CaseStudyGalleryWhereInput[]
+    id?: IntFilter<"CaseStudyGallery"> | number
+    url?: StringFilter<"CaseStudyGallery"> | string
+    caseStudyId?: IntFilter<"CaseStudyGallery"> | number
+    caseStudy?: XOR<CaseStudyScalarRelationFilter, CaseStudyWhereInput>
+  }
+
+  export type CaseStudyGalleryOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+    caseStudy?: CaseStudyOrderByWithRelationInput
+  }
+
+  export type CaseStudyGalleryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CaseStudyGalleryWhereInput | CaseStudyGalleryWhereInput[]
+    OR?: CaseStudyGalleryWhereInput[]
+    NOT?: CaseStudyGalleryWhereInput | CaseStudyGalleryWhereInput[]
+    url?: StringFilter<"CaseStudyGallery"> | string
+    caseStudyId?: IntFilter<"CaseStudyGallery"> | number
+    caseStudy?: XOR<CaseStudyScalarRelationFilter, CaseStudyWhereInput>
+  }, "id">
+
+  export type CaseStudyGalleryOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+    _count?: CaseStudyGalleryCountOrderByAggregateInput
+    _avg?: CaseStudyGalleryAvgOrderByAggregateInput
+    _max?: CaseStudyGalleryMaxOrderByAggregateInput
+    _min?: CaseStudyGalleryMinOrderByAggregateInput
+    _sum?: CaseStudyGallerySumOrderByAggregateInput
+  }
+
+  export type CaseStudyGalleryScalarWhereWithAggregatesInput = {
+    AND?: CaseStudyGalleryScalarWhereWithAggregatesInput | CaseStudyGalleryScalarWhereWithAggregatesInput[]
+    OR?: CaseStudyGalleryScalarWhereWithAggregatesInput[]
+    NOT?: CaseStudyGalleryScalarWhereWithAggregatesInput | CaseStudyGalleryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CaseStudyGallery"> | number
+    url?: StringWithAggregatesFilter<"CaseStudyGallery"> | string
+    caseStudyId?: IntWithAggregatesFilter<"CaseStudyGallery"> | number
+  }
+
+  export type CaseStudyLinkWhereInput = {
+    AND?: CaseStudyLinkWhereInput | CaseStudyLinkWhereInput[]
+    OR?: CaseStudyLinkWhereInput[]
+    NOT?: CaseStudyLinkWhereInput | CaseStudyLinkWhereInput[]
+    id?: IntFilter<"CaseStudyLink"> | number
+    name?: StringFilter<"CaseStudyLink"> | string
+    url?: StringFilter<"CaseStudyLink"> | string
+    caseStudyId?: IntFilter<"CaseStudyLink"> | number
+    caseStudy?: XOR<CaseStudyScalarRelationFilter, CaseStudyWhereInput>
+  }
+
+  export type CaseStudyLinkOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+    caseStudy?: CaseStudyOrderByWithRelationInput
+  }
+
+  export type CaseStudyLinkWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CaseStudyLinkWhereInput | CaseStudyLinkWhereInput[]
+    OR?: CaseStudyLinkWhereInput[]
+    NOT?: CaseStudyLinkWhereInput | CaseStudyLinkWhereInput[]
+    name?: StringFilter<"CaseStudyLink"> | string
+    url?: StringFilter<"CaseStudyLink"> | string
+    caseStudyId?: IntFilter<"CaseStudyLink"> | number
+    caseStudy?: XOR<CaseStudyScalarRelationFilter, CaseStudyWhereInput>
+  }, "id">
+
+  export type CaseStudyLinkOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+    _count?: CaseStudyLinkCountOrderByAggregateInput
+    _avg?: CaseStudyLinkAvgOrderByAggregateInput
+    _max?: CaseStudyLinkMaxOrderByAggregateInput
+    _min?: CaseStudyLinkMinOrderByAggregateInput
+    _sum?: CaseStudyLinkSumOrderByAggregateInput
+  }
+
+  export type CaseStudyLinkScalarWhereWithAggregatesInput = {
+    AND?: CaseStudyLinkScalarWhereWithAggregatesInput | CaseStudyLinkScalarWhereWithAggregatesInput[]
+    OR?: CaseStudyLinkScalarWhereWithAggregatesInput[]
+    NOT?: CaseStudyLinkScalarWhereWithAggregatesInput | CaseStudyLinkScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CaseStudyLink"> | number
+    name?: StringWithAggregatesFilter<"CaseStudyLink"> | string
+    url?: StringWithAggregatesFilter<"CaseStudyLink"> | string
+    caseStudyId?: IntWithAggregatesFilter<"CaseStudyLink"> | number
+  }
+
+  export type TechnologyWhereInput = {
+    AND?: TechnologyWhereInput | TechnologyWhereInput[]
+    OR?: TechnologyWhereInput[]
+    NOT?: TechnologyWhereInput | TechnologyWhereInput[]
+    id?: IntFilter<"Technology"> | number
+    name?: StringFilter<"Technology"> | string
+    createdAt?: DateTimeFilter<"Technology"> | Date | string
+    updatedAt?: DateTimeFilter<"Technology"> | Date | string
+    projects?: ProjectTechnologyListRelationFilter
+    caseStudies?: CaseStudyTechnologyListRelationFilter
+  }
+
+  export type TechnologyOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    projects?: ProjectTechnologyOrderByRelationAggregateInput
+    caseStudies?: CaseStudyTechnologyOrderByRelationAggregateInput
+  }
+
+  export type TechnologyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    name?: string
+    AND?: TechnologyWhereInput | TechnologyWhereInput[]
+    OR?: TechnologyWhereInput[]
+    NOT?: TechnologyWhereInput | TechnologyWhereInput[]
+    createdAt?: DateTimeFilter<"Technology"> | Date | string
+    updatedAt?: DateTimeFilter<"Technology"> | Date | string
+    projects?: ProjectTechnologyListRelationFilter
+    caseStudies?: CaseStudyTechnologyListRelationFilter
+  }, "id" | "name">
+
+  export type TechnologyOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TechnologyCountOrderByAggregateInput
+    _avg?: TechnologyAvgOrderByAggregateInput
+    _max?: TechnologyMaxOrderByAggregateInput
+    _min?: TechnologyMinOrderByAggregateInput
+    _sum?: TechnologySumOrderByAggregateInput
+  }
+
+  export type TechnologyScalarWhereWithAggregatesInput = {
+    AND?: TechnologyScalarWhereWithAggregatesInput | TechnologyScalarWhereWithAggregatesInput[]
+    OR?: TechnologyScalarWhereWithAggregatesInput[]
+    NOT?: TechnologyScalarWhereWithAggregatesInput | TechnologyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Technology"> | number
+    name?: StringWithAggregatesFilter<"Technology"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Technology"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Technology"> | Date | string
+  }
+
+  export type ProjectTechnologyWhereInput = {
+    AND?: ProjectTechnologyWhereInput | ProjectTechnologyWhereInput[]
+    OR?: ProjectTechnologyWhereInput[]
+    NOT?: ProjectTechnologyWhereInput | ProjectTechnologyWhereInput[]
+    id?: IntFilter<"ProjectTechnology"> | number
+    projectId?: IntFilter<"ProjectTechnology"> | number
+    technologyId?: IntFilter<"ProjectTechnology"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+    technology?: XOR<TechnologyScalarRelationFilter, TechnologyWhereInput>
+  }
+
+  export type ProjectTechnologyOrderByWithRelationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+    project?: ProjectOrderByWithRelationInput
+    technology?: TechnologyOrderByWithRelationInput
+  }
+
+  export type ProjectTechnologyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    projectId_technologyId?: ProjectTechnologyProjectIdTechnologyIdCompoundUniqueInput
+    AND?: ProjectTechnologyWhereInput | ProjectTechnologyWhereInput[]
+    OR?: ProjectTechnologyWhereInput[]
+    NOT?: ProjectTechnologyWhereInput | ProjectTechnologyWhereInput[]
+    projectId?: IntFilter<"ProjectTechnology"> | number
+    technologyId?: IntFilter<"ProjectTechnology"> | number
+    project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+    technology?: XOR<TechnologyScalarRelationFilter, TechnologyWhereInput>
+  }, "id" | "projectId_technologyId">
+
+  export type ProjectTechnologyOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+    _count?: ProjectTechnologyCountOrderByAggregateInput
+    _avg?: ProjectTechnologyAvgOrderByAggregateInput
+    _max?: ProjectTechnologyMaxOrderByAggregateInput
+    _min?: ProjectTechnologyMinOrderByAggregateInput
+    _sum?: ProjectTechnologySumOrderByAggregateInput
+  }
+
+  export type ProjectTechnologyScalarWhereWithAggregatesInput = {
+    AND?: ProjectTechnologyScalarWhereWithAggregatesInput | ProjectTechnologyScalarWhereWithAggregatesInput[]
+    OR?: ProjectTechnologyScalarWhereWithAggregatesInput[]
+    NOT?: ProjectTechnologyScalarWhereWithAggregatesInput | ProjectTechnologyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProjectTechnology"> | number
+    projectId?: IntWithAggregatesFilter<"ProjectTechnology"> | number
+    technologyId?: IntWithAggregatesFilter<"ProjectTechnology"> | number
+  }
+
+  export type CaseStudyTechnologyWhereInput = {
+    AND?: CaseStudyTechnologyWhereInput | CaseStudyTechnologyWhereInput[]
+    OR?: CaseStudyTechnologyWhereInput[]
+    NOT?: CaseStudyTechnologyWhereInput | CaseStudyTechnologyWhereInput[]
+    id?: IntFilter<"CaseStudyTechnology"> | number
+    caseStudyId?: IntFilter<"CaseStudyTechnology"> | number
+    technologyId?: IntFilter<"CaseStudyTechnology"> | number
+    caseStudy?: XOR<CaseStudyScalarRelationFilter, CaseStudyWhereInput>
+    technology?: XOR<TechnologyScalarRelationFilter, TechnologyWhereInput>
+  }
+
+  export type CaseStudyTechnologyOrderByWithRelationInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+    caseStudy?: CaseStudyOrderByWithRelationInput
+    technology?: TechnologyOrderByWithRelationInput
+  }
+
+  export type CaseStudyTechnologyWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    caseStudyId_technologyId?: CaseStudyTechnologyCaseStudyIdTechnologyIdCompoundUniqueInput
+    AND?: CaseStudyTechnologyWhereInput | CaseStudyTechnologyWhereInput[]
+    OR?: CaseStudyTechnologyWhereInput[]
+    NOT?: CaseStudyTechnologyWhereInput | CaseStudyTechnologyWhereInput[]
+    caseStudyId?: IntFilter<"CaseStudyTechnology"> | number
+    technologyId?: IntFilter<"CaseStudyTechnology"> | number
+    caseStudy?: XOR<CaseStudyScalarRelationFilter, CaseStudyWhereInput>
+    technology?: XOR<TechnologyScalarRelationFilter, TechnologyWhereInput>
+  }, "id" | "caseStudyId_technologyId">
+
+  export type CaseStudyTechnologyOrderByWithAggregationInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+    _count?: CaseStudyTechnologyCountOrderByAggregateInput
+    _avg?: CaseStudyTechnologyAvgOrderByAggregateInput
+    _max?: CaseStudyTechnologyMaxOrderByAggregateInput
+    _min?: CaseStudyTechnologyMinOrderByAggregateInput
+    _sum?: CaseStudyTechnologySumOrderByAggregateInput
+  }
+
+  export type CaseStudyTechnologyScalarWhereWithAggregatesInput = {
+    AND?: CaseStudyTechnologyScalarWhereWithAggregatesInput | CaseStudyTechnologyScalarWhereWithAggregatesInput[]
+    OR?: CaseStudyTechnologyScalarWhereWithAggregatesInput[]
+    NOT?: CaseStudyTechnologyScalarWhereWithAggregatesInput | CaseStudyTechnologyScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CaseStudyTechnology"> | number
+    caseStudyId?: IntWithAggregatesFilter<"CaseStudyTechnology"> | number
+    technologyId?: IntWithAggregatesFilter<"CaseStudyTechnology"> | number
+  }
+
   export type UserCreateInput = {
     email: string
     name?: string | null
@@ -12750,7 +24307,7 @@ export namespace Prisma {
     tags?: BlogTagCreateNestedManyWithoutBlogInput
     favorites?: FavoriteCreateNestedManyWithoutBlogInput
     comments?: CommentCreateNestedManyWithoutBlogInput
-    galleries?: GalleryCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUncheckedCreateInput = {
@@ -12769,7 +24326,7 @@ export namespace Prisma {
     tags?: BlogTagUncheckedCreateNestedManyWithoutBlogInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutBlogInput
     comments?: CommentUncheckedCreateNestedManyWithoutBlogInput
-    galleries?: GalleryUncheckedCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryUncheckedCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUpdateInput = {
@@ -12787,7 +24344,7 @@ export namespace Prisma {
     tags?: BlogTagUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUpdateManyWithoutBlogNestedInput
     comments?: CommentUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateInput = {
@@ -12806,7 +24363,7 @@ export namespace Prisma {
     tags?: BlogTagUncheckedUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutBlogNestedInput
     comments?: CommentUncheckedUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUncheckedUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogCreateManyInput = {
@@ -12849,39 +24406,39 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GalleryCreateInput = {
+  export type BlogGalleryCreateInput = {
     url: string
     blog: BlogCreateNestedOneWithoutGalleriesInput
   }
 
-  export type GalleryUncheckedCreateInput = {
+  export type BlogGalleryUncheckedCreateInput = {
     id?: number
     url: string
     blogId: number
   }
 
-  export type GalleryUpdateInput = {
+  export type BlogGalleryUpdateInput = {
     url?: StringFieldUpdateOperationsInput | string
     blog?: BlogUpdateOneRequiredWithoutGalleriesNestedInput
   }
 
-  export type GalleryUncheckedUpdateInput = {
+  export type BlogGalleryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     blogId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GalleryCreateManyInput = {
+  export type BlogGalleryCreateManyInput = {
     id?: number
     url: string
     blogId: number
   }
 
-  export type GalleryUpdateManyMutationInput = {
+  export type BlogGalleryUpdateManyMutationInput = {
     url?: StringFieldUpdateOperationsInput | string
   }
 
-  export type GalleryUncheckedUpdateManyInput = {
+  export type BlogGalleryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
     blogId?: IntFieldUpdateOperationsInput | number
@@ -13147,6 +24704,474 @@ export namespace Prisma {
     blogId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type ProjectCreateInput = {
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: ProjectLinkCreateNestedManyWithoutProjectInput
+    technologies?: ProjectTechnologyCreateNestedManyWithoutProjectInput
+    galleries?: ProjectGalleryCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateInput = {
+    id?: number
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: ProjectLinkUncheckedCreateNestedManyWithoutProjectInput
+    technologies?: ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
+    galleries?: ProjectGalleryUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: ProjectLinkUpdateManyWithoutProjectNestedInput
+    technologies?: ProjectTechnologyUpdateManyWithoutProjectNestedInput
+    galleries?: ProjectGalleryUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: ProjectLinkUncheckedUpdateManyWithoutProjectNestedInput
+    technologies?: ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
+    galleries?: ProjectGalleryUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateManyInput = {
+    id?: number
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProjectUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectGalleryCreateInput = {
+    url: string
+    project: ProjectCreateNestedOneWithoutGalleriesInput
+  }
+
+  export type ProjectGalleryUncheckedCreateInput = {
+    id?: number
+    url: string
+    projectId: number
+  }
+
+  export type ProjectGalleryUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    project?: ProjectUpdateOneRequiredWithoutGalleriesNestedInput
+  }
+
+  export type ProjectGalleryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    projectId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectGalleryCreateManyInput = {
+    id?: number
+    url: string
+    projectId: number
+  }
+
+  export type ProjectGalleryUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectGalleryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    projectId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectLinkCreateInput = {
+    name: string
+    url: string
+    project: ProjectCreateNestedOneWithoutLinksInput
+  }
+
+  export type ProjectLinkUncheckedCreateInput = {
+    id?: number
+    name: string
+    url: string
+    projectId: number
+  }
+
+  export type ProjectLinkUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    project?: ProjectUpdateOneRequiredWithoutLinksNestedInput
+  }
+
+  export type ProjectLinkUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    projectId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectLinkCreateManyInput = {
+    id?: number
+    name: string
+    url: string
+    projectId: number
+  }
+
+  export type ProjectLinkUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectLinkUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    projectId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyCreateInput = {
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: CaseStudyLinkCreateNestedManyWithoutCaseStudyInput
+    technologies?: CaseStudyTechnologyCreateNestedManyWithoutCaseStudyInput
+    galleries?: CaseStudyGalleryCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyUncheckedCreateInput = {
+    id?: number
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: CaseStudyLinkUncheckedCreateNestedManyWithoutCaseStudyInput
+    technologies?: CaseStudyTechnologyUncheckedCreateNestedManyWithoutCaseStudyInput
+    galleries?: CaseStudyGalleryUncheckedCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: CaseStudyLinkUpdateManyWithoutCaseStudyNestedInput
+    technologies?: CaseStudyTechnologyUpdateManyWithoutCaseStudyNestedInput
+    galleries?: CaseStudyGalleryUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type CaseStudyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: CaseStudyLinkUncheckedUpdateManyWithoutCaseStudyNestedInput
+    technologies?: CaseStudyTechnologyUncheckedUpdateManyWithoutCaseStudyNestedInput
+    galleries?: CaseStudyGalleryUncheckedUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type CaseStudyCreateManyInput = {
+    id?: number
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CaseStudyUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CaseStudyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CaseStudyGalleryCreateInput = {
+    url: string
+    caseStudy: CaseStudyCreateNestedOneWithoutGalleriesInput
+  }
+
+  export type CaseStudyGalleryUncheckedCreateInput = {
+    id?: number
+    url: string
+    caseStudyId: number
+  }
+
+  export type CaseStudyGalleryUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    caseStudy?: CaseStudyUpdateOneRequiredWithoutGalleriesNestedInput
+  }
+
+  export type CaseStudyGalleryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyGalleryCreateManyInput = {
+    id?: number
+    url: string
+    caseStudyId: number
+  }
+
+  export type CaseStudyGalleryUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyGalleryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyLinkCreateInput = {
+    name: string
+    url: string
+    caseStudy: CaseStudyCreateNestedOneWithoutLinksInput
+  }
+
+  export type CaseStudyLinkUncheckedCreateInput = {
+    id?: number
+    name: string
+    url: string
+    caseStudyId: number
+  }
+
+  export type CaseStudyLinkUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    caseStudy?: CaseStudyUpdateOneRequiredWithoutLinksNestedInput
+  }
+
+  export type CaseStudyLinkUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyLinkCreateManyInput = {
+    id?: number
+    name: string
+    url: string
+    caseStudyId: number
+  }
+
+  export type CaseStudyLinkUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyLinkUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type TechnologyCreateInput = {
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectTechnologyCreateNestedManyWithoutTechnologyInput
+    caseStudies?: CaseStudyTechnologyCreateNestedManyWithoutTechnologyInput
+  }
+
+  export type TechnologyUncheckedCreateInput = {
+    id?: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectTechnologyUncheckedCreateNestedManyWithoutTechnologyInput
+    caseStudies?: CaseStudyTechnologyUncheckedCreateNestedManyWithoutTechnologyInput
+  }
+
+  export type TechnologyUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectTechnologyUpdateManyWithoutTechnologyNestedInput
+    caseStudies?: CaseStudyTechnologyUpdateManyWithoutTechnologyNestedInput
+  }
+
+  export type TechnologyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectTechnologyUncheckedUpdateManyWithoutTechnologyNestedInput
+    caseStudies?: CaseStudyTechnologyUncheckedUpdateManyWithoutTechnologyNestedInput
+  }
+
+  export type TechnologyCreateManyInput = {
+    id?: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TechnologyUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TechnologyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProjectTechnologyCreateInput = {
+    project: ProjectCreateNestedOneWithoutTechnologiesInput
+    technology: TechnologyCreateNestedOneWithoutProjectsInput
+  }
+
+  export type ProjectTechnologyUncheckedCreateInput = {
+    id?: number
+    projectId: number
+    technologyId: number
+  }
+
+  export type ProjectTechnologyUpdateInput = {
+    project?: ProjectUpdateOneRequiredWithoutTechnologiesNestedInput
+    technology?: TechnologyUpdateOneRequiredWithoutProjectsNestedInput
+  }
+
+  export type ProjectTechnologyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectTechnologyCreateManyInput = {
+    id?: number
+    projectId: number
+    technologyId: number
+  }
+
+  export type ProjectTechnologyUpdateManyMutationInput = {
+
+  }
+
+  export type ProjectTechnologyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyTechnologyCreateInput = {
+    caseStudy: CaseStudyCreateNestedOneWithoutTechnologiesInput
+    technology: TechnologyCreateNestedOneWithoutCaseStudiesInput
+  }
+
+  export type CaseStudyTechnologyUncheckedCreateInput = {
+    id?: number
+    caseStudyId: number
+    technologyId: number
+  }
+
+  export type CaseStudyTechnologyUpdateInput = {
+    caseStudy?: CaseStudyUpdateOneRequiredWithoutTechnologiesNestedInput
+    technology?: TechnologyUpdateOneRequiredWithoutCaseStudiesNestedInput
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyTechnologyCreateManyInput = {
+    id?: number
+    caseStudyId: number
+    technologyId: number
+  }
+
+  export type CaseStudyTechnologyUpdateManyMutationInput = {
+
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -13391,10 +25416,10 @@ export namespace Prisma {
     none?: BlogTagWhereInput
   }
 
-  export type GalleryListRelationFilter = {
-    every?: GalleryWhereInput
-    some?: GalleryWhereInput
-    none?: GalleryWhereInput
+  export type BlogGalleryListRelationFilter = {
+    every?: BlogGalleryWhereInput
+    some?: BlogGalleryWhereInput
+    none?: BlogGalleryWhereInput
   }
 
   export type BlogCategoryOrderByRelationAggregateInput = {
@@ -13405,7 +25430,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type GalleryOrderByRelationAggregateInput = {
+  export type BlogGalleryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13468,30 +25493,30 @@ export namespace Prisma {
     isNot?: BlogWhereInput
   }
 
-  export type GalleryCountOrderByAggregateInput = {
+  export type BlogGalleryCountOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
     blogId?: SortOrder
   }
 
-  export type GalleryAvgOrderByAggregateInput = {
+  export type BlogGalleryAvgOrderByAggregateInput = {
     id?: SortOrder
     blogId?: SortOrder
   }
 
-  export type GalleryMaxOrderByAggregateInput = {
-    id?: SortOrder
-    url?: SortOrder
-    blogId?: SortOrder
-  }
-
-  export type GalleryMinOrderByAggregateInput = {
+  export type BlogGalleryMaxOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
     blogId?: SortOrder
   }
 
-  export type GallerySumOrderByAggregateInput = {
+  export type BlogGalleryMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    blogId?: SortOrder
+  }
+
+  export type BlogGallerySumOrderByAggregateInput = {
     id?: SortOrder
     blogId?: SortOrder
   }
@@ -13693,6 +25718,384 @@ export namespace Prisma {
     blogId?: SortOrder
   }
 
+  export type ProjectLinkListRelationFilter = {
+    every?: ProjectLinkWhereInput
+    some?: ProjectLinkWhereInput
+    none?: ProjectLinkWhereInput
+  }
+
+  export type ProjectTechnologyListRelationFilter = {
+    every?: ProjectTechnologyWhereInput
+    some?: ProjectTechnologyWhereInput
+    none?: ProjectTechnologyWhereInput
+  }
+
+  export type ProjectGalleryListRelationFilter = {
+    every?: ProjectGalleryWhereInput
+    some?: ProjectGalleryWhereInput
+    none?: ProjectGalleryWhereInput
+  }
+
+  export type ProjectLinkOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectTechnologyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectGalleryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    poster?: SortOrder
+    excerpt?: SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProjectAvgOrderByAggregateInput = {
+    id?: SortOrder
+    views?: SortOrder
+  }
+
+  export type ProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    poster?: SortOrder
+    excerpt?: SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    poster?: SortOrder
+    excerpt?: SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProjectSumOrderByAggregateInput = {
+    id?: SortOrder
+    views?: SortOrder
+  }
+
+  export type ProjectScalarRelationFilter = {
+    is?: ProjectWhereInput
+    isNot?: ProjectWhereInput
+  }
+
+  export type ProjectGalleryCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectGalleryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectGalleryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectGalleryMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectGallerySumOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectLinkCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectLinkAvgOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectLinkMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectLinkMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type ProjectLinkSumOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+  }
+
+  export type CaseStudyLinkListRelationFilter = {
+    every?: CaseStudyLinkWhereInput
+    some?: CaseStudyLinkWhereInput
+    none?: CaseStudyLinkWhereInput
+  }
+
+  export type CaseStudyTechnologyListRelationFilter = {
+    every?: CaseStudyTechnologyWhereInput
+    some?: CaseStudyTechnologyWhereInput
+    none?: CaseStudyTechnologyWhereInput
+  }
+
+  export type CaseStudyGalleryListRelationFilter = {
+    every?: CaseStudyGalleryWhereInput
+    some?: CaseStudyGalleryWhereInput
+    none?: CaseStudyGalleryWhereInput
+  }
+
+  export type CaseStudyLinkOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CaseStudyTechnologyOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CaseStudyGalleryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CaseStudyCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    poster?: SortOrder
+    excerpt?: SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CaseStudyAvgOrderByAggregateInput = {
+    id?: SortOrder
+    views?: SortOrder
+  }
+
+  export type CaseStudyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    poster?: SortOrder
+    excerpt?: SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CaseStudyMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    poster?: SortOrder
+    excerpt?: SortOrder
+    views?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CaseStudySumOrderByAggregateInput = {
+    id?: SortOrder
+    views?: SortOrder
+  }
+
+  export type CaseStudyScalarRelationFilter = {
+    is?: CaseStudyWhereInput
+    isNot?: CaseStudyWhereInput
+  }
+
+  export type CaseStudyGalleryCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyGalleryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyGalleryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyGalleryMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyGallerySumOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyLinkCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyLinkAvgOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyLinkMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyLinkMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type CaseStudyLinkSumOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+  }
+
+  export type TechnologyCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TechnologyAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type TechnologyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TechnologyMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TechnologySumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type TechnologyScalarRelationFilter = {
+    is?: TechnologyWhereInput
+    isNot?: TechnologyWhereInput
+  }
+
+  export type ProjectTechnologyProjectIdTechnologyIdCompoundUniqueInput = {
+    projectId: number
+    technologyId: number
+  }
+
+  export type ProjectTechnologyCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type ProjectTechnologyAvgOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type ProjectTechnologyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type ProjectTechnologyMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type ProjectTechnologySumOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type CaseStudyTechnologyCaseStudyIdTechnologyIdCompoundUniqueInput = {
+    caseStudyId: number
+    technologyId: number
+  }
+
+  export type CaseStudyTechnologyCountOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type CaseStudyTechnologyAvgOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type CaseStudyTechnologyMaxOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type CaseStudyTechnologyMinOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+  }
+
+  export type CaseStudyTechnologySumOrderByAggregateInput = {
+    id?: SortOrder
+    caseStudyId?: SortOrder
+    technologyId?: SortOrder
+  }
+
   export type BlogCreateNestedManyWithoutAuthorInput = {
     create?: XOR<BlogCreateWithoutAuthorInput, BlogUncheckedCreateWithoutAuthorInput> | BlogCreateWithoutAuthorInput[] | BlogUncheckedCreateWithoutAuthorInput[]
     connectOrCreate?: BlogCreateOrConnectWithoutAuthorInput | BlogCreateOrConnectWithoutAuthorInput[]
@@ -13881,11 +26284,11 @@ export namespace Prisma {
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type GalleryCreateNestedManyWithoutBlogInput = {
-    create?: XOR<GalleryCreateWithoutBlogInput, GalleryUncheckedCreateWithoutBlogInput> | GalleryCreateWithoutBlogInput[] | GalleryUncheckedCreateWithoutBlogInput[]
-    connectOrCreate?: GalleryCreateOrConnectWithoutBlogInput | GalleryCreateOrConnectWithoutBlogInput[]
-    createMany?: GalleryCreateManyBlogInputEnvelope
-    connect?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
+  export type BlogGalleryCreateNestedManyWithoutBlogInput = {
+    create?: XOR<BlogGalleryCreateWithoutBlogInput, BlogGalleryUncheckedCreateWithoutBlogInput> | BlogGalleryCreateWithoutBlogInput[] | BlogGalleryUncheckedCreateWithoutBlogInput[]
+    connectOrCreate?: BlogGalleryCreateOrConnectWithoutBlogInput | BlogGalleryCreateOrConnectWithoutBlogInput[]
+    createMany?: BlogGalleryCreateManyBlogInputEnvelope
+    connect?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
   }
 
   export type BlogCategoryUncheckedCreateNestedManyWithoutBlogInput = {
@@ -13916,11 +26319,11 @@ export namespace Prisma {
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
   }
 
-  export type GalleryUncheckedCreateNestedManyWithoutBlogInput = {
-    create?: XOR<GalleryCreateWithoutBlogInput, GalleryUncheckedCreateWithoutBlogInput> | GalleryCreateWithoutBlogInput[] | GalleryUncheckedCreateWithoutBlogInput[]
-    connectOrCreate?: GalleryCreateOrConnectWithoutBlogInput | GalleryCreateOrConnectWithoutBlogInput[]
-    createMany?: GalleryCreateManyBlogInputEnvelope
-    connect?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
+  export type BlogGalleryUncheckedCreateNestedManyWithoutBlogInput = {
+    create?: XOR<BlogGalleryCreateWithoutBlogInput, BlogGalleryUncheckedCreateWithoutBlogInput> | BlogGalleryCreateWithoutBlogInput[] | BlogGalleryUncheckedCreateWithoutBlogInput[]
+    connectOrCreate?: BlogGalleryCreateOrConnectWithoutBlogInput | BlogGalleryCreateOrConnectWithoutBlogInput[]
+    createMany?: BlogGalleryCreateManyBlogInputEnvelope
+    connect?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
   }
 
   export type UserUpdateOneRequiredWithoutBlogsNestedInput = {
@@ -13987,18 +26390,18 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type GalleryUpdateManyWithoutBlogNestedInput = {
-    create?: XOR<GalleryCreateWithoutBlogInput, GalleryUncheckedCreateWithoutBlogInput> | GalleryCreateWithoutBlogInput[] | GalleryUncheckedCreateWithoutBlogInput[]
-    connectOrCreate?: GalleryCreateOrConnectWithoutBlogInput | GalleryCreateOrConnectWithoutBlogInput[]
-    upsert?: GalleryUpsertWithWhereUniqueWithoutBlogInput | GalleryUpsertWithWhereUniqueWithoutBlogInput[]
-    createMany?: GalleryCreateManyBlogInputEnvelope
-    set?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    disconnect?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    delete?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    connect?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    update?: GalleryUpdateWithWhereUniqueWithoutBlogInput | GalleryUpdateWithWhereUniqueWithoutBlogInput[]
-    updateMany?: GalleryUpdateManyWithWhereWithoutBlogInput | GalleryUpdateManyWithWhereWithoutBlogInput[]
-    deleteMany?: GalleryScalarWhereInput | GalleryScalarWhereInput[]
+  export type BlogGalleryUpdateManyWithoutBlogNestedInput = {
+    create?: XOR<BlogGalleryCreateWithoutBlogInput, BlogGalleryUncheckedCreateWithoutBlogInput> | BlogGalleryCreateWithoutBlogInput[] | BlogGalleryUncheckedCreateWithoutBlogInput[]
+    connectOrCreate?: BlogGalleryCreateOrConnectWithoutBlogInput | BlogGalleryCreateOrConnectWithoutBlogInput[]
+    upsert?: BlogGalleryUpsertWithWhereUniqueWithoutBlogInput | BlogGalleryUpsertWithWhereUniqueWithoutBlogInput[]
+    createMany?: BlogGalleryCreateManyBlogInputEnvelope
+    set?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    disconnect?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    delete?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    connect?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    update?: BlogGalleryUpdateWithWhereUniqueWithoutBlogInput | BlogGalleryUpdateWithWhereUniqueWithoutBlogInput[]
+    updateMany?: BlogGalleryUpdateManyWithWhereWithoutBlogInput | BlogGalleryUpdateManyWithWhereWithoutBlogInput[]
+    deleteMany?: BlogGalleryScalarWhereInput | BlogGalleryScalarWhereInput[]
   }
 
   export type BlogCategoryUncheckedUpdateManyWithoutBlogNestedInput = {
@@ -14057,18 +26460,18 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type GalleryUncheckedUpdateManyWithoutBlogNestedInput = {
-    create?: XOR<GalleryCreateWithoutBlogInput, GalleryUncheckedCreateWithoutBlogInput> | GalleryCreateWithoutBlogInput[] | GalleryUncheckedCreateWithoutBlogInput[]
-    connectOrCreate?: GalleryCreateOrConnectWithoutBlogInput | GalleryCreateOrConnectWithoutBlogInput[]
-    upsert?: GalleryUpsertWithWhereUniqueWithoutBlogInput | GalleryUpsertWithWhereUniqueWithoutBlogInput[]
-    createMany?: GalleryCreateManyBlogInputEnvelope
-    set?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    disconnect?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    delete?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    connect?: GalleryWhereUniqueInput | GalleryWhereUniqueInput[]
-    update?: GalleryUpdateWithWhereUniqueWithoutBlogInput | GalleryUpdateWithWhereUniqueWithoutBlogInput[]
-    updateMany?: GalleryUpdateManyWithWhereWithoutBlogInput | GalleryUpdateManyWithWhereWithoutBlogInput[]
-    deleteMany?: GalleryScalarWhereInput | GalleryScalarWhereInput[]
+  export type BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput = {
+    create?: XOR<BlogGalleryCreateWithoutBlogInput, BlogGalleryUncheckedCreateWithoutBlogInput> | BlogGalleryCreateWithoutBlogInput[] | BlogGalleryUncheckedCreateWithoutBlogInput[]
+    connectOrCreate?: BlogGalleryCreateOrConnectWithoutBlogInput | BlogGalleryCreateOrConnectWithoutBlogInput[]
+    upsert?: BlogGalleryUpsertWithWhereUniqueWithoutBlogInput | BlogGalleryUpsertWithWhereUniqueWithoutBlogInput[]
+    createMany?: BlogGalleryCreateManyBlogInputEnvelope
+    set?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    disconnect?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    delete?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    connect?: BlogGalleryWhereUniqueInput | BlogGalleryWhereUniqueInput[]
+    update?: BlogGalleryUpdateWithWhereUniqueWithoutBlogInput | BlogGalleryUpdateWithWhereUniqueWithoutBlogInput[]
+    updateMany?: BlogGalleryUpdateManyWithWhereWithoutBlogInput | BlogGalleryUpdateManyWithWhereWithoutBlogInput[]
+    deleteMany?: BlogGalleryScalarWhereInput | BlogGalleryScalarWhereInput[]
   }
 
   export type BlogCreateNestedOneWithoutGalleriesInput = {
@@ -14281,6 +26684,454 @@ export namespace Prisma {
     update?: XOR<XOR<BlogUpdateToOneWithWhereWithoutFavoritesInput, BlogUpdateWithoutFavoritesInput>, BlogUncheckedUpdateWithoutFavoritesInput>
   }
 
+  export type ProjectLinkCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ProjectLinkCreateWithoutProjectInput, ProjectLinkUncheckedCreateWithoutProjectInput> | ProjectLinkCreateWithoutProjectInput[] | ProjectLinkUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectLinkCreateOrConnectWithoutProjectInput | ProjectLinkCreateOrConnectWithoutProjectInput[]
+    createMany?: ProjectLinkCreateManyProjectInputEnvelope
+    connect?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+  }
+
+  export type ProjectTechnologyCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutProjectInput, ProjectTechnologyUncheckedCreateWithoutProjectInput> | ProjectTechnologyCreateWithoutProjectInput[] | ProjectTechnologyUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutProjectInput | ProjectTechnologyCreateOrConnectWithoutProjectInput[]
+    createMany?: ProjectTechnologyCreateManyProjectInputEnvelope
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+  }
+
+  export type ProjectGalleryCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ProjectGalleryCreateWithoutProjectInput, ProjectGalleryUncheckedCreateWithoutProjectInput> | ProjectGalleryCreateWithoutProjectInput[] | ProjectGalleryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectGalleryCreateOrConnectWithoutProjectInput | ProjectGalleryCreateOrConnectWithoutProjectInput[]
+    createMany?: ProjectGalleryCreateManyProjectInputEnvelope
+    connect?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+  }
+
+  export type ProjectLinkUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ProjectLinkCreateWithoutProjectInput, ProjectLinkUncheckedCreateWithoutProjectInput> | ProjectLinkCreateWithoutProjectInput[] | ProjectLinkUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectLinkCreateOrConnectWithoutProjectInput | ProjectLinkCreateOrConnectWithoutProjectInput[]
+    createMany?: ProjectLinkCreateManyProjectInputEnvelope
+    connect?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+  }
+
+  export type ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutProjectInput, ProjectTechnologyUncheckedCreateWithoutProjectInput> | ProjectTechnologyCreateWithoutProjectInput[] | ProjectTechnologyUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutProjectInput | ProjectTechnologyCreateOrConnectWithoutProjectInput[]
+    createMany?: ProjectTechnologyCreateManyProjectInputEnvelope
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+  }
+
+  export type ProjectGalleryUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<ProjectGalleryCreateWithoutProjectInput, ProjectGalleryUncheckedCreateWithoutProjectInput> | ProjectGalleryCreateWithoutProjectInput[] | ProjectGalleryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectGalleryCreateOrConnectWithoutProjectInput | ProjectGalleryCreateOrConnectWithoutProjectInput[]
+    createMany?: ProjectGalleryCreateManyProjectInputEnvelope
+    connect?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+  }
+
+  export type ProjectLinkUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ProjectLinkCreateWithoutProjectInput, ProjectLinkUncheckedCreateWithoutProjectInput> | ProjectLinkCreateWithoutProjectInput[] | ProjectLinkUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectLinkCreateOrConnectWithoutProjectInput | ProjectLinkCreateOrConnectWithoutProjectInput[]
+    upsert?: ProjectLinkUpsertWithWhereUniqueWithoutProjectInput | ProjectLinkUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ProjectLinkCreateManyProjectInputEnvelope
+    set?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    disconnect?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    delete?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    connect?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    update?: ProjectLinkUpdateWithWhereUniqueWithoutProjectInput | ProjectLinkUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ProjectLinkUpdateManyWithWhereWithoutProjectInput | ProjectLinkUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ProjectLinkScalarWhereInput | ProjectLinkScalarWhereInput[]
+  }
+
+  export type ProjectTechnologyUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutProjectInput, ProjectTechnologyUncheckedCreateWithoutProjectInput> | ProjectTechnologyCreateWithoutProjectInput[] | ProjectTechnologyUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutProjectInput | ProjectTechnologyCreateOrConnectWithoutProjectInput[]
+    upsert?: ProjectTechnologyUpsertWithWhereUniqueWithoutProjectInput | ProjectTechnologyUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ProjectTechnologyCreateManyProjectInputEnvelope
+    set?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    disconnect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    delete?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    update?: ProjectTechnologyUpdateWithWhereUniqueWithoutProjectInput | ProjectTechnologyUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ProjectTechnologyUpdateManyWithWhereWithoutProjectInput | ProjectTechnologyUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ProjectTechnologyScalarWhereInput | ProjectTechnologyScalarWhereInput[]
+  }
+
+  export type ProjectGalleryUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ProjectGalleryCreateWithoutProjectInput, ProjectGalleryUncheckedCreateWithoutProjectInput> | ProjectGalleryCreateWithoutProjectInput[] | ProjectGalleryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectGalleryCreateOrConnectWithoutProjectInput | ProjectGalleryCreateOrConnectWithoutProjectInput[]
+    upsert?: ProjectGalleryUpsertWithWhereUniqueWithoutProjectInput | ProjectGalleryUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ProjectGalleryCreateManyProjectInputEnvelope
+    set?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    disconnect?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    delete?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    connect?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    update?: ProjectGalleryUpdateWithWhereUniqueWithoutProjectInput | ProjectGalleryUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ProjectGalleryUpdateManyWithWhereWithoutProjectInput | ProjectGalleryUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ProjectGalleryScalarWhereInput | ProjectGalleryScalarWhereInput[]
+  }
+
+  export type ProjectLinkUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ProjectLinkCreateWithoutProjectInput, ProjectLinkUncheckedCreateWithoutProjectInput> | ProjectLinkCreateWithoutProjectInput[] | ProjectLinkUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectLinkCreateOrConnectWithoutProjectInput | ProjectLinkCreateOrConnectWithoutProjectInput[]
+    upsert?: ProjectLinkUpsertWithWhereUniqueWithoutProjectInput | ProjectLinkUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ProjectLinkCreateManyProjectInputEnvelope
+    set?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    disconnect?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    delete?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    connect?: ProjectLinkWhereUniqueInput | ProjectLinkWhereUniqueInput[]
+    update?: ProjectLinkUpdateWithWhereUniqueWithoutProjectInput | ProjectLinkUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ProjectLinkUpdateManyWithWhereWithoutProjectInput | ProjectLinkUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ProjectLinkScalarWhereInput | ProjectLinkScalarWhereInput[]
+  }
+
+  export type ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutProjectInput, ProjectTechnologyUncheckedCreateWithoutProjectInput> | ProjectTechnologyCreateWithoutProjectInput[] | ProjectTechnologyUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutProjectInput | ProjectTechnologyCreateOrConnectWithoutProjectInput[]
+    upsert?: ProjectTechnologyUpsertWithWhereUniqueWithoutProjectInput | ProjectTechnologyUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ProjectTechnologyCreateManyProjectInputEnvelope
+    set?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    disconnect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    delete?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    update?: ProjectTechnologyUpdateWithWhereUniqueWithoutProjectInput | ProjectTechnologyUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ProjectTechnologyUpdateManyWithWhereWithoutProjectInput | ProjectTechnologyUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ProjectTechnologyScalarWhereInput | ProjectTechnologyScalarWhereInput[]
+  }
+
+  export type ProjectGalleryUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<ProjectGalleryCreateWithoutProjectInput, ProjectGalleryUncheckedCreateWithoutProjectInput> | ProjectGalleryCreateWithoutProjectInput[] | ProjectGalleryUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: ProjectGalleryCreateOrConnectWithoutProjectInput | ProjectGalleryCreateOrConnectWithoutProjectInput[]
+    upsert?: ProjectGalleryUpsertWithWhereUniqueWithoutProjectInput | ProjectGalleryUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: ProjectGalleryCreateManyProjectInputEnvelope
+    set?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    disconnect?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    delete?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    connect?: ProjectGalleryWhereUniqueInput | ProjectGalleryWhereUniqueInput[]
+    update?: ProjectGalleryUpdateWithWhereUniqueWithoutProjectInput | ProjectGalleryUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: ProjectGalleryUpdateManyWithWhereWithoutProjectInput | ProjectGalleryUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: ProjectGalleryScalarWhereInput | ProjectGalleryScalarWhereInput[]
+  }
+
+  export type ProjectCreateNestedOneWithoutGalleriesInput = {
+    create?: XOR<ProjectCreateWithoutGalleriesInput, ProjectUncheckedCreateWithoutGalleriesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutGalleriesInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutGalleriesNestedInput = {
+    create?: XOR<ProjectCreateWithoutGalleriesInput, ProjectUncheckedCreateWithoutGalleriesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutGalleriesInput
+    upsert?: ProjectUpsertWithoutGalleriesInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutGalleriesInput, ProjectUpdateWithoutGalleriesInput>, ProjectUncheckedUpdateWithoutGalleriesInput>
+  }
+
+  export type ProjectCreateNestedOneWithoutLinksInput = {
+    create?: XOR<ProjectCreateWithoutLinksInput, ProjectUncheckedCreateWithoutLinksInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutLinksInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutLinksNestedInput = {
+    create?: XOR<ProjectCreateWithoutLinksInput, ProjectUncheckedCreateWithoutLinksInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutLinksInput
+    upsert?: ProjectUpsertWithoutLinksInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutLinksInput, ProjectUpdateWithoutLinksInput>, ProjectUncheckedUpdateWithoutLinksInput>
+  }
+
+  export type CaseStudyLinkCreateNestedManyWithoutCaseStudyInput = {
+    create?: XOR<CaseStudyLinkCreateWithoutCaseStudyInput, CaseStudyLinkUncheckedCreateWithoutCaseStudyInput> | CaseStudyLinkCreateWithoutCaseStudyInput[] | CaseStudyLinkUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyLinkCreateOrConnectWithoutCaseStudyInput | CaseStudyLinkCreateOrConnectWithoutCaseStudyInput[]
+    createMany?: CaseStudyLinkCreateManyCaseStudyInputEnvelope
+    connect?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+  }
+
+  export type CaseStudyTechnologyCreateNestedManyWithoutCaseStudyInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput> | CaseStudyTechnologyCreateWithoutCaseStudyInput[] | CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput | CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput[]
+    createMany?: CaseStudyTechnologyCreateManyCaseStudyInputEnvelope
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+  }
+
+  export type CaseStudyGalleryCreateNestedManyWithoutCaseStudyInput = {
+    create?: XOR<CaseStudyGalleryCreateWithoutCaseStudyInput, CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput> | CaseStudyGalleryCreateWithoutCaseStudyInput[] | CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput | CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput[]
+    createMany?: CaseStudyGalleryCreateManyCaseStudyInputEnvelope
+    connect?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+  }
+
+  export type CaseStudyLinkUncheckedCreateNestedManyWithoutCaseStudyInput = {
+    create?: XOR<CaseStudyLinkCreateWithoutCaseStudyInput, CaseStudyLinkUncheckedCreateWithoutCaseStudyInput> | CaseStudyLinkCreateWithoutCaseStudyInput[] | CaseStudyLinkUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyLinkCreateOrConnectWithoutCaseStudyInput | CaseStudyLinkCreateOrConnectWithoutCaseStudyInput[]
+    createMany?: CaseStudyLinkCreateManyCaseStudyInputEnvelope
+    connect?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+  }
+
+  export type CaseStudyTechnologyUncheckedCreateNestedManyWithoutCaseStudyInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput> | CaseStudyTechnologyCreateWithoutCaseStudyInput[] | CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput | CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput[]
+    createMany?: CaseStudyTechnologyCreateManyCaseStudyInputEnvelope
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+  }
+
+  export type CaseStudyGalleryUncheckedCreateNestedManyWithoutCaseStudyInput = {
+    create?: XOR<CaseStudyGalleryCreateWithoutCaseStudyInput, CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput> | CaseStudyGalleryCreateWithoutCaseStudyInput[] | CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput | CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput[]
+    createMany?: CaseStudyGalleryCreateManyCaseStudyInputEnvelope
+    connect?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+  }
+
+  export type CaseStudyLinkUpdateManyWithoutCaseStudyNestedInput = {
+    create?: XOR<CaseStudyLinkCreateWithoutCaseStudyInput, CaseStudyLinkUncheckedCreateWithoutCaseStudyInput> | CaseStudyLinkCreateWithoutCaseStudyInput[] | CaseStudyLinkUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyLinkCreateOrConnectWithoutCaseStudyInput | CaseStudyLinkCreateOrConnectWithoutCaseStudyInput[]
+    upsert?: CaseStudyLinkUpsertWithWhereUniqueWithoutCaseStudyInput | CaseStudyLinkUpsertWithWhereUniqueWithoutCaseStudyInput[]
+    createMany?: CaseStudyLinkCreateManyCaseStudyInputEnvelope
+    set?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    disconnect?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    delete?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    connect?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    update?: CaseStudyLinkUpdateWithWhereUniqueWithoutCaseStudyInput | CaseStudyLinkUpdateWithWhereUniqueWithoutCaseStudyInput[]
+    updateMany?: CaseStudyLinkUpdateManyWithWhereWithoutCaseStudyInput | CaseStudyLinkUpdateManyWithWhereWithoutCaseStudyInput[]
+    deleteMany?: CaseStudyLinkScalarWhereInput | CaseStudyLinkScalarWhereInput[]
+  }
+
+  export type CaseStudyTechnologyUpdateManyWithoutCaseStudyNestedInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput> | CaseStudyTechnologyCreateWithoutCaseStudyInput[] | CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput | CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput[]
+    upsert?: CaseStudyTechnologyUpsertWithWhereUniqueWithoutCaseStudyInput | CaseStudyTechnologyUpsertWithWhereUniqueWithoutCaseStudyInput[]
+    createMany?: CaseStudyTechnologyCreateManyCaseStudyInputEnvelope
+    set?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    disconnect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    delete?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    update?: CaseStudyTechnologyUpdateWithWhereUniqueWithoutCaseStudyInput | CaseStudyTechnologyUpdateWithWhereUniqueWithoutCaseStudyInput[]
+    updateMany?: CaseStudyTechnologyUpdateManyWithWhereWithoutCaseStudyInput | CaseStudyTechnologyUpdateManyWithWhereWithoutCaseStudyInput[]
+    deleteMany?: CaseStudyTechnologyScalarWhereInput | CaseStudyTechnologyScalarWhereInput[]
+  }
+
+  export type CaseStudyGalleryUpdateManyWithoutCaseStudyNestedInput = {
+    create?: XOR<CaseStudyGalleryCreateWithoutCaseStudyInput, CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput> | CaseStudyGalleryCreateWithoutCaseStudyInput[] | CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput | CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput[]
+    upsert?: CaseStudyGalleryUpsertWithWhereUniqueWithoutCaseStudyInput | CaseStudyGalleryUpsertWithWhereUniqueWithoutCaseStudyInput[]
+    createMany?: CaseStudyGalleryCreateManyCaseStudyInputEnvelope
+    set?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    disconnect?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    delete?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    connect?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    update?: CaseStudyGalleryUpdateWithWhereUniqueWithoutCaseStudyInput | CaseStudyGalleryUpdateWithWhereUniqueWithoutCaseStudyInput[]
+    updateMany?: CaseStudyGalleryUpdateManyWithWhereWithoutCaseStudyInput | CaseStudyGalleryUpdateManyWithWhereWithoutCaseStudyInput[]
+    deleteMany?: CaseStudyGalleryScalarWhereInput | CaseStudyGalleryScalarWhereInput[]
+  }
+
+  export type CaseStudyLinkUncheckedUpdateManyWithoutCaseStudyNestedInput = {
+    create?: XOR<CaseStudyLinkCreateWithoutCaseStudyInput, CaseStudyLinkUncheckedCreateWithoutCaseStudyInput> | CaseStudyLinkCreateWithoutCaseStudyInput[] | CaseStudyLinkUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyLinkCreateOrConnectWithoutCaseStudyInput | CaseStudyLinkCreateOrConnectWithoutCaseStudyInput[]
+    upsert?: CaseStudyLinkUpsertWithWhereUniqueWithoutCaseStudyInput | CaseStudyLinkUpsertWithWhereUniqueWithoutCaseStudyInput[]
+    createMany?: CaseStudyLinkCreateManyCaseStudyInputEnvelope
+    set?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    disconnect?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    delete?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    connect?: CaseStudyLinkWhereUniqueInput | CaseStudyLinkWhereUniqueInput[]
+    update?: CaseStudyLinkUpdateWithWhereUniqueWithoutCaseStudyInput | CaseStudyLinkUpdateWithWhereUniqueWithoutCaseStudyInput[]
+    updateMany?: CaseStudyLinkUpdateManyWithWhereWithoutCaseStudyInput | CaseStudyLinkUpdateManyWithWhereWithoutCaseStudyInput[]
+    deleteMany?: CaseStudyLinkScalarWhereInput | CaseStudyLinkScalarWhereInput[]
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateManyWithoutCaseStudyNestedInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput> | CaseStudyTechnologyCreateWithoutCaseStudyInput[] | CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput | CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput[]
+    upsert?: CaseStudyTechnologyUpsertWithWhereUniqueWithoutCaseStudyInput | CaseStudyTechnologyUpsertWithWhereUniqueWithoutCaseStudyInput[]
+    createMany?: CaseStudyTechnologyCreateManyCaseStudyInputEnvelope
+    set?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    disconnect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    delete?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    update?: CaseStudyTechnologyUpdateWithWhereUniqueWithoutCaseStudyInput | CaseStudyTechnologyUpdateWithWhereUniqueWithoutCaseStudyInput[]
+    updateMany?: CaseStudyTechnologyUpdateManyWithWhereWithoutCaseStudyInput | CaseStudyTechnologyUpdateManyWithWhereWithoutCaseStudyInput[]
+    deleteMany?: CaseStudyTechnologyScalarWhereInput | CaseStudyTechnologyScalarWhereInput[]
+  }
+
+  export type CaseStudyGalleryUncheckedUpdateManyWithoutCaseStudyNestedInput = {
+    create?: XOR<CaseStudyGalleryCreateWithoutCaseStudyInput, CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput> | CaseStudyGalleryCreateWithoutCaseStudyInput[] | CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput[]
+    connectOrCreate?: CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput | CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput[]
+    upsert?: CaseStudyGalleryUpsertWithWhereUniqueWithoutCaseStudyInput | CaseStudyGalleryUpsertWithWhereUniqueWithoutCaseStudyInput[]
+    createMany?: CaseStudyGalleryCreateManyCaseStudyInputEnvelope
+    set?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    disconnect?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    delete?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    connect?: CaseStudyGalleryWhereUniqueInput | CaseStudyGalleryWhereUniqueInput[]
+    update?: CaseStudyGalleryUpdateWithWhereUniqueWithoutCaseStudyInput | CaseStudyGalleryUpdateWithWhereUniqueWithoutCaseStudyInput[]
+    updateMany?: CaseStudyGalleryUpdateManyWithWhereWithoutCaseStudyInput | CaseStudyGalleryUpdateManyWithWhereWithoutCaseStudyInput[]
+    deleteMany?: CaseStudyGalleryScalarWhereInput | CaseStudyGalleryScalarWhereInput[]
+  }
+
+  export type CaseStudyCreateNestedOneWithoutGalleriesInput = {
+    create?: XOR<CaseStudyCreateWithoutGalleriesInput, CaseStudyUncheckedCreateWithoutGalleriesInput>
+    connectOrCreate?: CaseStudyCreateOrConnectWithoutGalleriesInput
+    connect?: CaseStudyWhereUniqueInput
+  }
+
+  export type CaseStudyUpdateOneRequiredWithoutGalleriesNestedInput = {
+    create?: XOR<CaseStudyCreateWithoutGalleriesInput, CaseStudyUncheckedCreateWithoutGalleriesInput>
+    connectOrCreate?: CaseStudyCreateOrConnectWithoutGalleriesInput
+    upsert?: CaseStudyUpsertWithoutGalleriesInput
+    connect?: CaseStudyWhereUniqueInput
+    update?: XOR<XOR<CaseStudyUpdateToOneWithWhereWithoutGalleriesInput, CaseStudyUpdateWithoutGalleriesInput>, CaseStudyUncheckedUpdateWithoutGalleriesInput>
+  }
+
+  export type CaseStudyCreateNestedOneWithoutLinksInput = {
+    create?: XOR<CaseStudyCreateWithoutLinksInput, CaseStudyUncheckedCreateWithoutLinksInput>
+    connectOrCreate?: CaseStudyCreateOrConnectWithoutLinksInput
+    connect?: CaseStudyWhereUniqueInput
+  }
+
+  export type CaseStudyUpdateOneRequiredWithoutLinksNestedInput = {
+    create?: XOR<CaseStudyCreateWithoutLinksInput, CaseStudyUncheckedCreateWithoutLinksInput>
+    connectOrCreate?: CaseStudyCreateOrConnectWithoutLinksInput
+    upsert?: CaseStudyUpsertWithoutLinksInput
+    connect?: CaseStudyWhereUniqueInput
+    update?: XOR<XOR<CaseStudyUpdateToOneWithWhereWithoutLinksInput, CaseStudyUpdateWithoutLinksInput>, CaseStudyUncheckedUpdateWithoutLinksInput>
+  }
+
+  export type ProjectTechnologyCreateNestedManyWithoutTechnologyInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutTechnologyInput, ProjectTechnologyUncheckedCreateWithoutTechnologyInput> | ProjectTechnologyCreateWithoutTechnologyInput[] | ProjectTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutTechnologyInput | ProjectTechnologyCreateOrConnectWithoutTechnologyInput[]
+    createMany?: ProjectTechnologyCreateManyTechnologyInputEnvelope
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+  }
+
+  export type CaseStudyTechnologyCreateNestedManyWithoutTechnologyInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutTechnologyInput, CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput> | CaseStudyTechnologyCreateWithoutTechnologyInput[] | CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput | CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput[]
+    createMany?: CaseStudyTechnologyCreateManyTechnologyInputEnvelope
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+  }
+
+  export type ProjectTechnologyUncheckedCreateNestedManyWithoutTechnologyInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutTechnologyInput, ProjectTechnologyUncheckedCreateWithoutTechnologyInput> | ProjectTechnologyCreateWithoutTechnologyInput[] | ProjectTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutTechnologyInput | ProjectTechnologyCreateOrConnectWithoutTechnologyInput[]
+    createMany?: ProjectTechnologyCreateManyTechnologyInputEnvelope
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+  }
+
+  export type CaseStudyTechnologyUncheckedCreateNestedManyWithoutTechnologyInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutTechnologyInput, CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput> | CaseStudyTechnologyCreateWithoutTechnologyInput[] | CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput | CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput[]
+    createMany?: CaseStudyTechnologyCreateManyTechnologyInputEnvelope
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+  }
+
+  export type ProjectTechnologyUpdateManyWithoutTechnologyNestedInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutTechnologyInput, ProjectTechnologyUncheckedCreateWithoutTechnologyInput> | ProjectTechnologyCreateWithoutTechnologyInput[] | ProjectTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutTechnologyInput | ProjectTechnologyCreateOrConnectWithoutTechnologyInput[]
+    upsert?: ProjectTechnologyUpsertWithWhereUniqueWithoutTechnologyInput | ProjectTechnologyUpsertWithWhereUniqueWithoutTechnologyInput[]
+    createMany?: ProjectTechnologyCreateManyTechnologyInputEnvelope
+    set?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    disconnect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    delete?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    update?: ProjectTechnologyUpdateWithWhereUniqueWithoutTechnologyInput | ProjectTechnologyUpdateWithWhereUniqueWithoutTechnologyInput[]
+    updateMany?: ProjectTechnologyUpdateManyWithWhereWithoutTechnologyInput | ProjectTechnologyUpdateManyWithWhereWithoutTechnologyInput[]
+    deleteMany?: ProjectTechnologyScalarWhereInput | ProjectTechnologyScalarWhereInput[]
+  }
+
+  export type CaseStudyTechnologyUpdateManyWithoutTechnologyNestedInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutTechnologyInput, CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput> | CaseStudyTechnologyCreateWithoutTechnologyInput[] | CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput | CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput[]
+    upsert?: CaseStudyTechnologyUpsertWithWhereUniqueWithoutTechnologyInput | CaseStudyTechnologyUpsertWithWhereUniqueWithoutTechnologyInput[]
+    createMany?: CaseStudyTechnologyCreateManyTechnologyInputEnvelope
+    set?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    disconnect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    delete?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    update?: CaseStudyTechnologyUpdateWithWhereUniqueWithoutTechnologyInput | CaseStudyTechnologyUpdateWithWhereUniqueWithoutTechnologyInput[]
+    updateMany?: CaseStudyTechnologyUpdateManyWithWhereWithoutTechnologyInput | CaseStudyTechnologyUpdateManyWithWhereWithoutTechnologyInput[]
+    deleteMany?: CaseStudyTechnologyScalarWhereInput | CaseStudyTechnologyScalarWhereInput[]
+  }
+
+  export type ProjectTechnologyUncheckedUpdateManyWithoutTechnologyNestedInput = {
+    create?: XOR<ProjectTechnologyCreateWithoutTechnologyInput, ProjectTechnologyUncheckedCreateWithoutTechnologyInput> | ProjectTechnologyCreateWithoutTechnologyInput[] | ProjectTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: ProjectTechnologyCreateOrConnectWithoutTechnologyInput | ProjectTechnologyCreateOrConnectWithoutTechnologyInput[]
+    upsert?: ProjectTechnologyUpsertWithWhereUniqueWithoutTechnologyInput | ProjectTechnologyUpsertWithWhereUniqueWithoutTechnologyInput[]
+    createMany?: ProjectTechnologyCreateManyTechnologyInputEnvelope
+    set?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    disconnect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    delete?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    connect?: ProjectTechnologyWhereUniqueInput | ProjectTechnologyWhereUniqueInput[]
+    update?: ProjectTechnologyUpdateWithWhereUniqueWithoutTechnologyInput | ProjectTechnologyUpdateWithWhereUniqueWithoutTechnologyInput[]
+    updateMany?: ProjectTechnologyUpdateManyWithWhereWithoutTechnologyInput | ProjectTechnologyUpdateManyWithWhereWithoutTechnologyInput[]
+    deleteMany?: ProjectTechnologyScalarWhereInput | ProjectTechnologyScalarWhereInput[]
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateManyWithoutTechnologyNestedInput = {
+    create?: XOR<CaseStudyTechnologyCreateWithoutTechnologyInput, CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput> | CaseStudyTechnologyCreateWithoutTechnologyInput[] | CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput[]
+    connectOrCreate?: CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput | CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput[]
+    upsert?: CaseStudyTechnologyUpsertWithWhereUniqueWithoutTechnologyInput | CaseStudyTechnologyUpsertWithWhereUniqueWithoutTechnologyInput[]
+    createMany?: CaseStudyTechnologyCreateManyTechnologyInputEnvelope
+    set?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    disconnect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    delete?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    connect?: CaseStudyTechnologyWhereUniqueInput | CaseStudyTechnologyWhereUniqueInput[]
+    update?: CaseStudyTechnologyUpdateWithWhereUniqueWithoutTechnologyInput | CaseStudyTechnologyUpdateWithWhereUniqueWithoutTechnologyInput[]
+    updateMany?: CaseStudyTechnologyUpdateManyWithWhereWithoutTechnologyInput | CaseStudyTechnologyUpdateManyWithWhereWithoutTechnologyInput[]
+    deleteMany?: CaseStudyTechnologyScalarWhereInput | CaseStudyTechnologyScalarWhereInput[]
+  }
+
+  export type ProjectCreateNestedOneWithoutTechnologiesInput = {
+    create?: XOR<ProjectCreateWithoutTechnologiesInput, ProjectUncheckedCreateWithoutTechnologiesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutTechnologiesInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type TechnologyCreateNestedOneWithoutProjectsInput = {
+    create?: XOR<TechnologyCreateWithoutProjectsInput, TechnologyUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: TechnologyCreateOrConnectWithoutProjectsInput
+    connect?: TechnologyWhereUniqueInput
+  }
+
+  export type ProjectUpdateOneRequiredWithoutTechnologiesNestedInput = {
+    create?: XOR<ProjectCreateWithoutTechnologiesInput, ProjectUncheckedCreateWithoutTechnologiesInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutTechnologiesInput
+    upsert?: ProjectUpsertWithoutTechnologiesInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutTechnologiesInput, ProjectUpdateWithoutTechnologiesInput>, ProjectUncheckedUpdateWithoutTechnologiesInput>
+  }
+
+  export type TechnologyUpdateOneRequiredWithoutProjectsNestedInput = {
+    create?: XOR<TechnologyCreateWithoutProjectsInput, TechnologyUncheckedCreateWithoutProjectsInput>
+    connectOrCreate?: TechnologyCreateOrConnectWithoutProjectsInput
+    upsert?: TechnologyUpsertWithoutProjectsInput
+    connect?: TechnologyWhereUniqueInput
+    update?: XOR<XOR<TechnologyUpdateToOneWithWhereWithoutProjectsInput, TechnologyUpdateWithoutProjectsInput>, TechnologyUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type CaseStudyCreateNestedOneWithoutTechnologiesInput = {
+    create?: XOR<CaseStudyCreateWithoutTechnologiesInput, CaseStudyUncheckedCreateWithoutTechnologiesInput>
+    connectOrCreate?: CaseStudyCreateOrConnectWithoutTechnologiesInput
+    connect?: CaseStudyWhereUniqueInput
+  }
+
+  export type TechnologyCreateNestedOneWithoutCaseStudiesInput = {
+    create?: XOR<TechnologyCreateWithoutCaseStudiesInput, TechnologyUncheckedCreateWithoutCaseStudiesInput>
+    connectOrCreate?: TechnologyCreateOrConnectWithoutCaseStudiesInput
+    connect?: TechnologyWhereUniqueInput
+  }
+
+  export type CaseStudyUpdateOneRequiredWithoutTechnologiesNestedInput = {
+    create?: XOR<CaseStudyCreateWithoutTechnologiesInput, CaseStudyUncheckedCreateWithoutTechnologiesInput>
+    connectOrCreate?: CaseStudyCreateOrConnectWithoutTechnologiesInput
+    upsert?: CaseStudyUpsertWithoutTechnologiesInput
+    connect?: CaseStudyWhereUniqueInput
+    update?: XOR<XOR<CaseStudyUpdateToOneWithWhereWithoutTechnologiesInput, CaseStudyUpdateWithoutTechnologiesInput>, CaseStudyUncheckedUpdateWithoutTechnologiesInput>
+  }
+
+  export type TechnologyUpdateOneRequiredWithoutCaseStudiesNestedInput = {
+    create?: XOR<TechnologyCreateWithoutCaseStudiesInput, TechnologyUncheckedCreateWithoutCaseStudiesInput>
+    connectOrCreate?: TechnologyCreateOrConnectWithoutCaseStudiesInput
+    upsert?: TechnologyUpsertWithoutCaseStudiesInput
+    connect?: TechnologyWhereUniqueInput
+    update?: XOR<XOR<TechnologyUpdateToOneWithWhereWithoutCaseStudiesInput, TechnologyUpdateWithoutCaseStudiesInput>, TechnologyUncheckedUpdateWithoutCaseStudiesInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -14461,7 +27312,7 @@ export namespace Prisma {
     tags?: BlogTagCreateNestedManyWithoutBlogInput
     favorites?: FavoriteCreateNestedManyWithoutBlogInput
     comments?: CommentCreateNestedManyWithoutBlogInput
-    galleries?: GalleryCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUncheckedCreateWithoutAuthorInput = {
@@ -14479,7 +27330,7 @@ export namespace Prisma {
     tags?: BlogTagUncheckedCreateNestedManyWithoutBlogInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutBlogInput
     comments?: CommentUncheckedCreateNestedManyWithoutBlogInput
-    galleries?: GalleryUncheckedCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryUncheckedCreateNestedManyWithoutBlogInput
   }
 
   export type BlogCreateOrConnectWithoutAuthorInput = {
@@ -14731,22 +27582,22 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type GalleryCreateWithoutBlogInput = {
+  export type BlogGalleryCreateWithoutBlogInput = {
     url: string
   }
 
-  export type GalleryUncheckedCreateWithoutBlogInput = {
+  export type BlogGalleryUncheckedCreateWithoutBlogInput = {
     id?: number
     url: string
   }
 
-  export type GalleryCreateOrConnectWithoutBlogInput = {
-    where: GalleryWhereUniqueInput
-    create: XOR<GalleryCreateWithoutBlogInput, GalleryUncheckedCreateWithoutBlogInput>
+  export type BlogGalleryCreateOrConnectWithoutBlogInput = {
+    where: BlogGalleryWhereUniqueInput
+    create: XOR<BlogGalleryCreateWithoutBlogInput, BlogGalleryUncheckedCreateWithoutBlogInput>
   }
 
-  export type GalleryCreateManyBlogInputEnvelope = {
-    data: GalleryCreateManyBlogInput | GalleryCreateManyBlogInput[]
+  export type BlogGalleryCreateManyBlogInputEnvelope = {
+    data: BlogGalleryCreateManyBlogInput | BlogGalleryCreateManyBlogInput[]
     skipDuplicates?: boolean
   }
 
@@ -14868,29 +27719,29 @@ export namespace Prisma {
     data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutBlogInput>
   }
 
-  export type GalleryUpsertWithWhereUniqueWithoutBlogInput = {
-    where: GalleryWhereUniqueInput
-    update: XOR<GalleryUpdateWithoutBlogInput, GalleryUncheckedUpdateWithoutBlogInput>
-    create: XOR<GalleryCreateWithoutBlogInput, GalleryUncheckedCreateWithoutBlogInput>
+  export type BlogGalleryUpsertWithWhereUniqueWithoutBlogInput = {
+    where: BlogGalleryWhereUniqueInput
+    update: XOR<BlogGalleryUpdateWithoutBlogInput, BlogGalleryUncheckedUpdateWithoutBlogInput>
+    create: XOR<BlogGalleryCreateWithoutBlogInput, BlogGalleryUncheckedCreateWithoutBlogInput>
   }
 
-  export type GalleryUpdateWithWhereUniqueWithoutBlogInput = {
-    where: GalleryWhereUniqueInput
-    data: XOR<GalleryUpdateWithoutBlogInput, GalleryUncheckedUpdateWithoutBlogInput>
+  export type BlogGalleryUpdateWithWhereUniqueWithoutBlogInput = {
+    where: BlogGalleryWhereUniqueInput
+    data: XOR<BlogGalleryUpdateWithoutBlogInput, BlogGalleryUncheckedUpdateWithoutBlogInput>
   }
 
-  export type GalleryUpdateManyWithWhereWithoutBlogInput = {
-    where: GalleryScalarWhereInput
-    data: XOR<GalleryUpdateManyMutationInput, GalleryUncheckedUpdateManyWithoutBlogInput>
+  export type BlogGalleryUpdateManyWithWhereWithoutBlogInput = {
+    where: BlogGalleryScalarWhereInput
+    data: XOR<BlogGalleryUpdateManyMutationInput, BlogGalleryUncheckedUpdateManyWithoutBlogInput>
   }
 
-  export type GalleryScalarWhereInput = {
-    AND?: GalleryScalarWhereInput | GalleryScalarWhereInput[]
-    OR?: GalleryScalarWhereInput[]
-    NOT?: GalleryScalarWhereInput | GalleryScalarWhereInput[]
-    id?: IntFilter<"Gallery"> | number
-    url?: StringFilter<"Gallery"> | string
-    blogId?: IntFilter<"Gallery"> | number
+  export type BlogGalleryScalarWhereInput = {
+    AND?: BlogGalleryScalarWhereInput | BlogGalleryScalarWhereInput[]
+    OR?: BlogGalleryScalarWhereInput[]
+    NOT?: BlogGalleryScalarWhereInput | BlogGalleryScalarWhereInput[]
+    id?: IntFilter<"BlogGallery"> | number
+    url?: StringFilter<"BlogGallery"> | string
+    blogId?: IntFilter<"BlogGallery"> | number
   }
 
   export type BlogCreateWithoutGalleriesInput = {
@@ -15027,7 +27878,7 @@ export namespace Prisma {
     tags?: BlogTagCreateNestedManyWithoutBlogInput
     favorites?: FavoriteCreateNestedManyWithoutBlogInput
     comments?: CommentCreateNestedManyWithoutBlogInput
-    galleries?: GalleryCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUncheckedCreateWithoutCategoriesInput = {
@@ -15045,7 +27896,7 @@ export namespace Prisma {
     tags?: BlogTagUncheckedCreateNestedManyWithoutBlogInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutBlogInput
     comments?: CommentUncheckedCreateNestedManyWithoutBlogInput
-    galleries?: GalleryUncheckedCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryUncheckedCreateNestedManyWithoutBlogInput
   }
 
   export type BlogCreateOrConnectWithoutCategoriesInput = {
@@ -15096,7 +27947,7 @@ export namespace Prisma {
     tags?: BlogTagUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUpdateManyWithoutBlogNestedInput
     comments?: CommentUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateWithoutCategoriesInput = {
@@ -15114,7 +27965,7 @@ export namespace Prisma {
     tags?: BlogTagUncheckedUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutBlogNestedInput
     comments?: CommentUncheckedUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUncheckedUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput
   }
 
   export type CategoryUpsertWithoutBlogsInput = {
@@ -15189,7 +28040,7 @@ export namespace Prisma {
     categories?: BlogCategoryCreateNestedManyWithoutBlogInput
     favorites?: FavoriteCreateNestedManyWithoutBlogInput
     comments?: CommentCreateNestedManyWithoutBlogInput
-    galleries?: GalleryCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUncheckedCreateWithoutTagsInput = {
@@ -15207,7 +28058,7 @@ export namespace Prisma {
     categories?: BlogCategoryUncheckedCreateNestedManyWithoutBlogInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutBlogInput
     comments?: CommentUncheckedCreateNestedManyWithoutBlogInput
-    galleries?: GalleryUncheckedCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryUncheckedCreateNestedManyWithoutBlogInput
   }
 
   export type BlogCreateOrConnectWithoutTagsInput = {
@@ -15258,7 +28109,7 @@ export namespace Prisma {
     categories?: BlogCategoryUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUpdateManyWithoutBlogNestedInput
     comments?: CommentUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateWithoutTagsInput = {
@@ -15276,7 +28127,7 @@ export namespace Prisma {
     categories?: BlogCategoryUncheckedUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutBlogNestedInput
     comments?: CommentUncheckedUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUncheckedUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput
   }
 
   export type TagUpsertWithoutBlogsInput = {
@@ -15317,7 +28168,7 @@ export namespace Prisma {
     categories?: BlogCategoryCreateNestedManyWithoutBlogInput
     tags?: BlogTagCreateNestedManyWithoutBlogInput
     favorites?: FavoriteCreateNestedManyWithoutBlogInput
-    galleries?: GalleryCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUncheckedCreateWithoutCommentsInput = {
@@ -15335,7 +28186,7 @@ export namespace Prisma {
     categories?: BlogCategoryUncheckedCreateNestedManyWithoutBlogInput
     tags?: BlogTagUncheckedCreateNestedManyWithoutBlogInput
     favorites?: FavoriteUncheckedCreateNestedManyWithoutBlogInput
-    galleries?: GalleryUncheckedCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryUncheckedCreateNestedManyWithoutBlogInput
   }
 
   export type BlogCreateOrConnectWithoutCommentsInput = {
@@ -15400,7 +28251,7 @@ export namespace Prisma {
     categories?: BlogCategoryUpdateManyWithoutBlogNestedInput
     tags?: BlogTagUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateWithoutCommentsInput = {
@@ -15418,7 +28269,7 @@ export namespace Prisma {
     categories?: BlogCategoryUncheckedUpdateManyWithoutBlogNestedInput
     tags?: BlogTagUncheckedUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUncheckedUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput
   }
 
   export type UserUpsertWithoutCommentsInput = {
@@ -15505,7 +28356,7 @@ export namespace Prisma {
     categories?: BlogCategoryCreateNestedManyWithoutBlogInput
     tags?: BlogTagCreateNestedManyWithoutBlogInput
     comments?: CommentCreateNestedManyWithoutBlogInput
-    galleries?: GalleryCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryCreateNestedManyWithoutBlogInput
   }
 
   export type BlogUncheckedCreateWithoutFavoritesInput = {
@@ -15523,7 +28374,7 @@ export namespace Prisma {
     categories?: BlogCategoryUncheckedCreateNestedManyWithoutBlogInput
     tags?: BlogTagUncheckedCreateNestedManyWithoutBlogInput
     comments?: CommentUncheckedCreateNestedManyWithoutBlogInput
-    galleries?: GalleryUncheckedCreateNestedManyWithoutBlogInput
+    galleries?: BlogGalleryUncheckedCreateNestedManyWithoutBlogInput
   }
 
   export type BlogCreateOrConnectWithoutFavoritesInput = {
@@ -15594,7 +28445,7 @@ export namespace Prisma {
     categories?: BlogCategoryUpdateManyWithoutBlogNestedInput
     tags?: BlogTagUpdateManyWithoutBlogNestedInput
     comments?: CommentUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateWithoutFavoritesInput = {
@@ -15612,7 +28463,835 @@ export namespace Prisma {
     categories?: BlogCategoryUncheckedUpdateManyWithoutBlogNestedInput
     tags?: BlogTagUncheckedUpdateManyWithoutBlogNestedInput
     comments?: CommentUncheckedUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUncheckedUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput
+  }
+
+  export type ProjectLinkCreateWithoutProjectInput = {
+    name: string
+    url: string
+  }
+
+  export type ProjectLinkUncheckedCreateWithoutProjectInput = {
+    id?: number
+    name: string
+    url: string
+  }
+
+  export type ProjectLinkCreateOrConnectWithoutProjectInput = {
+    where: ProjectLinkWhereUniqueInput
+    create: XOR<ProjectLinkCreateWithoutProjectInput, ProjectLinkUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ProjectLinkCreateManyProjectInputEnvelope = {
+    data: ProjectLinkCreateManyProjectInput | ProjectLinkCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectTechnologyCreateWithoutProjectInput = {
+    technology: TechnologyCreateNestedOneWithoutProjectsInput
+  }
+
+  export type ProjectTechnologyUncheckedCreateWithoutProjectInput = {
+    id?: number
+    technologyId: number
+  }
+
+  export type ProjectTechnologyCreateOrConnectWithoutProjectInput = {
+    where: ProjectTechnologyWhereUniqueInput
+    create: XOR<ProjectTechnologyCreateWithoutProjectInput, ProjectTechnologyUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ProjectTechnologyCreateManyProjectInputEnvelope = {
+    data: ProjectTechnologyCreateManyProjectInput | ProjectTechnologyCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectGalleryCreateWithoutProjectInput = {
+    url: string
+  }
+
+  export type ProjectGalleryUncheckedCreateWithoutProjectInput = {
+    id?: number
+    url: string
+  }
+
+  export type ProjectGalleryCreateOrConnectWithoutProjectInput = {
+    where: ProjectGalleryWhereUniqueInput
+    create: XOR<ProjectGalleryCreateWithoutProjectInput, ProjectGalleryUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ProjectGalleryCreateManyProjectInputEnvelope = {
+    data: ProjectGalleryCreateManyProjectInput | ProjectGalleryCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectLinkUpsertWithWhereUniqueWithoutProjectInput = {
+    where: ProjectLinkWhereUniqueInput
+    update: XOR<ProjectLinkUpdateWithoutProjectInput, ProjectLinkUncheckedUpdateWithoutProjectInput>
+    create: XOR<ProjectLinkCreateWithoutProjectInput, ProjectLinkUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ProjectLinkUpdateWithWhereUniqueWithoutProjectInput = {
+    where: ProjectLinkWhereUniqueInput
+    data: XOR<ProjectLinkUpdateWithoutProjectInput, ProjectLinkUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ProjectLinkUpdateManyWithWhereWithoutProjectInput = {
+    where: ProjectLinkScalarWhereInput
+    data: XOR<ProjectLinkUpdateManyMutationInput, ProjectLinkUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type ProjectLinkScalarWhereInput = {
+    AND?: ProjectLinkScalarWhereInput | ProjectLinkScalarWhereInput[]
+    OR?: ProjectLinkScalarWhereInput[]
+    NOT?: ProjectLinkScalarWhereInput | ProjectLinkScalarWhereInput[]
+    id?: IntFilter<"ProjectLink"> | number
+    name?: StringFilter<"ProjectLink"> | string
+    url?: StringFilter<"ProjectLink"> | string
+    projectId?: IntFilter<"ProjectLink"> | number
+  }
+
+  export type ProjectTechnologyUpsertWithWhereUniqueWithoutProjectInput = {
+    where: ProjectTechnologyWhereUniqueInput
+    update: XOR<ProjectTechnologyUpdateWithoutProjectInput, ProjectTechnologyUncheckedUpdateWithoutProjectInput>
+    create: XOR<ProjectTechnologyCreateWithoutProjectInput, ProjectTechnologyUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ProjectTechnologyUpdateWithWhereUniqueWithoutProjectInput = {
+    where: ProjectTechnologyWhereUniqueInput
+    data: XOR<ProjectTechnologyUpdateWithoutProjectInput, ProjectTechnologyUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ProjectTechnologyUpdateManyWithWhereWithoutProjectInput = {
+    where: ProjectTechnologyScalarWhereInput
+    data: XOR<ProjectTechnologyUpdateManyMutationInput, ProjectTechnologyUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type ProjectTechnologyScalarWhereInput = {
+    AND?: ProjectTechnologyScalarWhereInput | ProjectTechnologyScalarWhereInput[]
+    OR?: ProjectTechnologyScalarWhereInput[]
+    NOT?: ProjectTechnologyScalarWhereInput | ProjectTechnologyScalarWhereInput[]
+    id?: IntFilter<"ProjectTechnology"> | number
+    projectId?: IntFilter<"ProjectTechnology"> | number
+    technologyId?: IntFilter<"ProjectTechnology"> | number
+  }
+
+  export type ProjectGalleryUpsertWithWhereUniqueWithoutProjectInput = {
+    where: ProjectGalleryWhereUniqueInput
+    update: XOR<ProjectGalleryUpdateWithoutProjectInput, ProjectGalleryUncheckedUpdateWithoutProjectInput>
+    create: XOR<ProjectGalleryCreateWithoutProjectInput, ProjectGalleryUncheckedCreateWithoutProjectInput>
+  }
+
+  export type ProjectGalleryUpdateWithWhereUniqueWithoutProjectInput = {
+    where: ProjectGalleryWhereUniqueInput
+    data: XOR<ProjectGalleryUpdateWithoutProjectInput, ProjectGalleryUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type ProjectGalleryUpdateManyWithWhereWithoutProjectInput = {
+    where: ProjectGalleryScalarWhereInput
+    data: XOR<ProjectGalleryUpdateManyMutationInput, ProjectGalleryUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type ProjectGalleryScalarWhereInput = {
+    AND?: ProjectGalleryScalarWhereInput | ProjectGalleryScalarWhereInput[]
+    OR?: ProjectGalleryScalarWhereInput[]
+    NOT?: ProjectGalleryScalarWhereInput | ProjectGalleryScalarWhereInput[]
+    id?: IntFilter<"ProjectGallery"> | number
+    url?: StringFilter<"ProjectGallery"> | string
+    projectId?: IntFilter<"ProjectGallery"> | number
+  }
+
+  export type ProjectCreateWithoutGalleriesInput = {
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: ProjectLinkCreateNestedManyWithoutProjectInput
+    technologies?: ProjectTechnologyCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutGalleriesInput = {
+    id?: number
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: ProjectLinkUncheckedCreateNestedManyWithoutProjectInput
+    technologies?: ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutGalleriesInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutGalleriesInput, ProjectUncheckedCreateWithoutGalleriesInput>
+  }
+
+  export type ProjectUpsertWithoutGalleriesInput = {
+    update: XOR<ProjectUpdateWithoutGalleriesInput, ProjectUncheckedUpdateWithoutGalleriesInput>
+    create: XOR<ProjectCreateWithoutGalleriesInput, ProjectUncheckedCreateWithoutGalleriesInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutGalleriesInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutGalleriesInput, ProjectUncheckedUpdateWithoutGalleriesInput>
+  }
+
+  export type ProjectUpdateWithoutGalleriesInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: ProjectLinkUpdateManyWithoutProjectNestedInput
+    technologies?: ProjectTechnologyUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutGalleriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: ProjectLinkUncheckedUpdateManyWithoutProjectNestedInput
+    technologies?: ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectCreateWithoutLinksInput = {
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    technologies?: ProjectTechnologyCreateNestedManyWithoutProjectInput
+    galleries?: ProjectGalleryCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutLinksInput = {
+    id?: number
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    technologies?: ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
+    galleries?: ProjectGalleryUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutLinksInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutLinksInput, ProjectUncheckedCreateWithoutLinksInput>
+  }
+
+  export type ProjectUpsertWithoutLinksInput = {
+    update: XOR<ProjectUpdateWithoutLinksInput, ProjectUncheckedUpdateWithoutLinksInput>
+    create: XOR<ProjectCreateWithoutLinksInput, ProjectUncheckedCreateWithoutLinksInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutLinksInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutLinksInput, ProjectUncheckedUpdateWithoutLinksInput>
+  }
+
+  export type ProjectUpdateWithoutLinksInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    technologies?: ProjectTechnologyUpdateManyWithoutProjectNestedInput
+    galleries?: ProjectGalleryUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutLinksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    technologies?: ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
+    galleries?: ProjectGalleryUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type CaseStudyLinkCreateWithoutCaseStudyInput = {
+    name: string
+    url: string
+  }
+
+  export type CaseStudyLinkUncheckedCreateWithoutCaseStudyInput = {
+    id?: number
+    name: string
+    url: string
+  }
+
+  export type CaseStudyLinkCreateOrConnectWithoutCaseStudyInput = {
+    where: CaseStudyLinkWhereUniqueInput
+    create: XOR<CaseStudyLinkCreateWithoutCaseStudyInput, CaseStudyLinkUncheckedCreateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyLinkCreateManyCaseStudyInputEnvelope = {
+    data: CaseStudyLinkCreateManyCaseStudyInput | CaseStudyLinkCreateManyCaseStudyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CaseStudyTechnologyCreateWithoutCaseStudyInput = {
+    technology: TechnologyCreateNestedOneWithoutCaseStudiesInput
+  }
+
+  export type CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput = {
+    id?: number
+    technologyId: number
+  }
+
+  export type CaseStudyTechnologyCreateOrConnectWithoutCaseStudyInput = {
+    where: CaseStudyTechnologyWhereUniqueInput
+    create: XOR<CaseStudyTechnologyCreateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyTechnologyCreateManyCaseStudyInputEnvelope = {
+    data: CaseStudyTechnologyCreateManyCaseStudyInput | CaseStudyTechnologyCreateManyCaseStudyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CaseStudyGalleryCreateWithoutCaseStudyInput = {
+    url: string
+  }
+
+  export type CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput = {
+    id?: number
+    url: string
+  }
+
+  export type CaseStudyGalleryCreateOrConnectWithoutCaseStudyInput = {
+    where: CaseStudyGalleryWhereUniqueInput
+    create: XOR<CaseStudyGalleryCreateWithoutCaseStudyInput, CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyGalleryCreateManyCaseStudyInputEnvelope = {
+    data: CaseStudyGalleryCreateManyCaseStudyInput | CaseStudyGalleryCreateManyCaseStudyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CaseStudyLinkUpsertWithWhereUniqueWithoutCaseStudyInput = {
+    where: CaseStudyLinkWhereUniqueInput
+    update: XOR<CaseStudyLinkUpdateWithoutCaseStudyInput, CaseStudyLinkUncheckedUpdateWithoutCaseStudyInput>
+    create: XOR<CaseStudyLinkCreateWithoutCaseStudyInput, CaseStudyLinkUncheckedCreateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyLinkUpdateWithWhereUniqueWithoutCaseStudyInput = {
+    where: CaseStudyLinkWhereUniqueInput
+    data: XOR<CaseStudyLinkUpdateWithoutCaseStudyInput, CaseStudyLinkUncheckedUpdateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyLinkUpdateManyWithWhereWithoutCaseStudyInput = {
+    where: CaseStudyLinkScalarWhereInput
+    data: XOR<CaseStudyLinkUpdateManyMutationInput, CaseStudyLinkUncheckedUpdateManyWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyLinkScalarWhereInput = {
+    AND?: CaseStudyLinkScalarWhereInput | CaseStudyLinkScalarWhereInput[]
+    OR?: CaseStudyLinkScalarWhereInput[]
+    NOT?: CaseStudyLinkScalarWhereInput | CaseStudyLinkScalarWhereInput[]
+    id?: IntFilter<"CaseStudyLink"> | number
+    name?: StringFilter<"CaseStudyLink"> | string
+    url?: StringFilter<"CaseStudyLink"> | string
+    caseStudyId?: IntFilter<"CaseStudyLink"> | number
+  }
+
+  export type CaseStudyTechnologyUpsertWithWhereUniqueWithoutCaseStudyInput = {
+    where: CaseStudyTechnologyWhereUniqueInput
+    update: XOR<CaseStudyTechnologyUpdateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedUpdateWithoutCaseStudyInput>
+    create: XOR<CaseStudyTechnologyCreateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedCreateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyTechnologyUpdateWithWhereUniqueWithoutCaseStudyInput = {
+    where: CaseStudyTechnologyWhereUniqueInput
+    data: XOR<CaseStudyTechnologyUpdateWithoutCaseStudyInput, CaseStudyTechnologyUncheckedUpdateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyTechnologyUpdateManyWithWhereWithoutCaseStudyInput = {
+    where: CaseStudyTechnologyScalarWhereInput
+    data: XOR<CaseStudyTechnologyUpdateManyMutationInput, CaseStudyTechnologyUncheckedUpdateManyWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyTechnologyScalarWhereInput = {
+    AND?: CaseStudyTechnologyScalarWhereInput | CaseStudyTechnologyScalarWhereInput[]
+    OR?: CaseStudyTechnologyScalarWhereInput[]
+    NOT?: CaseStudyTechnologyScalarWhereInput | CaseStudyTechnologyScalarWhereInput[]
+    id?: IntFilter<"CaseStudyTechnology"> | number
+    caseStudyId?: IntFilter<"CaseStudyTechnology"> | number
+    technologyId?: IntFilter<"CaseStudyTechnology"> | number
+  }
+
+  export type CaseStudyGalleryUpsertWithWhereUniqueWithoutCaseStudyInput = {
+    where: CaseStudyGalleryWhereUniqueInput
+    update: XOR<CaseStudyGalleryUpdateWithoutCaseStudyInput, CaseStudyGalleryUncheckedUpdateWithoutCaseStudyInput>
+    create: XOR<CaseStudyGalleryCreateWithoutCaseStudyInput, CaseStudyGalleryUncheckedCreateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyGalleryUpdateWithWhereUniqueWithoutCaseStudyInput = {
+    where: CaseStudyGalleryWhereUniqueInput
+    data: XOR<CaseStudyGalleryUpdateWithoutCaseStudyInput, CaseStudyGalleryUncheckedUpdateWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyGalleryUpdateManyWithWhereWithoutCaseStudyInput = {
+    where: CaseStudyGalleryScalarWhereInput
+    data: XOR<CaseStudyGalleryUpdateManyMutationInput, CaseStudyGalleryUncheckedUpdateManyWithoutCaseStudyInput>
+  }
+
+  export type CaseStudyGalleryScalarWhereInput = {
+    AND?: CaseStudyGalleryScalarWhereInput | CaseStudyGalleryScalarWhereInput[]
+    OR?: CaseStudyGalleryScalarWhereInput[]
+    NOT?: CaseStudyGalleryScalarWhereInput | CaseStudyGalleryScalarWhereInput[]
+    id?: IntFilter<"CaseStudyGallery"> | number
+    url?: StringFilter<"CaseStudyGallery"> | string
+    caseStudyId?: IntFilter<"CaseStudyGallery"> | number
+  }
+
+  export type CaseStudyCreateWithoutGalleriesInput = {
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: CaseStudyLinkCreateNestedManyWithoutCaseStudyInput
+    technologies?: CaseStudyTechnologyCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyUncheckedCreateWithoutGalleriesInput = {
+    id?: number
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: CaseStudyLinkUncheckedCreateNestedManyWithoutCaseStudyInput
+    technologies?: CaseStudyTechnologyUncheckedCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyCreateOrConnectWithoutGalleriesInput = {
+    where: CaseStudyWhereUniqueInput
+    create: XOR<CaseStudyCreateWithoutGalleriesInput, CaseStudyUncheckedCreateWithoutGalleriesInput>
+  }
+
+  export type CaseStudyUpsertWithoutGalleriesInput = {
+    update: XOR<CaseStudyUpdateWithoutGalleriesInput, CaseStudyUncheckedUpdateWithoutGalleriesInput>
+    create: XOR<CaseStudyCreateWithoutGalleriesInput, CaseStudyUncheckedCreateWithoutGalleriesInput>
+    where?: CaseStudyWhereInput
+  }
+
+  export type CaseStudyUpdateToOneWithWhereWithoutGalleriesInput = {
+    where?: CaseStudyWhereInput
+    data: XOR<CaseStudyUpdateWithoutGalleriesInput, CaseStudyUncheckedUpdateWithoutGalleriesInput>
+  }
+
+  export type CaseStudyUpdateWithoutGalleriesInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: CaseStudyLinkUpdateManyWithoutCaseStudyNestedInput
+    technologies?: CaseStudyTechnologyUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type CaseStudyUncheckedUpdateWithoutGalleriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: CaseStudyLinkUncheckedUpdateManyWithoutCaseStudyNestedInput
+    technologies?: CaseStudyTechnologyUncheckedUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type CaseStudyCreateWithoutLinksInput = {
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    technologies?: CaseStudyTechnologyCreateNestedManyWithoutCaseStudyInput
+    galleries?: CaseStudyGalleryCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyUncheckedCreateWithoutLinksInput = {
+    id?: number
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    technologies?: CaseStudyTechnologyUncheckedCreateNestedManyWithoutCaseStudyInput
+    galleries?: CaseStudyGalleryUncheckedCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyCreateOrConnectWithoutLinksInput = {
+    where: CaseStudyWhereUniqueInput
+    create: XOR<CaseStudyCreateWithoutLinksInput, CaseStudyUncheckedCreateWithoutLinksInput>
+  }
+
+  export type CaseStudyUpsertWithoutLinksInput = {
+    update: XOR<CaseStudyUpdateWithoutLinksInput, CaseStudyUncheckedUpdateWithoutLinksInput>
+    create: XOR<CaseStudyCreateWithoutLinksInput, CaseStudyUncheckedCreateWithoutLinksInput>
+    where?: CaseStudyWhereInput
+  }
+
+  export type CaseStudyUpdateToOneWithWhereWithoutLinksInput = {
+    where?: CaseStudyWhereInput
+    data: XOR<CaseStudyUpdateWithoutLinksInput, CaseStudyUncheckedUpdateWithoutLinksInput>
+  }
+
+  export type CaseStudyUpdateWithoutLinksInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    technologies?: CaseStudyTechnologyUpdateManyWithoutCaseStudyNestedInput
+    galleries?: CaseStudyGalleryUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type CaseStudyUncheckedUpdateWithoutLinksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    technologies?: CaseStudyTechnologyUncheckedUpdateManyWithoutCaseStudyNestedInput
+    galleries?: CaseStudyGalleryUncheckedUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type ProjectTechnologyCreateWithoutTechnologyInput = {
+    project: ProjectCreateNestedOneWithoutTechnologiesInput
+  }
+
+  export type ProjectTechnologyUncheckedCreateWithoutTechnologyInput = {
+    id?: number
+    projectId: number
+  }
+
+  export type ProjectTechnologyCreateOrConnectWithoutTechnologyInput = {
+    where: ProjectTechnologyWhereUniqueInput
+    create: XOR<ProjectTechnologyCreateWithoutTechnologyInput, ProjectTechnologyUncheckedCreateWithoutTechnologyInput>
+  }
+
+  export type ProjectTechnologyCreateManyTechnologyInputEnvelope = {
+    data: ProjectTechnologyCreateManyTechnologyInput | ProjectTechnologyCreateManyTechnologyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CaseStudyTechnologyCreateWithoutTechnologyInput = {
+    caseStudy: CaseStudyCreateNestedOneWithoutTechnologiesInput
+  }
+
+  export type CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput = {
+    id?: number
+    caseStudyId: number
+  }
+
+  export type CaseStudyTechnologyCreateOrConnectWithoutTechnologyInput = {
+    where: CaseStudyTechnologyWhereUniqueInput
+    create: XOR<CaseStudyTechnologyCreateWithoutTechnologyInput, CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput>
+  }
+
+  export type CaseStudyTechnologyCreateManyTechnologyInputEnvelope = {
+    data: CaseStudyTechnologyCreateManyTechnologyInput | CaseStudyTechnologyCreateManyTechnologyInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectTechnologyUpsertWithWhereUniqueWithoutTechnologyInput = {
+    where: ProjectTechnologyWhereUniqueInput
+    update: XOR<ProjectTechnologyUpdateWithoutTechnologyInput, ProjectTechnologyUncheckedUpdateWithoutTechnologyInput>
+    create: XOR<ProjectTechnologyCreateWithoutTechnologyInput, ProjectTechnologyUncheckedCreateWithoutTechnologyInput>
+  }
+
+  export type ProjectTechnologyUpdateWithWhereUniqueWithoutTechnologyInput = {
+    where: ProjectTechnologyWhereUniqueInput
+    data: XOR<ProjectTechnologyUpdateWithoutTechnologyInput, ProjectTechnologyUncheckedUpdateWithoutTechnologyInput>
+  }
+
+  export type ProjectTechnologyUpdateManyWithWhereWithoutTechnologyInput = {
+    where: ProjectTechnologyScalarWhereInput
+    data: XOR<ProjectTechnologyUpdateManyMutationInput, ProjectTechnologyUncheckedUpdateManyWithoutTechnologyInput>
+  }
+
+  export type CaseStudyTechnologyUpsertWithWhereUniqueWithoutTechnologyInput = {
+    where: CaseStudyTechnologyWhereUniqueInput
+    update: XOR<CaseStudyTechnologyUpdateWithoutTechnologyInput, CaseStudyTechnologyUncheckedUpdateWithoutTechnologyInput>
+    create: XOR<CaseStudyTechnologyCreateWithoutTechnologyInput, CaseStudyTechnologyUncheckedCreateWithoutTechnologyInput>
+  }
+
+  export type CaseStudyTechnologyUpdateWithWhereUniqueWithoutTechnologyInput = {
+    where: CaseStudyTechnologyWhereUniqueInput
+    data: XOR<CaseStudyTechnologyUpdateWithoutTechnologyInput, CaseStudyTechnologyUncheckedUpdateWithoutTechnologyInput>
+  }
+
+  export type CaseStudyTechnologyUpdateManyWithWhereWithoutTechnologyInput = {
+    where: CaseStudyTechnologyScalarWhereInput
+    data: XOR<CaseStudyTechnologyUpdateManyMutationInput, CaseStudyTechnologyUncheckedUpdateManyWithoutTechnologyInput>
+  }
+
+  export type ProjectCreateWithoutTechnologiesInput = {
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: ProjectLinkCreateNestedManyWithoutProjectInput
+    galleries?: ProjectGalleryCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutTechnologiesInput = {
+    id?: number
+    title: string
+    description: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: ProjectLinkUncheckedCreateNestedManyWithoutProjectInput
+    galleries?: ProjectGalleryUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutTechnologiesInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutTechnologiesInput, ProjectUncheckedCreateWithoutTechnologiesInput>
+  }
+
+  export type TechnologyCreateWithoutProjectsInput = {
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    caseStudies?: CaseStudyTechnologyCreateNestedManyWithoutTechnologyInput
+  }
+
+  export type TechnologyUncheckedCreateWithoutProjectsInput = {
+    id?: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    caseStudies?: CaseStudyTechnologyUncheckedCreateNestedManyWithoutTechnologyInput
+  }
+
+  export type TechnologyCreateOrConnectWithoutProjectsInput = {
+    where: TechnologyWhereUniqueInput
+    create: XOR<TechnologyCreateWithoutProjectsInput, TechnologyUncheckedCreateWithoutProjectsInput>
+  }
+
+  export type ProjectUpsertWithoutTechnologiesInput = {
+    update: XOR<ProjectUpdateWithoutTechnologiesInput, ProjectUncheckedUpdateWithoutTechnologiesInput>
+    create: XOR<ProjectCreateWithoutTechnologiesInput, ProjectUncheckedCreateWithoutTechnologiesInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutTechnologiesInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutTechnologiesInput, ProjectUncheckedUpdateWithoutTechnologiesInput>
+  }
+
+  export type ProjectUpdateWithoutTechnologiesInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: ProjectLinkUpdateManyWithoutProjectNestedInput
+    galleries?: ProjectGalleryUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutTechnologiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: ProjectLinkUncheckedUpdateManyWithoutProjectNestedInput
+    galleries?: ProjectGalleryUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type TechnologyUpsertWithoutProjectsInput = {
+    update: XOR<TechnologyUpdateWithoutProjectsInput, TechnologyUncheckedUpdateWithoutProjectsInput>
+    create: XOR<TechnologyCreateWithoutProjectsInput, TechnologyUncheckedCreateWithoutProjectsInput>
+    where?: TechnologyWhereInput
+  }
+
+  export type TechnologyUpdateToOneWithWhereWithoutProjectsInput = {
+    where?: TechnologyWhereInput
+    data: XOR<TechnologyUpdateWithoutProjectsInput, TechnologyUncheckedUpdateWithoutProjectsInput>
+  }
+
+  export type TechnologyUpdateWithoutProjectsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseStudies?: CaseStudyTechnologyUpdateManyWithoutTechnologyNestedInput
+  }
+
+  export type TechnologyUncheckedUpdateWithoutProjectsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseStudies?: CaseStudyTechnologyUncheckedUpdateManyWithoutTechnologyNestedInput
+  }
+
+  export type CaseStudyCreateWithoutTechnologiesInput = {
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: CaseStudyLinkCreateNestedManyWithoutCaseStudyInput
+    galleries?: CaseStudyGalleryCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyUncheckedCreateWithoutTechnologiesInput = {
+    id?: number
+    title: string
+    content: string
+    poster?: string | null
+    excerpt?: string | null
+    views?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    links?: CaseStudyLinkUncheckedCreateNestedManyWithoutCaseStudyInput
+    galleries?: CaseStudyGalleryUncheckedCreateNestedManyWithoutCaseStudyInput
+  }
+
+  export type CaseStudyCreateOrConnectWithoutTechnologiesInput = {
+    where: CaseStudyWhereUniqueInput
+    create: XOR<CaseStudyCreateWithoutTechnologiesInput, CaseStudyUncheckedCreateWithoutTechnologiesInput>
+  }
+
+  export type TechnologyCreateWithoutCaseStudiesInput = {
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectTechnologyCreateNestedManyWithoutTechnologyInput
+  }
+
+  export type TechnologyUncheckedCreateWithoutCaseStudiesInput = {
+    id?: number
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectTechnologyUncheckedCreateNestedManyWithoutTechnologyInput
+  }
+
+  export type TechnologyCreateOrConnectWithoutCaseStudiesInput = {
+    where: TechnologyWhereUniqueInput
+    create: XOR<TechnologyCreateWithoutCaseStudiesInput, TechnologyUncheckedCreateWithoutCaseStudiesInput>
+  }
+
+  export type CaseStudyUpsertWithoutTechnologiesInput = {
+    update: XOR<CaseStudyUpdateWithoutTechnologiesInput, CaseStudyUncheckedUpdateWithoutTechnologiesInput>
+    create: XOR<CaseStudyCreateWithoutTechnologiesInput, CaseStudyUncheckedCreateWithoutTechnologiesInput>
+    where?: CaseStudyWhereInput
+  }
+
+  export type CaseStudyUpdateToOneWithWhereWithoutTechnologiesInput = {
+    where?: CaseStudyWhereInput
+    data: XOR<CaseStudyUpdateWithoutTechnologiesInput, CaseStudyUncheckedUpdateWithoutTechnologiesInput>
+  }
+
+  export type CaseStudyUpdateWithoutTechnologiesInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: CaseStudyLinkUpdateManyWithoutCaseStudyNestedInput
+    galleries?: CaseStudyGalleryUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type CaseStudyUncheckedUpdateWithoutTechnologiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    poster?: NullableStringFieldUpdateOperationsInput | string | null
+    excerpt?: NullableStringFieldUpdateOperationsInput | string | null
+    views?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    links?: CaseStudyLinkUncheckedUpdateManyWithoutCaseStudyNestedInput
+    galleries?: CaseStudyGalleryUncheckedUpdateManyWithoutCaseStudyNestedInput
+  }
+
+  export type TechnologyUpsertWithoutCaseStudiesInput = {
+    update: XOR<TechnologyUpdateWithoutCaseStudiesInput, TechnologyUncheckedUpdateWithoutCaseStudiesInput>
+    create: XOR<TechnologyCreateWithoutCaseStudiesInput, TechnologyUncheckedCreateWithoutCaseStudiesInput>
+    where?: TechnologyWhereInput
+  }
+
+  export type TechnologyUpdateToOneWithWhereWithoutCaseStudiesInput = {
+    where?: TechnologyWhereInput
+    data: XOR<TechnologyUpdateWithoutCaseStudiesInput, TechnologyUncheckedUpdateWithoutCaseStudiesInput>
+  }
+
+  export type TechnologyUpdateWithoutCaseStudiesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectTechnologyUpdateManyWithoutTechnologyNestedInput
+  }
+
+  export type TechnologyUncheckedUpdateWithoutCaseStudiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectTechnologyUncheckedUpdateManyWithoutTechnologyNestedInput
   }
 
   export type BlogCreateManyAuthorInput = {
@@ -15654,7 +29333,7 @@ export namespace Prisma {
     tags?: BlogTagUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUpdateManyWithoutBlogNestedInput
     comments?: CommentUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateWithoutAuthorInput = {
@@ -15672,7 +29351,7 @@ export namespace Prisma {
     tags?: BlogTagUncheckedUpdateManyWithoutBlogNestedInput
     favorites?: FavoriteUncheckedUpdateManyWithoutBlogNestedInput
     comments?: CommentUncheckedUpdateManyWithoutBlogNestedInput
-    galleries?: GalleryUncheckedUpdateManyWithoutBlogNestedInput
+    galleries?: BlogGalleryUncheckedUpdateManyWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateManyWithoutAuthorInput = {
@@ -15743,7 +29422,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type GalleryCreateManyBlogInput = {
+  export type BlogGalleryCreateManyBlogInput = {
     id?: number
     url: string
   }
@@ -15807,16 +29486,16 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GalleryUpdateWithoutBlogInput = {
+  export type BlogGalleryUpdateWithoutBlogInput = {
     url?: StringFieldUpdateOperationsInput | string
   }
 
-  export type GalleryUncheckedUpdateWithoutBlogInput = {
+  export type BlogGalleryUncheckedUpdateWithoutBlogInput = {
     id?: IntFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
   }
 
-  export type GalleryUncheckedUpdateManyWithoutBlogInput = {
+  export type BlogGalleryUncheckedUpdateManyWithoutBlogInput = {
     id?: IntFieldUpdateOperationsInput | number
     url?: StringFieldUpdateOperationsInput | string
   }
@@ -15851,6 +29530,166 @@ export namespace Prisma {
 
   export type BlogTagUncheckedUpdateManyWithoutTagInput = {
     blogId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectLinkCreateManyProjectInput = {
+    id?: number
+    name: string
+    url: string
+  }
+
+  export type ProjectTechnologyCreateManyProjectInput = {
+    id?: number
+    technologyId: number
+  }
+
+  export type ProjectGalleryCreateManyProjectInput = {
+    id?: number
+    url: string
+  }
+
+  export type ProjectLinkUpdateWithoutProjectInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectLinkUncheckedUpdateWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectLinkUncheckedUpdateManyWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectTechnologyUpdateWithoutProjectInput = {
+    technology?: TechnologyUpdateOneRequiredWithoutProjectsNestedInput
+  }
+
+  export type ProjectTechnologyUncheckedUpdateWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectTechnologyUncheckedUpdateManyWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectGalleryUpdateWithoutProjectInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectGalleryUncheckedUpdateWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectGalleryUncheckedUpdateManyWithoutProjectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyLinkCreateManyCaseStudyInput = {
+    id?: number
+    name: string
+    url: string
+  }
+
+  export type CaseStudyTechnologyCreateManyCaseStudyInput = {
+    id?: number
+    technologyId: number
+  }
+
+  export type CaseStudyGalleryCreateManyCaseStudyInput = {
+    id?: number
+    url: string
+  }
+
+  export type CaseStudyLinkUpdateWithoutCaseStudyInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyLinkUncheckedUpdateWithoutCaseStudyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyLinkUncheckedUpdateManyWithoutCaseStudyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyTechnologyUpdateWithoutCaseStudyInput = {
+    technology?: TechnologyUpdateOneRequiredWithoutCaseStudiesNestedInput
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateWithoutCaseStudyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateManyWithoutCaseStudyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    technologyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyGalleryUpdateWithoutCaseStudyInput = {
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyGalleryUncheckedUpdateWithoutCaseStudyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CaseStudyGalleryUncheckedUpdateManyWithoutCaseStudyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectTechnologyCreateManyTechnologyInput = {
+    id?: number
+    projectId: number
+  }
+
+  export type CaseStudyTechnologyCreateManyTechnologyInput = {
+    id?: number
+    caseStudyId: number
+  }
+
+  export type ProjectTechnologyUpdateWithoutTechnologyInput = {
+    project?: ProjectUpdateOneRequiredWithoutTechnologiesNestedInput
+  }
+
+  export type ProjectTechnologyUncheckedUpdateWithoutTechnologyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProjectTechnologyUncheckedUpdateManyWithoutTechnologyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    projectId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyTechnologyUpdateWithoutTechnologyInput = {
+    caseStudy?: CaseStudyUpdateOneRequiredWithoutTechnologiesNestedInput
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateWithoutTechnologyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    caseStudyId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseStudyTechnologyUncheckedUpdateManyWithoutTechnologyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    caseStudyId?: IntFieldUpdateOperationsInput | number
   }
 
 
