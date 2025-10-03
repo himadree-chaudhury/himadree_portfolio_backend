@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+import { prisma } from "../configs/db";
+import { User } from "../db/prisma/generated/prisma";
 import { CustomError } from "../utils/error";
 import { verifyAccessToken } from "../utils/jwt";
-import { prisma } from "../configs/db";
 
 export const checkAuth =
   (...allowedRoles: string[]) =>
@@ -29,9 +30,9 @@ export const checkAuth =
         return next(error);
       }
 
-        const user = await prisma.user.findUnique({
-          where: { id: Number(isTokenValid.id) },
-        });
+      const user: User | null = await prisma.user.findUnique({
+        where: { email: isTokenValid.email },
+      });
       if (!user) {
         const error = CustomError.notFound({
           message: "User not found",
