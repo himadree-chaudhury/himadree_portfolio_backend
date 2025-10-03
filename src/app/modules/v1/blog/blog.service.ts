@@ -18,10 +18,13 @@ const createBlog = async (
   // Create the new blog object
   const newBlog: NewBlog = {
     title: payload.title,
-    slug: payload.title
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9\-]/g, ""),
+    slug:
+      payload.title
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9\-]/g, "") +
+      "-" +
+      Date.now(),
     poster: poster,
     content: payload.content,
     excerpt: payload.content.substring(0, 100) + "...",
@@ -35,13 +38,15 @@ const createBlog = async (
     const createdBlog = await tx.blog.create({ data: newBlog });
 
     // * Create gallery entries
-    await Promise.all(
-      galleries.map((file) =>
-        tx.blogGallery.create({
-          data: { blogId: createdBlog.id, url: file.path },
-        })
-      )
-    );
+    if (galleries.length > 0) {
+      await Promise.all(
+        galleries.map((file) =>
+          tx.blogGallery.create({
+            data: { blogId: createdBlog.id, url: file.path },
+          })
+        )
+      );
+    }
 
     // * Link categories to the blog
     await Promise.all(
@@ -89,7 +94,8 @@ const getBlog = async (slug: string) => {
         },
       },
       categories: {
-        include: {
+        select: {
+          categoryId: true,
           category: {
             select: {
               name: true,
@@ -98,7 +104,8 @@ const getBlog = async (slug: string) => {
         },
       },
       tags: {
-        include: {
+        select: {
+          tagId: true,
           tag: {
             select: {
               name: true,

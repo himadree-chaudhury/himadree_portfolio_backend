@@ -12865,6 +12865,7 @@ export namespace Prisma {
   export type ProjectMinAggregateOutputType = {
     id: number | null
     title: string | null
+    slug: string | null
     description: string | null
     poster: string | null
     excerpt: string | null
@@ -12876,6 +12877,7 @@ export namespace Prisma {
   export type ProjectMaxAggregateOutputType = {
     id: number | null
     title: string | null
+    slug: string | null
     description: string | null
     poster: string | null
     excerpt: string | null
@@ -12887,6 +12889,7 @@ export namespace Prisma {
   export type ProjectCountAggregateOutputType = {
     id: number
     title: number
+    slug: number
     description: number
     poster: number
     excerpt: number
@@ -12910,6 +12913,7 @@ export namespace Prisma {
   export type ProjectMinAggregateInputType = {
     id?: true
     title?: true
+    slug?: true
     description?: true
     poster?: true
     excerpt?: true
@@ -12921,6 +12925,7 @@ export namespace Prisma {
   export type ProjectMaxAggregateInputType = {
     id?: true
     title?: true
+    slug?: true
     description?: true
     poster?: true
     excerpt?: true
@@ -12932,6 +12937,7 @@ export namespace Prisma {
   export type ProjectCountAggregateInputType = {
     id?: true
     title?: true
+    slug?: true
     description?: true
     poster?: true
     excerpt?: true
@@ -13030,6 +13036,7 @@ export namespace Prisma {
   export type ProjectGroupByOutputType = {
     id: number
     title: string
+    slug: string
     description: string
     poster: string | null
     excerpt: string | null
@@ -13060,6 +13067,7 @@ export namespace Prisma {
   export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
+    slug?: boolean
     description?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -13075,6 +13083,7 @@ export namespace Prisma {
   export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
+    slug?: boolean
     description?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -13086,6 +13095,7 @@ export namespace Prisma {
   export type ProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
+    slug?: boolean
     description?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -13097,6 +13107,7 @@ export namespace Prisma {
   export type ProjectSelectScalar = {
     id?: boolean
     title?: boolean
+    slug?: boolean
     description?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -13105,7 +13116,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "poster" | "excerpt" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "slug" | "description" | "poster" | "excerpt" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     links?: boolean | Project$linksArgs<ExtArgs>
     technologies?: boolean | Project$technologiesArgs<ExtArgs>
@@ -13125,6 +13136,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       title: string
+      slug: string
       description: string
       poster: string | null
       excerpt: string | null
@@ -13559,6 +13571,7 @@ export namespace Prisma {
   interface ProjectFieldRefs {
     readonly id: FieldRef<"Project", 'Int'>
     readonly title: FieldRef<"Project", 'String'>
+    readonly slug: FieldRef<"Project", 'String'>
     readonly description: FieldRef<"Project", 'String'>
     readonly poster: FieldRef<"Project", 'String'>
     readonly excerpt: FieldRef<"Project", 'String'>
@@ -16221,6 +16234,7 @@ export namespace Prisma {
   export type CaseStudyMinAggregateOutputType = {
     id: number | null
     title: string | null
+    slug: string | null
     content: string | null
     poster: string | null
     excerpt: string | null
@@ -16232,6 +16246,7 @@ export namespace Prisma {
   export type CaseStudyMaxAggregateOutputType = {
     id: number | null
     title: string | null
+    slug: string | null
     content: string | null
     poster: string | null
     excerpt: string | null
@@ -16243,6 +16258,7 @@ export namespace Prisma {
   export type CaseStudyCountAggregateOutputType = {
     id: number
     title: number
+    slug: number
     content: number
     poster: number
     excerpt: number
@@ -16266,6 +16282,7 @@ export namespace Prisma {
   export type CaseStudyMinAggregateInputType = {
     id?: true
     title?: true
+    slug?: true
     content?: true
     poster?: true
     excerpt?: true
@@ -16277,6 +16294,7 @@ export namespace Prisma {
   export type CaseStudyMaxAggregateInputType = {
     id?: true
     title?: true
+    slug?: true
     content?: true
     poster?: true
     excerpt?: true
@@ -16288,6 +16306,7 @@ export namespace Prisma {
   export type CaseStudyCountAggregateInputType = {
     id?: true
     title?: true
+    slug?: true
     content?: true
     poster?: true
     excerpt?: true
@@ -16386,6 +16405,7 @@ export namespace Prisma {
   export type CaseStudyGroupByOutputType = {
     id: number
     title: string
+    slug: string
     content: string
     poster: string | null
     excerpt: string | null
@@ -16416,6 +16436,7 @@ export namespace Prisma {
   export type CaseStudySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
+    slug?: boolean
     content?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -16431,6 +16452,7 @@ export namespace Prisma {
   export type CaseStudySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
+    slug?: boolean
     content?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -16442,6 +16464,7 @@ export namespace Prisma {
   export type CaseStudySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
+    slug?: boolean
     content?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -16453,6 +16476,7 @@ export namespace Prisma {
   export type CaseStudySelectScalar = {
     id?: boolean
     title?: boolean
+    slug?: boolean
     content?: boolean
     poster?: boolean
     excerpt?: boolean
@@ -16461,7 +16485,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type CaseStudyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "poster" | "excerpt" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
+  export type CaseStudyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "slug" | "content" | "poster" | "excerpt" | "views" | "createdAt" | "updatedAt", ExtArgs["result"]["caseStudy"]>
   export type CaseStudyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     links?: boolean | CaseStudy$linksArgs<ExtArgs>
     technologies?: boolean | CaseStudy$technologiesArgs<ExtArgs>
@@ -16481,6 +16505,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       title: string
+      slug: string
       content: string
       poster: string | null
       excerpt: string | null
@@ -16915,6 +16940,7 @@ export namespace Prisma {
   interface CaseStudyFieldRefs {
     readonly id: FieldRef<"CaseStudy", 'Int'>
     readonly title: FieldRef<"CaseStudy", 'String'>
+    readonly slug: FieldRef<"CaseStudy", 'String'>
     readonly content: FieldRef<"CaseStudy", 'String'>
     readonly poster: FieldRef<"CaseStudy", 'String'>
     readonly excerpt: FieldRef<"CaseStudy", 'String'>
@@ -22949,6 +22975,7 @@ export namespace Prisma {
   export const ProjectScalarFieldEnum: {
     id: 'id',
     title: 'title',
+    slug: 'slug',
     description: 'description',
     poster: 'poster',
     excerpt: 'excerpt',
@@ -22982,6 +23009,7 @@ export namespace Prisma {
   export const CaseStudyScalarFieldEnum: {
     id: 'id',
     title: 'title',
+    slug: 'slug',
     content: 'content',
     poster: 'poster',
     excerpt: 'excerpt',
@@ -23694,6 +23722,7 @@ export namespace Prisma {
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     id?: IntFilter<"Project"> | number
     title?: StringFilter<"Project"> | string
+    slug?: StringFilter<"Project"> | string
     description?: StringFilter<"Project"> | string
     poster?: StringNullableFilter<"Project"> | string | null
     excerpt?: StringNullableFilter<"Project"> | string | null
@@ -23708,6 +23737,7 @@ export namespace Prisma {
   export type ProjectOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     poster?: SortOrderInput | SortOrder
     excerpt?: SortOrderInput | SortOrder
@@ -23721,6 +23751,7 @@ export namespace Prisma {
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    slug?: string
     AND?: ProjectWhereInput | ProjectWhereInput[]
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
@@ -23734,11 +23765,12 @@ export namespace Prisma {
     links?: ProjectLinkListRelationFilter
     technologies?: ProjectTechnologyListRelationFilter
     galleries?: ProjectGalleryListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     poster?: SortOrderInput | SortOrder
     excerpt?: SortOrderInput | SortOrder
@@ -23758,6 +23790,7 @@ export namespace Prisma {
     NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Project"> | number
     title?: StringWithAggregatesFilter<"Project"> | string
+    slug?: StringWithAggregatesFilter<"Project"> | string
     description?: StringWithAggregatesFilter<"Project"> | string
     poster?: StringNullableWithAggregatesFilter<"Project"> | string | null
     excerpt?: StringNullableWithAggregatesFilter<"Project"> | string | null
@@ -23871,6 +23904,7 @@ export namespace Prisma {
     NOT?: CaseStudyWhereInput | CaseStudyWhereInput[]
     id?: IntFilter<"CaseStudy"> | number
     title?: StringFilter<"CaseStudy"> | string
+    slug?: StringFilter<"CaseStudy"> | string
     content?: StringFilter<"CaseStudy"> | string
     poster?: StringNullableFilter<"CaseStudy"> | string | null
     excerpt?: StringNullableFilter<"CaseStudy"> | string | null
@@ -23885,6 +23919,7 @@ export namespace Prisma {
   export type CaseStudyOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     content?: SortOrder
     poster?: SortOrderInput | SortOrder
     excerpt?: SortOrderInput | SortOrder
@@ -23898,6 +23933,7 @@ export namespace Prisma {
 
   export type CaseStudyWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    slug?: string
     AND?: CaseStudyWhereInput | CaseStudyWhereInput[]
     OR?: CaseStudyWhereInput[]
     NOT?: CaseStudyWhereInput | CaseStudyWhereInput[]
@@ -23911,11 +23947,12 @@ export namespace Prisma {
     links?: CaseStudyLinkListRelationFilter
     technologies?: CaseStudyTechnologyListRelationFilter
     galleries?: CaseStudyGalleryListRelationFilter
-  }, "id">
+  }, "id" | "slug">
 
   export type CaseStudyOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     content?: SortOrder
     poster?: SortOrderInput | SortOrder
     excerpt?: SortOrderInput | SortOrder
@@ -23935,6 +23972,7 @@ export namespace Prisma {
     NOT?: CaseStudyScalarWhereWithAggregatesInput | CaseStudyScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"CaseStudy"> | number
     title?: StringWithAggregatesFilter<"CaseStudy"> | string
+    slug?: StringWithAggregatesFilter<"CaseStudy"> | string
     content?: StringWithAggregatesFilter<"CaseStudy"> | string
     poster?: StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
     excerpt?: StringNullableWithAggregatesFilter<"CaseStudy"> | string | null
@@ -24706,6 +24744,7 @@ export namespace Prisma {
 
   export type ProjectCreateInput = {
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -24720,6 +24759,7 @@ export namespace Prisma {
   export type ProjectUncheckedCreateInput = {
     id?: number
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -24733,6 +24773,7 @@ export namespace Prisma {
 
   export type ProjectUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24747,6 +24788,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24761,6 +24803,7 @@ export namespace Prisma {
   export type ProjectCreateManyInput = {
     id?: number
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -24771,6 +24814,7 @@ export namespace Prisma {
 
   export type ProjectUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24782,6 +24826,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24875,6 +24920,7 @@ export namespace Prisma {
 
   export type CaseStudyCreateInput = {
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -24889,6 +24935,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedCreateInput = {
     id?: number
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -24902,6 +24949,7 @@ export namespace Prisma {
 
   export type CaseStudyUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24916,6 +24964,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24930,6 +24979,7 @@ export namespace Prisma {
   export type CaseStudyCreateManyInput = {
     id?: number
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -24940,6 +24990,7 @@ export namespace Prisma {
 
   export type CaseStudyUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24951,6 +25002,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25751,6 +25803,7 @@ export namespace Prisma {
   export type ProjectCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     poster?: SortOrder
     excerpt?: SortOrder
@@ -25767,6 +25820,7 @@ export namespace Prisma {
   export type ProjectMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     poster?: SortOrder
     excerpt?: SortOrder
@@ -25778,6 +25832,7 @@ export namespace Prisma {
   export type ProjectMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     description?: SortOrder
     poster?: SortOrder
     excerpt?: SortOrder
@@ -25888,6 +25943,7 @@ export namespace Prisma {
   export type CaseStudyCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     content?: SortOrder
     poster?: SortOrder
     excerpt?: SortOrder
@@ -25904,6 +25960,7 @@ export namespace Prisma {
   export type CaseStudyMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     content?: SortOrder
     poster?: SortOrder
     excerpt?: SortOrder
@@ -25915,6 +25972,7 @@ export namespace Prisma {
   export type CaseStudyMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
+    slug?: SortOrder
     content?: SortOrder
     poster?: SortOrder
     excerpt?: SortOrder
@@ -28603,6 +28661,7 @@ export namespace Prisma {
 
   export type ProjectCreateWithoutGalleriesInput = {
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -28616,6 +28675,7 @@ export namespace Prisma {
   export type ProjectUncheckedCreateWithoutGalleriesInput = {
     id?: number
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -28644,6 +28704,7 @@ export namespace Prisma {
 
   export type ProjectUpdateWithoutGalleriesInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28657,6 +28718,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateWithoutGalleriesInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28669,6 +28731,7 @@ export namespace Prisma {
 
   export type ProjectCreateWithoutLinksInput = {
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -28682,6 +28745,7 @@ export namespace Prisma {
   export type ProjectUncheckedCreateWithoutLinksInput = {
     id?: number
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -28710,6 +28774,7 @@ export namespace Prisma {
 
   export type ProjectUpdateWithoutLinksInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28723,6 +28788,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateWithoutLinksInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28870,6 +28936,7 @@ export namespace Prisma {
 
   export type CaseStudyCreateWithoutGalleriesInput = {
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -28883,6 +28950,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedCreateWithoutGalleriesInput = {
     id?: number
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -28911,6 +28979,7 @@ export namespace Prisma {
 
   export type CaseStudyUpdateWithoutGalleriesInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28924,6 +28993,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedUpdateWithoutGalleriesInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28936,6 +29006,7 @@ export namespace Prisma {
 
   export type CaseStudyCreateWithoutLinksInput = {
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -28949,6 +29020,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedCreateWithoutLinksInput = {
     id?: number
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -28977,6 +29049,7 @@ export namespace Prisma {
 
   export type CaseStudyUpdateWithoutLinksInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28990,6 +29063,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedUpdateWithoutLinksInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29072,6 +29146,7 @@ export namespace Prisma {
 
   export type ProjectCreateWithoutTechnologiesInput = {
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -29085,6 +29160,7 @@ export namespace Prisma {
   export type ProjectUncheckedCreateWithoutTechnologiesInput = {
     id?: number
     title: string
+    slug: string
     description: string
     poster?: string | null
     excerpt?: string | null
@@ -29133,6 +29209,7 @@ export namespace Prisma {
 
   export type ProjectUpdateWithoutTechnologiesInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29146,6 +29223,7 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateWithoutTechnologiesInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29184,6 +29262,7 @@ export namespace Prisma {
 
   export type CaseStudyCreateWithoutTechnologiesInput = {
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -29197,6 +29276,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedCreateWithoutTechnologiesInput = {
     id?: number
     title: string
+    slug: string
     content: string
     poster?: string | null
     excerpt?: string | null
@@ -29245,6 +29325,7 @@ export namespace Prisma {
 
   export type CaseStudyUpdateWithoutTechnologiesInput = {
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29258,6 +29339,7 @@ export namespace Prisma {
   export type CaseStudyUncheckedUpdateWithoutTechnologiesInput = {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
+    slug?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     poster?: NullableStringFieldUpdateOperationsInput | string | null
     excerpt?: NullableStringFieldUpdateOperationsInput | string | null

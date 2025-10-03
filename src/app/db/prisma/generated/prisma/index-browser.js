@@ -193,6 +193,7 @@ exports.Prisma.FavoriteScalarFieldEnum = {
 exports.Prisma.ProjectScalarFieldEnum = {
   id: 'id',
   title: 'title',
+  slug: 'slug',
   description: 'description',
   poster: 'poster',
   excerpt: 'excerpt',
@@ -217,6 +218,7 @@ exports.Prisma.ProjectLinkScalarFieldEnum = {
 exports.Prisma.CaseStudyScalarFieldEnum = {
   id: 'id',
   title: 'title',
+  slug: 'slug',
   content: 'content',
   poster: 'poster',
   excerpt: 'excerpt',
