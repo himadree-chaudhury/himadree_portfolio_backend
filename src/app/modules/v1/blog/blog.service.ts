@@ -9,6 +9,7 @@ const createBlog = async (
   payload: {
     title: string;
     content: string;
+    excerpt?: string;
     categories: string[];
     tags?: string[];
   },
@@ -27,7 +28,7 @@ const createBlog = async (
       Date.now(),
     poster: poster,
     content: payload.content,
-    excerpt: payload.content.substring(0, 100) + "...",
+    excerpt: payload.excerpt || payload.content.substring(0, 100) + "...",
     authorId: 2, // hardcoded for now
     views: 0,
   };
